@@ -1,0 +1,7 @@
+from .allocate_eips import AllocateEipsAction
+from .release_eips import ReleaseEipsAction
+from .associate_eip import AssociateEipAction
+from .change_eips_bandwidth import ChangeEipsBandwidthAction
+from .describe_eips import DescribeEipsAction
+from .dissociate_eips import DissociateEipsAction
+from .modify_eip_attributes import ModifyEipAttributesAction

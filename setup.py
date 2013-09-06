@@ -1,6 +1,25 @@
 # coding:utf-8
 
+import os
 from setuptools import setup, find_packages
+
+config_sample = '''
+qy_access_key_id: 'QINGCLOUDACCESSKEYID'
+qy_secret_access_key: 'QINGCLOUDSECRETACCESSKEYEXAMPLE'
+zone: 'pek1'
+'''
+
+def prepare_config_file():
+    config_file = os.path.expanduser('~/.qingcloud/config.yaml')
+    if os.path.exists(config_file):
+        return
+
+    d = os.path.dirname(config_file)
+    if not os.path.exists(d):
+        os.makedirs(d)
+
+    with open(config_file, 'w') as fd:
+        fd.write(config_sample)
 
 setup(
     name = 'qingcloud-cli',
@@ -20,3 +39,5 @@ setup(
         'PyYAML>=3.1',
     ]
 )
+
+prepare_config_file()

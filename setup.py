@@ -7,6 +7,7 @@ setup(
     version = '0.5',
     description = 'Command Line Interface for QingCloud.',
     long_description = open('README.rst', 'rb').read().decode('utf-8'),
+    keywords = 'qingcloud iaas cli',
     author = 'Yunify Team',
     author_email = 'simon@yunify.com',
     url = 'https://docs.qingcloud.com/cli/',

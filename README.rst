@@ -17,15 +17,15 @@ Installation
 
 可使用 ``pip`` 安装::
 
-    $ pip install awscli
+    $ pip install qingcloud-cli
 
 如果不是在 ``virtualenv`` 上安装，则需要 ``sudo`` ::
 
-    $ sudo pip install awscli
+    $ sudo pip install qingcloud-cli
 
 如果你已安装 qingcloud-cli 并需要更新到最新版本，则可以::
 
-    $ pip install --upgrade awscli
+    $ pip install --upgrade qingcloud-cli
 
 
 ---------------

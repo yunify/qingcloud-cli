@@ -47,15 +47,15 @@ class RunInstancesAction(BaseAction):
 
         parser.add_argument('-m', '--login_mode', dest='login_mode',
                 action='store', type=str, default='',
-                help='Login mode: keypair or passwd')
+                help='SSH login mode: keypair or passwd')
 
         parser.add_argument('-p', '--login_passwd', dest='login_passwd',
                 action='store', type=str, default='',
-                help='Login_passwd, should specified when login mode is "passwd".')
+                help='Login_passwd, should specified when SSH login mode is "passwd".')
 
         parser.add_argument('-k', '--login_keypair', dest='login_keypair',
                 action='store', type=str, default='',
-                help='Login_keypair, should specified when login mode is "keypair".')
+                help='Login_keypair, should specified when SSH login mode is "keypair".')
 
         return parser
 

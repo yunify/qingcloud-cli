@@ -23,7 +23,7 @@ def prepare_config_file():
 
 setup(
     name = 'qingcloud-cli',
-    version = '0.5.6',
+    version = '0.5.7',
     description = 'Command Line Interface for QingCloud.',
     long_description = open('README.rst', 'rb').read().decode('utf-8'),
     keywords = 'qingcloud iaas cli',
@@ -32,7 +32,7 @@ setup(
     url = 'https://docs.qingcloud.com/cli/',
     scripts=['bin/qingcloud', 'bin/qingcloud_completer'],
     packages = find_packages('.'),
-    package_dir = {'qingcloud-cli': 'qingcloud_cli'},
+    package_dir = {'qingcloud-cli': 'qingcloud'},
     include_package_data = True,
     install_requires = [
         'argparse>=1.1',

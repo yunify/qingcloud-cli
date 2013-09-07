@@ -33,11 +33,11 @@ class ModifyRouterAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='The id of the security_group you want to apply to router.')
 
-        parser.add_argument('-n', '--router_name', dest='router_name',
+        parser.add_argument('-N', '--router_name', dest='router_name',
                 action='store', type=str, default='',
                 help='New router_name.')
 
-        parser.add_argument('-d', '--description', dest='description',
+        parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
                 help='New description.')
               

@@ -14,11 +14,11 @@ class ModifyVxnetAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='The id of the vxnet whose attributes you want to modify.')
 
-        parser.add_argument('-n', '--vxnet_name', dest='vxnet_name',
+        parser.add_argument('-N', '--vxnet_name', dest='vxnet_name',
                 action='store', type=str, default='',
                 help='Specify the new vxnet name.')
 
-        parser.add_argument('-d', '--description', dest='description',
+        parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
                 help='The detailed description of the resource')
 

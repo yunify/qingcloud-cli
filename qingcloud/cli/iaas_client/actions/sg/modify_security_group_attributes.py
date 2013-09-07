@@ -14,11 +14,11 @@ class ModifySecurityGroupAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='The ID of the security group you want to update its content.')
 
-        parser.add_argument('-n', '--security_group_name', dest='security_group_name',
+        parser.add_argument('-N', '--security_group_name', dest='security_group_name',
                 action='store', type=str, default='',
                 help='The new name for the security group you want to update.')
 
-        parser.add_argument('-d', '--description', dest='description',
+        parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
                 help='The detailed description of the resource')
 

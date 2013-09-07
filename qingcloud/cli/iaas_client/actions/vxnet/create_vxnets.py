@@ -14,7 +14,7 @@ class CreateVxnetsAction(BaseAction):
                 action='store', type=int, default=1,
                 help='The number of vxnets to create.')
         
-        parser.add_argument('-n', '--vxnet_name', dest='vxnet_name',
+        parser.add_argument('-N', '--vxnet_name', dest='vxnet_name',
                 action='store', type=str, default='',
                 help='The short name of vxnet you want to create.')
 

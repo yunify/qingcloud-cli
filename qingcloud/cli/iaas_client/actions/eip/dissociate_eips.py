@@ -7,7 +7,7 @@ class DissociateEipsAction(BaseAction):
 
     action = 'DissociateEips'
     command = 'dissociate-eips'
-    usage = '%(prog)s -e eip_id, ... [options] [-f <conf_file>]'
+    usage = '%(prog)s -e "eip_id, ..." [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

@@ -7,7 +7,7 @@ class RestartInstancesAction(BaseAction):
 
     action = 'RestartInstances'
     command = 'restart-instances'
-    usage = '%(prog)s -i instance_id, ... [-f <conf_file>]'
+    usage = '%(prog)s -i "instance_id, ..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

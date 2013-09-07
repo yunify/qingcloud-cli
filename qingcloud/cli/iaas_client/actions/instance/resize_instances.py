@@ -7,7 +7,7 @@ class ResizeInstancesAction(BaseAction):
 
     action = 'ResizeInstances'
     command = 'resize-instances'
-    usage = '%(prog)s -i instance_id, ... -t <instance_type> [-f <conf_file>]'
+    usage = '%(prog)s -i "instance_id, ..." -t <instance_type> [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

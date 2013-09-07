@@ -7,7 +7,7 @@ class DeleteVolumesAction(BaseAction):
 
     action = 'DeleteVolumes'
     command = 'delete-volumes'
-    usage = '%(prog)s -v volume_id,... [-f <conf_file>]'
+    usage = '%(prog)s -v "volume_id,..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

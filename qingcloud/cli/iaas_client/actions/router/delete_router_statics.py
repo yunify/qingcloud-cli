@@ -7,7 +7,7 @@ class DeleteRouterStaticsAction(BaseAction):
 
     action = 'DeleteRouterStatics'
     command = 'create-routers'
-    usage = '%(prog)s -s router_static_id, ... [-f <conf_file>]'
+    usage = '%(prog)s -s "router_static_id, ..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

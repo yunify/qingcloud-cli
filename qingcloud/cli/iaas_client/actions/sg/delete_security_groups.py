@@ -7,7 +7,7 @@ class DeleteSecurityGroupsAction(BaseAction):
 
     action = 'DeleteSecurityGroups'
     command = 'delete-security-groups'
-    usage = '%(prog)s -s security_group_id, ... [options] [-f <conf_file>]'
+    usage = '%(prog)s -s "security_group_id, ..." [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

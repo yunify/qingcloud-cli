@@ -7,7 +7,7 @@ class DescribeImagesAction(BaseAction):
 
     action = 'DescribeImages'
     command = 'describe-images'
-    usage = '%(prog)s [-i image_id, ...] [options] [-f <conf_file>]'
+    usage = '%(prog)s [-i "image_id, ..."] [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -34,9 +34,9 @@ class DescribeImagesAction(BaseAction):
                 action='store', type=str, default='',
                 help='x86_64, i386')
 
-        parser.add_argument('-N', '--image_name', dest='image_name',
+        parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='The name of the image. Support partial match. ')
+                help='The combined search column')
 
         parser.add_argument('-P', '--provider', dest='provider',
                 action='store', type=str, default='',
@@ -51,7 +51,7 @@ class DescribeImagesAction(BaseAction):
                 'os_family':explode_array(options.os_family),
                 'status': explode_array(options.status),
                 'provider': options.provider,
-                'image_name': options.image_name,
+                'search_word': options.search_word,
                 'offset':options.offset,
                 'limit': options.limit,
                 }

@@ -7,7 +7,7 @@ class ChangeEipsBandwidthAction(BaseAction):
 
     action = 'ChangeEipsBandwidth'
     command = 'change-eips-bandwidth'
-    usage = '%(prog)s -e eip_id, ... -b <bandwidth> [options] [-f <conf_file>]'
+    usage = '%(prog)s -e "eip_id, ..." -b <bandwidth> [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

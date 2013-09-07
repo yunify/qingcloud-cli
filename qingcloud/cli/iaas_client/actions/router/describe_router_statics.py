@@ -7,7 +7,7 @@ class DescribeRouterStaticsAction(BaseAction):
 
     action = 'DescribeRouterStatics'
     command = 'describe-router-statics'
-    usage = '%(prog)s [-s router_static_id, ...] [-o <owner>] [-f <conf_file>]'
+    usage = '%(prog)s [-s "router_static_id, ..."] [-o <owner>] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

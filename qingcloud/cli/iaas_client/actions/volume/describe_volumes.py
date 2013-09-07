@@ -7,7 +7,7 @@ class DescribeVolumesAction(BaseAction):
 
     action = 'DescribeVolumes'
     command = 'describe-volumes'
-    usage = '%(prog)s -v volume_id,... [options] [-f <conf_file>]'
+    usage = '%(prog)s -v "volume_id,..." [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -24,9 +24,9 @@ class DescribeVolumesAction(BaseAction):
                 action='store', type=str, default='',
                 help='Status: pending, available, in-use, deleted.')
 
-        parser.add_argument('-N', '--volume_name', dest='volume_name',
+        parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='Name of the volume.')
+                help='The combined search column')
 
     @classmethod
     def build_directive(cls, options):
@@ -34,7 +34,7 @@ class DescribeVolumesAction(BaseAction):
                 'volumes': explode_array(options.volumes),
                 'instance_id': explode_array(options.instance_id),
                 'status': explode_array(options.status),
-                'volume_name': options.volume_name,
+                'search_word': options.search_word,
                 'offset':options.offset,
                 'limit': options.limit,
                 }

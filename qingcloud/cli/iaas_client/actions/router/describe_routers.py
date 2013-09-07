@@ -7,7 +7,7 @@ class DescribeRoutersAction(BaseAction):
 
     action = 'DescribeRouters'
     command = 'describe-routers'
-    usage = '%(prog)s [-r router_id, ...] [-o <owner>] [-f <conf_file>]'
+    usage = '%(prog)s [-r "router_id, ..."] [-o <owner>] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -23,6 +23,10 @@ class DescribeRoutersAction(BaseAction):
                 action='store', type=str, default='',
                 help='ID of the console.')
 
+        parser.add_argument('-W', '--search_word', dest='search_word',
+                action='store', type=str, default='',
+                help='The combined search column')
+
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
                 help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
@@ -35,6 +39,7 @@ class DescribeRoutersAction(BaseAction):
                 'status': explode_array(options.status),
                 'verbose': options.verbose,
                 'console': options.console,
+                'search_word': options.search_word,
                 'offset':options.offset,
                 'limit': options.limit,
                 }

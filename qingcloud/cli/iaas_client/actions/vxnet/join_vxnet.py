@@ -7,7 +7,7 @@ class JoinVxnetAction(BaseAction):
 
     action = 'JoinVxnet'
     command = 'join-vxnet'
-    usage = '%(prog)s --instances instance_id, instance_id ... --vxnet <vxnet_id> [-f <conf_file>]'
+    usage = '%(prog)s --instances "instance_id, ..." --vxnet <vxnet_id> [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

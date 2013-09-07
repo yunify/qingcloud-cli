@@ -7,7 +7,7 @@ class DeleteKeyPairsAction(BaseAction):
 
     action = 'DeleteKeyPairs'
     command = 'delete-keypairs'
-    usage = '%(prog)s -k keypair_id, ... [-f <conf_file>]'
+    usage = '%(prog)s -k "keypair_id, ..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

@@ -8,7 +8,7 @@ class ResetInstancesAction(BaseAction):
 
     action = 'ResetInstances'
     command = 'reset-instances'
-    usage = '%(prog)s -i instance_id, ... [-f <conf_file>]'
+    usage = '%(prog)s -i "instance_id, ..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

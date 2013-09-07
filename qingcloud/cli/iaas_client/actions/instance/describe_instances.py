@@ -7,7 +7,7 @@ class DescribeInstancesAction(BaseAction):
 
     action = 'DescribeInstances'
     command = 'describe-instances'
-    usage = '%(prog)s [-i instance_id, ...] [options] [-f <conf_file>]'
+    usage = '%(prog)s [-i "instance_id, ..."] [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -30,9 +30,9 @@ class DescribeInstancesAction(BaseAction):
                 help='Instance type: small_b, small_c, medium_a, medium_b, medium_c,\
                 large_a, large_b, large_c')
 
-        parser.add_argument('-N', '--instance_name', dest='instance_name',
+        parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='Instance name')
+                help='The combined search column')
 
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
@@ -47,7 +47,7 @@ class DescribeInstancesAction(BaseAction):
                 'status': explode_array(options.status),
                 'image_id': explode_array(options.image_id),
                 'instance_type': explode_array(options.instance_type),
-                'instance_name': options.instance_name,
+                'search_word': options.search_word,
                 'verbose': options.verbose,
                 'offset':options.offset,
                 'limit': options.limit,

@@ -91,7 +91,7 @@ class QuerySignatureAuthHandler(HmacKeys):
                          urllib.quote(val, safe='-_~'))
         qs = '&'.join(pairs)
         string_to_sign += qs
-        print "string to sign:[%s]" % string_to_sign
+        #print "string to sign:[%s]" % string_to_sign
         b64 = self.sign_string(string_to_sign)
         return (qs, b64)
 
@@ -103,10 +103,10 @@ class QuerySignatureAuthHandler(HmacKeys):
         time_stamp = get_ts()
         req.params['time_stamp'] = time_stamp
         #req.params['expires'] = get_expired_ts(time_stamp, self.msg_time_out)
-        print json_dump(req.params, indent=2)
+        #print json_dump(req.params, indent=2)
         qs, signature = self._calc_signature(req.params, req.method,
                                              req.auth_path)
-        print 'query_string: %s Signature: %s' % (qs, signature)
+        #print 'query_string: %s Signature: %s' % (qs, signature)
         if req.method == 'POST':
             req.body = json_dump(req.params)
             req.headers['Content-Length'] = str(len(req.body))

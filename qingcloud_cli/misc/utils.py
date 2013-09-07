@@ -65,10 +65,11 @@ def prints(req, rep):
     if isinstance(rep, str):
         rep = json_load(rep)
 
-    print '======================================='
-    print "sending:", json_dump(req, indent=2)
-    print '======================================='
-    print "recv:", json_dump(rep, indent=2)
+    #print '======================================='
+    #print "sending:", json_dump(req, indent=2)
+    #print '======================================='
+    #print "recv:", json_dump(rep, indent=2)
+    print json_dump(rep, indent=2)
 
 def save_private_key(file_name, private_key):
     """ save ssh private key """

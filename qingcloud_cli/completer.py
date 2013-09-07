@@ -19,6 +19,8 @@ def complete(cmdline, point):
     service_name = None
     action_name = None
     words = cmdline[0:point].split()
+    if not words:
+        return
     current_word = words[-1]
 
     # First find all non-options words in command line

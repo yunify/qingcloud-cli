@@ -1,5 +1,4 @@
 import sys
-from difflib import get_close_matches
 
 from qingcloud_cli.iaas_client.actions import ActionManager
 

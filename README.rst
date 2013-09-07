@@ -4,8 +4,8 @@ qingcloud-cli
 
 Command Line Interface for QingCloud
 
-可以通过 qingcloud-cli 对 `QingCloud 青云 <https://www.qingcloud.com>`_
-提供的各项资源进行查看、创建和操作。
+qingcloud-cli 是 `QingCloud 青云 <https://www.qingcloud.com>`_ 的命令行接口，
+可以通过它对青云的资源进行查看、创建和操作。
 
 .. note:: 更多文档及样例可查看
   `QingCloud CLI 文档 <https://docs.qingcloud.com/cli/>`_
@@ -28,6 +28,19 @@ Installation
     $ pip install --upgrade qingcloud-cli
 
 
+------------------
+Command Completion
+------------------
+
+qingcloud-cli 包含命令自动补全功能，不过需要手动配置一下，而且目前只支持 linux 系统。
+
+开启 tab 补全功能需要利用 ``complete`` 命令::
+
+    $ complete -C qingcloud_completer qingcloud
+
+可以将这条命令加到你的启动脚本中。
+
+
 ---------------
 Getting Started
 ---------------
@@ -42,8 +55,8 @@ Getting Started
 access key 可在 `青云控制台 <https://console.qingcloud.com>`_ 申请，
 zone 目前只有一个: pek1 。
 
-配置文件默认需要放置在 ``~/.qingcloud/config.yaml`` 文件中，
-或者也可在每次执行命令时以参数 ``-f /path/to/config`` 方式来指定。
+配置文件默认放在 ``~/.qingcloud/config.yaml`` ，也可在每次执行命令时以参数
+``-f /path/to/config`` 方式来指定。
 
 
 --------------------
@@ -51,9 +64,13 @@ Parameter Input
 --------------------
 
 qingcloud-cli 的参数只有 int 和 string 类型。如果参数支持传递列表，则多个值之间以
-英文逗号 ``,`` 分隔。如::
+*英文逗号* ``,`` 分隔。如::
 
   qingcloud iaas describe-keypairs -k kp-bn2n77ow,kp-b2ivaf15 -L 2
+
+有时参数需要是 JSON 格式的字符串，如::
+
+  qingcloud iaas add-router-statics -r rtr-ba2nbge6 -s '[{"static_type":1,"val1":"80","val2":"192.168.99.2","val3":"8000"}]'
 
 
 ----------------

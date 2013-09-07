@@ -40,7 +40,7 @@ class DescribeImagesAction(BaseAction):
 
         parser.add_argument('-P', '--provider', dest='provider',
                 action='store', type=str, default='',
-                help='The id of the image provider, `private`, `system`')
+                help='The id of the image provider, `self`, `system`')
 
     @classmethod
     def build_directive(cls, options):

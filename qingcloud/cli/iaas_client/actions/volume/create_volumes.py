@@ -19,7 +19,7 @@ class CreateVolumesAction(BaseAction):
                 action='store', type=int, default=1,
                 help='The number of volumes to create.')
 
-        parser.add_argument('--volume_name', dest='volume_name',
+        parser.add_argument('-N', '--volume_name', dest='volume_name',
                 action='store', type=str, default='',
                 help='Short name of volume')
 

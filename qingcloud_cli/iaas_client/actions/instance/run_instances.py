@@ -14,48 +14,48 @@ class RunInstancesAction(BaseAction):
 
         parser.add_argument('-i', '--image_id', dest='image_id',
                 action='store', type=str, default='',
-                help='映像ID')
+                help='Image ID')
 
         parser.add_argument('-t', '--instance_type', dest='instance_type',
                 action='store', type=str, default=None,
-                help='主机类型: small_b, small_c, medium_a, medium_b, medium_c,\
+                help='Instance type: small_b, small_c, medium_a, medium_b, medium_c,\
                 large_a, large_b, large_c')
 
         parser.add_argument('-c', '--count', dest = 'count',
                 action='store', type=int, default=1,
-                help='创建的主机数量，默认是1')
+                help='The number of instances to launch, default 1.')
 
         parser.add_argument('-C', '--cpu', dest='cpu',
                 action='store', type=int, default=0,
-                help='CPU 目前支持: 1, 2, 4, 8, 16')
+                help='CPU core: 1, 2, 4, 8, 16')
 
         parser.add_argument('-M', '--memory', dest='memory',
                 action='store', type=int, default=0,
-                help='内存 目前支持: 512, 1024, 2048, 4096, 8192, 16384')
+                help='Memory size in MB: 512, 1024, 2048, 4096, 8192, 16384')
 
         parser.add_argument('-N', '--instance_name', dest='instance_name',
                 action='store', type=str, default='',
-                help='主机名称')
+                help='Instance name')
 
         parser.add_argument('-n', '--vxnets', dest='vxnets',
                 action='store', type=str, default='',
-                help='私有网络ID，默认使用系统基础网络')
+                help='Specifies the IDs of vxnets the instance will join.')
 
         parser.add_argument('-s', '--security_group', dest='security_group',
                 action='store', type=str, default='',
-                help='自建防火墙ID，默认使用系统缺省防火墙')
+                help='The ID of security group that will be applied to instance')
 
         parser.add_argument('-m', '--login_mode', dest='login_mode',
                 action='store', type=str, default='',
-                help='登录模式：keypair or passwd')
+                help='Login mode: keypair or passwd')
 
         parser.add_argument('-p', '--login_passwd', dest='login_passwd',
                 action='store', type=str, default='',
-                help='登录密码，当登录模式为`passwd`时需要')
+                help='Login_passwd, should specified when login mode is "passwd".')
 
         parser.add_argument('-k', '--login_keypair', dest='login_keypair',
                 action='store', type=str, default='',
-                help='登录密钥，当登录模式为`keypair`时需要')
+                help='Login_keypair, should specified when login mode is "keypair".')
 
         return parser
 

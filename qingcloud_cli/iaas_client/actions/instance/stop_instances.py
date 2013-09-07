@@ -11,15 +11,15 @@ class StopInstancesAction(BaseAction):
 
     @classmethod
     def add_ext_arguments(cls, parser):
-        
+
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='要关闭的主机ID列表，以逗号分隔')
+                help='The comma separated IDs of instances you want to stop.')
 
         parser.add_argument('-F', '--force',
                 action='store_const', const=1,
                 dest='force',
-                help='是否强制关机，`1`为强制关机，`0`为正常关机')
+                help='For forcibly shutdown.')
 
         return parser
 

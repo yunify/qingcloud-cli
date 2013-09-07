@@ -14,11 +14,11 @@ class ResizeInstancesAction(BaseAction):
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='主机ID列表，以逗号分隔')
+                help='the comma separated IDs of instances you want to resize.')
 
         parser.add_argument('-t', '--instance_type', dest='instance_type',
                 action='store', type=str, default='',
-                help='新的主机配置类型')
+                help='New instance type you want to resize to.')
 
         return parser
 

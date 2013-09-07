@@ -8,14 +8,13 @@ class TerminateInstancesAction(BaseAction):
     action = 'TerminateInstances'
     command = 'terminate-instances'
     usage = '%(prog)s -i instance_id,... [-f <conf_file>]'
-    description = '销毁一台或多台主机'
 
     @classmethod
     def add_ext_arguments(cls, parser):
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='要销毁的主机ID列表，以逗号分隔')
+                help='The comma separated IDs of instances you want to terminate.')
 
         return parser
 

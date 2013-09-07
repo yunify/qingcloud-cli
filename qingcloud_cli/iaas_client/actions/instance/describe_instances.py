@@ -14,29 +14,29 @@ class DescribeInstancesAction(BaseAction):
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='主机ID列表，以逗号`,`分隔')
+                help='The comma separated IDs of instances you want to describe.')
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='主机状态：pending, running, stopped, terminated')
+                help='Instance status: pending, running, stopped, terminated')
 
         parser.add_argument('-m', '--image_id', dest='image_id',
                 action='store', type=str, default='',
-                help='映像ID，可通过 describe-images 得到')
+                help='The image id of instances.')
 
         parser.add_argument('-t', '--instance_type',
                 action='store', type=str,
                 dest='instance_type', default='',
-                help='主机类型: small_b, small_c, medium_a, medium_b, medium_c,\
+                help='Instance type: small_b, small_c, medium_a, medium_b, medium_c,\
                 large_a, large_b, large_c')
 
         parser.add_argument('-N', '--instance_name', dest='instance_name',
                 action='store', type=str, default='',
-                help='主机名称')
+                help='Instance name')
 
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
-                help='如果是`1`，则返回主机相关的防火墙，硬盘，密钥对信息。默认为`0`')
+                help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
 
         return parser
 

@@ -13,15 +13,15 @@ class ModifyInstanceAttributesAction(BaseAction):
 
         parser.add_argument('-i', '--instance_id', dest='instance_id',
                 action='store', type=str, default='',
-                help='要修改属性的主机ID')
+                help='The id of the instance whose attributes you want to modify.')
 
         parser.add_argument('-n', '--instance_name', dest='instance_name',
                 action='store', type=str, default='',
-                help='主机名称')
+                help='Instance namej')
 
         parser.add_argument('-d', '--description', dest='description',
                 action='store', type=str, default='',
-                help='主机描述')
+                help='Instance description')
 
         return parser
 

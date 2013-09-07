@@ -14,7 +14,7 @@ class RestartInstancesAction(BaseAction):
 
         parser.add_argument('-i', '--instances', dest = 'instances',
                 action = 'store', type = str, default='',
-                help='主机ID列表，以逗号分隔')
+                help='The comma separated IDs of instances you want to restart')
 
         return parser
 

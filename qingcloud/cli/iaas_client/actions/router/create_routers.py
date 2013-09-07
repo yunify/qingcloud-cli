@@ -14,7 +14,7 @@ class CreateRoutersAction(BaseAction):
                 action='store', type=int, default=1,
                 help='The number of routers to create.')
         
-        parser.add_argument('-n', '--router_name', dest='router_name',
+        parser.add_argument('-N', '--router_name', dest='router_name',
                 action='store', type=str, default='',
                 help='The short name of routers')
         

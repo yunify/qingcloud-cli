@@ -10,7 +10,7 @@ class CreateSecurityGroupAction(BaseAction):
 
     @classmethod
     def add_ext_arguments(cls, parser):
-        parser.add_argument('-n', '--security_group_name', dest='security_group_name',
+        parser.add_argument('-N', '--security_group_name', dest='security_group_name',
                 action='store', type=str, default='',
                 help='Short name for the security group you want to create.')
 

@@ -15,7 +15,7 @@ class CaptureInstanceAction(BaseAction):
                 action='store', type=str, default='',
                 help='ID of the instance you want to capture.')
 
-        parser.add_argument('-n', '--image_name', dest='image_name',
+        parser.add_argument('-N', '--image_name', dest='image_name',
                 action='store', type=str, default='',
                 help='A short name of the image.')
 

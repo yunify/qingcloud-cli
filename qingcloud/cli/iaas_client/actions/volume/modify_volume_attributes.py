@@ -15,11 +15,11 @@ class ModifyVolumeAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='The id of the volume whose attributes you want to modify.')
                 
-        parser.add_argument('-n', '--volume_name', dest='volume_name',
+        parser.add_argument('-N', '--volume_name', dest='volume_name',
                 action='store', type=str, default='',
                 help='Specify the new volume name.')
 
-        parser.add_argument('-d', '--description', dest='description',
+        parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
                 help='The detailed description of the resource.')
 

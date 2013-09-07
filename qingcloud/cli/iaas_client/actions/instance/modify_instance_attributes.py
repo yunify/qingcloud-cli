@@ -19,7 +19,7 @@ class ModifyInstanceAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='Instance name')
 
-        parser.add_argument('-d', '--description', dest='description',
+        parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
                 help='Instance description')
 

@@ -15,11 +15,11 @@ class ModifyKeyPairAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='the id of the keypair whose attributes you want to modify.')
                 
-        parser.add_argument('-n', '--keypair_name', dest='keypair_name',
+        parser.add_argument('-N', '--keypair_name', dest='keypair_name',
                 action='store', type=str, default='',
                 help='Specify the new keypair name.')
         
-        parser.add_argument('-d', '--description', dest='description',
+        parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
                 help='The detailed description of the resource')
 

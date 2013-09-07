@@ -15,11 +15,11 @@ class ModifyImageAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='the id of the image whose attributes you want to modify.')
                 
-        parser.add_argument('-n', '--image_name', dest='image_name',
+        parser.add_argument('-N', '--image_name', dest='image_name',
                 action='store', type=str, default='',
                 help='Specify the new image name.')
         
-        parser.add_argument('-d', '--description', dest='description',
+        parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
                 help='The detailed description of the resource')
 

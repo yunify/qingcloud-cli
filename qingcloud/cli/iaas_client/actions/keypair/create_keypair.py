@@ -11,7 +11,7 @@ class CreateKeyPairAction(BaseAction):
     @classmethod
     def add_ext_arguments(cls, parser):
 
-        parser.add_argument('-n', '--keypair_name', dest='keypair_name',
+        parser.add_argument('-N', '--keypair_name', dest='keypair_name',
                 action='store', type=str, default=None,
                 help='Name of the keypair.')
         

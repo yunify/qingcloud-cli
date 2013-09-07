@@ -7,11 +7,11 @@ class DescribeEipsAction(BaseAction):
 
     action = 'DescribeEips'
     command = 'describe-eips'
-    usage = '%(prog)s [-e eip, ...] [-g <eip_group>] [options] [-f <conf_file>]'
+    usage = '%(prog)s [-e "eip, ..."] [-g <eip_group>] [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
-        
+
         parser.add_argument('-e', '--eips', dest='eips',
                 action='store', type=str, default='',
                 help='The comma separated IDs of eips you want to describe. ')
@@ -23,11 +23,15 @@ class DescribeEipsAction(BaseAction):
         parser.add_argument('-g', '--eip_group', dest='eip_group',
                 action='store', type=str, default='',
                 help='Filter by eip group.')
-     
+
+        parser.add_argument('-W', '--search_word', dest='search_word',
+                action='store', type=str, default='',
+                help='The combined search column')
+
         parser.add_argument('-i', '--instance_id', dest='instance_id',
                 action='store', type=str, default='',
                 help='Filter eips by instance id')
-     
+
         parser.add_argument('-n', '--need_icp', dest='need_icp',
                 action='store', type=str, default='',
                 help='Filter eips by need_icp')
@@ -40,6 +44,7 @@ class DescribeEipsAction(BaseAction):
                 'eip_group': explode_array(options.eip_group),
                 'instance_id': options.instance_id,
                 'need_icp': explode_array(options.need_icp),
+                'search_word': options.search_word,
                 'offset':options.offset,
                 'limit': options.limit,
                 }

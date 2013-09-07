@@ -7,7 +7,7 @@ class LeaveRouterAction(BaseAction):
 
     action = 'LeaveRouter'
     command = 'leave-router'
-    usage = '%(prog)s -r <router_id>] -v vxnet_id, ... [options] [-f <conf_file>]'
+    usage = '%(prog)s -r <router_id>] -v "vxnet_id, ..." [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

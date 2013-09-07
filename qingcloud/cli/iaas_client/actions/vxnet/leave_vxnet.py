@@ -7,7 +7,7 @@ class LeaveVxnetAction(BaseAction):
 
     action = 'LeaveVxnet'
     command = 'leave-vxnet'
-    usage = '%(prog)s --instances instance_id, instance_id ... --vxnet <vxnet_id> [-f <conf_file>]'
+    usage = '%(prog)s --instances "instance_id, ..." --vxnet <vxnet_id> [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

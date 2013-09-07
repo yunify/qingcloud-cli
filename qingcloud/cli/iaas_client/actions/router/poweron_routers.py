@@ -7,7 +7,7 @@ class PowerOnRoutersAction(BaseAction):
 
     action = 'PowerOnRouters'
     command = 'poweron-routers'
-    usage = '%(prog)s -r router_id, ... [-f <conf_file>]'
+    usage = '%(prog)s -r "router_id, ..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

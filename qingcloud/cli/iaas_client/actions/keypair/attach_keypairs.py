@@ -7,7 +7,7 @@ class AttachKeyPairsAction(BaseAction):
 
     action = 'AttachKeyPairs'
     command = 'attach-keypairs'
-    usage = '%(prog)s --instances instance_id, ... --keypairs kp_id, ... [-f <conf_file>]'
+    usage = '%(prog)s --instances "instance_id, ..." --keypairs "kp_id, ..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

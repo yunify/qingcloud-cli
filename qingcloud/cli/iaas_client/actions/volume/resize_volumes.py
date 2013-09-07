@@ -7,7 +7,7 @@ class ResizeVolumesAction(BaseAction):
 
     action = 'ResizeVolumes'
     command = 'resize-volumes'
-    usage = '%(prog)s -v volume_id,... -s <size> [-f <conf_file>]'
+    usage = '%(prog)s -v "volume_id,..." -s <size> [-f <conf_file>]'
     description = 'Extend one or more volumes'
 
     @classmethod

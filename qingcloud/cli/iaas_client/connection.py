@@ -77,6 +77,7 @@ class APIConnection(HttpConnection):
                               provider = "self",
                               verbose = 0,
                               image_name = None,
+                              search_word = None,
                               offset = None,
                               limit = None,
                               **params):
@@ -120,6 +121,8 @@ class APIConnection(HttpConnection):
             body['verbose'] = verbose
         if image_name:
             body['image_name'] = image_name
+        if search_word:
+            body['search_word'] = search_word
         if offset:
             body['offset'] = offset
         if limit :
@@ -178,10 +181,9 @@ class APIConnection(HttpConnection):
     def describe_instances(self, instances = None,
                                  image_id = None,
                                  instance_type = None,
-                                 graphics_protocol = None,
                                  status = None,
-                                 transition_status = None,
                                  instance_name = None,
+                                 search_word = None,
                                  verbose = 0,
                                  offset = None,
                                  limit = None,
@@ -190,9 +192,7 @@ class APIConnection(HttpConnection):
             @param instances : the array of IDs of instances
             @param image_id : ID of the image which is used to launch this instance.
             @param instance_type: The instance type.
-            @param graphics_protocol: The graphics protocol, spice is supported.
             @param status : Status of the instance, including pending, running, stopped, terminated.
-            @param transition_status: Status of the instance in transition, including creating, starting, stopping, terminating.
             @param verbose: the number to specify the verbose level, larger the number, the more detailed information will be returned.
             @param instance_name: the name of the instance. Support partial match.
             @param offset: the starting offset of the returning results.
@@ -206,14 +206,12 @@ class APIConnection(HttpConnection):
             body['image_id'] = image_id
         if instance_type:
             body['instance_type'] = instance_type
-        if graphics_protocol:
-            body['graphics_protocol'] = graphics_protocol
         if status:
             body['status'] = status
-        if transition_status:
-            body['transition_status'] = transition_status
         if instance_name:
             body['instance_name'] = instance_name
+        if search_word:
+            body['search_word'] = search_word
         if verbose:
             body['verbose'] = verbose
         if offset:
@@ -456,6 +454,7 @@ class APIConnection(HttpConnection):
                          status = None,
                          transition_status = None,
                          volume_name = None,
+                         search_word = None,
                          verbose = 0,
                          offset = None,
                          limit = None,
@@ -482,6 +481,8 @@ class APIConnection(HttpConnection):
             body['transition_status'] = transition_status
         if volume_name:
             body['volume_name'] = volume_name
+        if search_word:
+            body['search_word'] = search_word
         if verbose:
             body['verbose'] = verbose
         if offset:
@@ -590,6 +591,7 @@ class APIConnection(HttpConnection):
     def describe_key_pairs(self, keypairs = None,
                                  encrypt_method = None,
                                  keypair_name = None,
+                                 search_word = None,
                                  verbose = 0,
                                  offset = None,
                                  limit = None,
@@ -610,6 +612,8 @@ class APIConnection(HttpConnection):
             body['encrypt_method'] = encrypt_method
         if keypair_name:
             body['keypair_name'] = keypair_name
+        if search_word:
+            body['search_word'] = search_word
         if verbose:
             body['verbose'] = verbose
         if offset:
@@ -721,6 +725,7 @@ class APIConnection(HttpConnection):
 
     def describe_security_groups(self, security_groups = None,
                                  security_group_name = None,
+                                 search_word = None,
                                  verbose = 0,
                                  offset = None,
                                  limit = None,
@@ -737,6 +742,8 @@ class APIConnection(HttpConnection):
             body['security_groups'] = security_groups
         if security_group_name:
             body['security_group_name'] = security_group_name
+        if search_word:
+            body['search_word'] = search_word
         if verbose:
             body['verbose'] = verbose
         if offset:
@@ -887,6 +894,7 @@ class APIConnection(HttpConnection):
 
     def describe_vxnets(self, vxnets = None,
                         vxnet_name = None,
+                        search_word = None,
                         verbose = 0,
                         limit = None,
                         offset = None,
@@ -904,6 +912,8 @@ class APIConnection(HttpConnection):
             body['vxnets'] = vxnets
         if vxnet_name:
             body['vxnet_name'] = vxnet_name
+        if search_word:
+            body['search_word'] = search_word
         if verbose:
             body['verbose'] = verbose
         if offset:
@@ -1055,6 +1065,7 @@ class APIConnection(HttpConnection):
                         owner = None,
                         verbose = 0,
                         console = None,
+                        search_word = None,
                         limit = None,
                         offset = None,
                         **params):
@@ -1074,6 +1085,8 @@ class APIConnection(HttpConnection):
             body['vxnet'] = vxnet
         if status:
             body['status'] = status
+        if search_word:
+            body['search_word'] = search_word
         if verbose:
             body['verbose'] = verbose
         if offset:

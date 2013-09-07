@@ -7,7 +7,7 @@ class DescribeVxnetsAction(BaseAction):
 
     action = 'DescribeVxnets'
     command = 'describe-vxnets'
-    usage = '%(prog)s [-v vxnet_id, ...] [-o <owner>] [-f <conf_file>]'
+    usage = '%(prog)s [-v "vxnet_id, ..."] [-o <owner>] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -19,15 +19,15 @@ class DescribeVxnetsAction(BaseAction):
                 action='store', type=int, default=0,
                 help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
 
-        parser.add_argument('-N', '--vxnet_name', dest='vxnet_name',
+        parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='Name of the vnxet. Support partial match. ')
+                help='The combined search column')
 
     @classmethod
     def build_directive(cls, options):
         return {
                 'vxnets': explode_array(options.vxnets),
-                'vxnet_name': options.vxnet_name,
+                'search_word': options.search_word,
                 'verbose': options.verbose,
                 'offset':options.offset,
                 'limit': options.limit,

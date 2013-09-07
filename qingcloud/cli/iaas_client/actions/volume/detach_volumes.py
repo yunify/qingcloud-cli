@@ -7,7 +7,7 @@ class DetachVolumesAction(BaseAction):
 
     action = 'DetachVolumes'
     command = 'detach-volumes'
-    usage = '%(prog)s -i <instance_id> -v volume_id,... [-f <conf_file>]'
+    usage = '%(prog)s -i <instance_id> -v "volume_id,..." [-f <conf_file>]'
     description = 'Detach one or more volumes from instance.'
 
     @classmethod

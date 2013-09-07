@@ -7,7 +7,7 @@ class AttachVolumesAction(BaseAction):
 
     action = 'AttachVolumes'
     command = 'attach-volumes'
-    usage = '%(prog)s -i <instance_id> -v volume_id,... [-f <conf_file>]'
+    usage = '%(prog)s -i <instance_id> -v "volume_id,..." [-f <conf_file>]'
     description = 'Attach one or more volumes to instance'
 
     @classmethod

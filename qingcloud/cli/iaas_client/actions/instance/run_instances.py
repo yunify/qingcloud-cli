@@ -12,7 +12,7 @@ class RunInstancesAction(BaseAction):
     @classmethod
     def add_ext_arguments(cls, parser):
 
-        parser.add_argument('-i', '--image_id', dest='image_id',
+        parser.add_argument('-m', '--image_id', dest='image_id',
                 action='store', type=str, default='',
                 help='Image ID')
 
@@ -45,7 +45,7 @@ class RunInstancesAction(BaseAction):
                 action='store', type=str, default='',
                 help='The ID of security group that will be applied to instance')
 
-        parser.add_argument('-m', '--login_mode', dest='login_mode',
+        parser.add_argument('-l', '--login_mode', dest='login_mode',
                 action='store', type=str, default='',
                 help='SSH login mode: keypair or passwd')
 

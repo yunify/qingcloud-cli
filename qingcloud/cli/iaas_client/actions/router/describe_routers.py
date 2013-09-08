@@ -7,7 +7,7 @@ class DescribeRoutersAction(BaseAction):
 
     action = 'DescribeRouters'
     command = 'describe-routers'
-    usage = '%(prog)s [-r "router_id, ..."] [-o <owner>] [-f <conf_file>]'
+    usage = '%(prog)s [-r "router_id, ..."] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -18,10 +18,6 @@ class DescribeRoutersAction(BaseAction):
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
                 help='The status of routers.')
-
-        parser.add_argument('-C', '--console', dest='console',
-                action='store', type=str, default='',
-                help='ID of the console.')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
@@ -38,7 +34,6 @@ class DescribeRoutersAction(BaseAction):
                 'routers': explode_array(options.routers),
                 'status': explode_array(options.status),
                 'verbose': options.verbose,
-                'console': options.console,
                 'search_word': options.search_word,
                 'offset':options.offset,
                 'limit': options.limit,

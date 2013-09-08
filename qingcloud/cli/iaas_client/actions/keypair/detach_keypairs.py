@@ -14,7 +14,7 @@ class DetachKeyPairsAction(BaseAction):
         
         parser.add_argument('-k', '--keypairs', dest='keypairs',
                 action='store', type=str, default='',
-                help='The comma separated IDs of keypairs you want to describe. ')
+                help='The comma separated IDs of keypairs you want to detach from instances. ')
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',

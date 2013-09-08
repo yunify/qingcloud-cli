@@ -20,19 +20,17 @@ class DescribeImagesAction(BaseAction):
                 action='store', type=str, default='',
                 help='Status: pending, available, deleted')
 
-        parser.add_argument('-p', '--platform', dest='platform',
+        parser.add_argument('-p', '--processor_type', dest='platform',
                 action='store', type=str, default='',
-                help='What kind of bundled OS of the images you want to list. \
-                        linux, windows, openSolaris. \
-                        No platform specified means list all.')
+                help='Filter by processor type, supported processor types are `64bit` and `32bit`')
 
         parser.add_argument('-F', '--os_family', dest='os_family',
                 action='store', type=str, default='',
-                help='OS family, windows/debian/centos/ubuntu.')
+                help='Filter by OS family, supported values are windows/debian/centos/ubuntu.')
 
-        parser.add_argument('-a', '--architecture', dest='architecture',
+        parser.add_argument('-v', '--visibility', dest='visibility',
                 action='store', type=str, default='',
-                help='x86_64, i386')
+                help='Filter by visibility, supported values are `public`, `private`')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
@@ -40,15 +38,15 @@ class DescribeImagesAction(BaseAction):
 
         parser.add_argument('-P', '--provider', dest='provider',
                 action='store', type=str, default='',
-                help='The id of the image provider, `self`, `system`')
+                help='Filter by the image provider, supported values are `self`, `system`')
 
     @classmethod
     def build_directive(cls, options):
         return {
                 'images': explode_array(options.images),
-                'platform': explode_array(options.platform),
-                'architecture': explode_array(options.architecture),
+                'processor_type': explode_array(options.processor_type),
                 'os_family':explode_array(options.os_family),
+                'visibility': explode_array(options.visibility),
                 'status': explode_array(options.status),
                 'provider': options.provider,
                 'search_word': options.search_word,

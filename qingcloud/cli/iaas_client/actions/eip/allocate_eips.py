@@ -13,7 +13,7 @@ class AllocateEipsAction(BaseAction):
 
         parser.add_argument('-c', '--count', dest='count',
                 action='store', type=int, default=1,
-                help='The number of the eips you want to allocate.')
+                help='The number of the eips you want to allocate. Default 1')
         
         parser.add_argument('-b', '--bandwidth', dest='bandwidth',
                 action='store', type=int, default=None,

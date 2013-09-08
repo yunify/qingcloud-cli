@@ -1102,7 +1102,6 @@ class APIConnection(HttpConnection):
     def modify_router_attributes(self,
                                  router,
                                  vxnet=None,
-                                 features=None,
                                  eip=None,
                                  security_group=None,
                                  router_name=None,
@@ -1123,8 +1122,6 @@ class APIConnection(HttpConnection):
             body['router'] = router
         if vxnet:
             body['vxnet'] = vxnet
-        if features is not None:
-            body['features'] = features
         if eip is not None:
             body['eip'] = eip
         if security_group:

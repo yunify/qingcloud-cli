@@ -2,8 +2,6 @@
 qingcloud-cli
 ==============
 
-*Command Line Interface for QingCloud*
-
 qingcloud-cli 是 `QingCloud 青云 <https://www.qingcloud.com>`_ 的命令行接口，
 可以通过它对青云的资源进行查看、创建和操作。
 

@@ -39,7 +39,7 @@ def setup_qingcloud_completer():
 
 setup(
     name = 'qingcloud-cli',
-    version = '0.6.1',
+    version = '0.6.2',
     description = 'Command Line Interface for QingCloud.',
     long_description = open('README.rst', 'rb').read().decode('utf-8'),
     keywords = 'qingcloud iaas cli',

@@ -32,9 +32,9 @@ Installation
 Command Completion
 ------------------
 
-qingcloud-cli 包含命令自动补全功能，不过需要手动配置一下，而且目前只支持 linux 系统。
+qingcloud-cli 包含命令自动补全功能，目前只支持 linux 系统。
 
-开启 tab 补全功能需要利用 ``complete`` 命令::
+如果自动补全功能没有自动生效，请手动设置一下，利用 ``complete`` 命令::
 
     $ complete -C qingcloud_completer qingcloud
 

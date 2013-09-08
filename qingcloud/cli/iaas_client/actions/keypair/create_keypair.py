@@ -17,15 +17,15 @@ class CreateKeyPairAction(BaseAction):
         
         parser.add_argument('-m', '--mode', dest='mode',
                 action='store', type=str, default=None,
-                help='The keypair creation mode, `system` or `user`.')
+                help='The keypair creation mode, `system` or `user`. Default is `system`')
         
         parser.add_argument('-e', '--encrypt_method', dest='encrypt_method',
                 action='store', type=str, default='ssh-rsa',
-                help='The encrypt method: `ssh-rsa`, `ssh-dss`, default `ssh-rsa`')
+                help='If creation mode is `system`, you can specify the encrypt method. Supported encrypt method: `ssh-rsa`, `ssh-dss`, default is `ssh-rsa`.')
         
         parser.add_argument('-p', '--public_key', dest='public_key',
                 action='store', type=str, default='',
-                help='You can provide your own public key here')
+                help='If creation mode is `user`, you can specify your owned public key content here.')
 
     @classmethod
     def build_directive(cls, options):

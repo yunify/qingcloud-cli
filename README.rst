@@ -38,7 +38,7 @@ qingcloud-cli 包含命令自动补全功能，不过需要手动配置一下，
 
     $ complete -C qingcloud_completer qingcloud
 
-可以将这条命令加到你的启动脚本中。
+可以将这条命令加到你的启动脚本中 (如 ``~/.bash_profile``) 方便以后使用。
 
 
 ---------------

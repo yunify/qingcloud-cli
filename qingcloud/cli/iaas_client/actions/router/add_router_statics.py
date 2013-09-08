@@ -19,8 +19,7 @@ class AddRouterStaticsAction(BaseAction):
                 action='store', type=str, default='',
                 help='''
                 JSON string of static list. e.g.
-                '[{"static_type":0,"val1":"i-12345678","val2":"192.168.99.2","val3":"52:54:29:5c:de:a5","vxnet":"vxnet-1234567"},
-                {"static_type":1,"val1":"80","val2":"192.168.99.2","val3":"8000"}]'
+                '[{"static_type":"3","val1":"i-b7zjztrf","val2":"domain-name-servers=8.8.8.8"},{"val4":"tcp","val1":"12","val2":"192.168.1.2","val3":"12","static_type":"1"}]'
                 ''')
 
     @classmethod

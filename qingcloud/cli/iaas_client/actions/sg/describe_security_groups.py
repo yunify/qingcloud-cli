@@ -7,7 +7,7 @@ class DescribeSecurityGroupsAction(BaseAction):
 
     action = 'DescribeSecurityGroups'
     command = 'describe-security-groups'
-    usage = '%(prog)s [-s "security_group_id, ..."] [-o <owner>] [-f <conf_file>]'
+    usage = '%(prog)s [-s "security_group_id, ..."] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

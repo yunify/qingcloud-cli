@@ -7,7 +7,7 @@ class DescribeVxnetsAction(BaseAction):
 
     action = 'DescribeVxnets'
     command = 'describe-vxnets'
-    usage = '%(prog)s [-v "vxnet_id, ..."] [-o <owner>] [-f <conf_file>]'
+    usage = '%(prog)s [-v "vxnet_id, ..."] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

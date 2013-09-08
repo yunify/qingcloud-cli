@@ -9,38 +9,25 @@ from constants import ACTION_DESCRIBE_IMAGES, ACTION_DESCRIBE_INSTANCES, \
                       ACTION_CREATE_VOLUMES, ACTION_DELETE_VOLUMES, \
                       ACTION_ATTACH_VOLUMES, ACTION_DETACH_VOLUMES, \
                       ACTION_DESCRIBE_VOLUMES, ACTION_CAPTURE_INSTANCE, \
-                      ACTION_DELETE_IMAGES, \
-                      ACTION_DELETE_BROKERS, ACTION_CREATE_BROKERS, \
-                      ACTION_DESCRIBE_KEY_PAIRS, ACTION_DESCRIBE_INSTANCE_TYPES, \
-                      ACTION_DESCRIBE_ZONES, ACTION_MODIFY_IMAGE_ATTRIBUTES, \
+                      ACTION_DELETE_IMAGES, ACTION_DESCRIBE_KEY_PAIRS, ACTION_MODIFY_IMAGE_ATTRIBUTES, \
                       ACTION_MODIFY_INSTANCE_ATTRIBUTES, ACTION_MODIFY_VOLUME_ATTRIBUTES, \
                       ACTION_DESCRIBE_EIPS, ACTION_ATTACH_KEY_PAIRS, ACTION_DETACH_KEY_PAIRS, \
                       ACTION_CREATE_KEY_PAIR, ACTION_DELETE_KEY_PAIRS, \
-                      ACTION_DESCRIBE_JOBS, ACTION_DESCRIBE_ACCESS_KEYS, \
                       ACTION_DESCRIBE_SECURITY_GROUPS, ACTION_CREATE_SECURITY_GROUP, \
                       ACTION_MODIFY_SECURITY_GROUP_ATTRIBUTES, ACTION_APPLY_SECURITY_GROUP, \
                       ACTION_DELETE_SECURITY_GROUPS, \
                       ACTION_DESCRIBE_VXNETS, ACTION_CREATE_VXNETS, ACTION_DELETE_VXNETS, \
                       ACTION_MODIFY_KEYPAIR_ATTRIBUTES, ACTION_MODIFY_VXNET_ATTRIBUTES, \
-                      ACTION_CREATE_ACCESS_KEY, ACTION_DELETE_ACCESS_KEYS, ACTION_MODIFY_USER_ATTRIBUTES, \
-                      ACTION_UPDATE_GRAPHICS_PASSWD, ACTION_GET_MONITOR, ACTION_CHANGE_PASSWORD, \
-                      ACTION_SEND_CONFIRM_EMAIL, ACTION_GET_PRIVATE_KEY, ACTION_RESTART_INSTANCES, \
-                      ACTION_GET_BALANCE, ACTION_LEASE, ACTION_GET_LEASE_INFO, \
-                      ACTION_GET_PRICE, ACTION_GET_CHARGE_RECORDS, ACTION_JOIN_VXNET, \
-                      ACTION_LEAVE_VXNET, ACTION_GET_RECHARGE_RECORDS, \
-                      ACTION_DESCRIBE_TICKETS, ACTION_OPEN_TICKET, ACTION_CLOSE_TICKETS, ACTION_ADD_TICKET_REPLY, \
-                      ACTION_GET_CHARGE_RESOURCES, ACTION_GET_CHARGE_SUMMARY, ACTION_SEND_EMAIL_VERI_CODE, \
-                      ACTION_CHANGE_EMAIL, ACTION_GET_RESOURCE_SUMMARY, ACTION_DESCRIBE_TICKET_REPLIES, \
-                      ACTION_ASSOCIATE_EIP, ACTION_DISSOCIATE_EIPS, ACTION_ALLOCATE_EIPS, ACTION_RELEASE_EIPS, \
+                      ACTION_RESTART_INSTANCES, ACTION_JOIN_VXNET, ACTION_LEAVE_VXNET, ACTION_ASSOCIATE_EIP, \
+                      ACTION_DISSOCIATE_EIPS, ACTION_ALLOCATE_EIPS, ACTION_RELEASE_EIPS, \
                       ACTION_MODIFY_EIP_ATTRIBUTES, ACTION_RESIZE_INSTANCES, ACTION_RESIZE_VOLUMES, \
                       ACTION_CHANGE_EIPS_BANDWIDTH, ACTION_DESCRIBE_SECURITY_GROUP_RULES, ACTION_ADD_SECURITY_GROUP_RULES, \
                       ACTION_DELETE_SECURITY_GROUP_RULES, ACTION_MODIFY_SECURITY_GROUP_RULE_ATTRIBUTES, \
-                      ACTION_MODIFY_ACCESS_KEY_ATTRIBUTES, ACTION_RESET_INSTANCES, \
-                      ACTION_CREATE_ROUTERS, ACTION_UPDATE_ROUTERS, ACTION_DELETE_ROUTERS, \
+                      ACTION_RESET_INSTANCES, ACTION_CREATE_ROUTERS, ACTION_UPDATE_ROUTERS, ACTION_DELETE_ROUTERS, \
                       ACTION_DESCRIBE_ROUTERS, ACTION_MODIFY_ROUTER_ATTRIBUTES, ACTION_DESCRIBE_ROUTER_STATICS, \
                       ACTION_ADD_ROUTER_STATICS, ACTION_DELETE_ROUTER_STATICS, ACTION_DESCRIBE_VXNET_INSTANCES, \
-                      ACTION_JOIN_ROUTER, ACTION_LEAVE_ROUTER, ACTION_DESCRIBE_ROUTER_VXNETS, ACTION_GET_VPN_CERTS, \
-                      ACTION_POWEROFF_ROUTERS, ACTION_POWERON_ROUTERS, ACTION_RESIZE_ROUTERS
+                      ACTION_JOIN_ROUTER, ACTION_LEAVE_ROUTER, ACTION_DESCRIBE_ROUTER_VXNETS, \
+                      ACTION_POWEROFF_ROUTERS, ACTION_POWERON_ROUTERS
 
 class IaasHandler(object):
     ''' handle request and send requests to pitrix service '''
@@ -295,61 +282,6 @@ class IaasHandler(object):
             
         return self.conn.resize_instances(**directive)
     
-    def create_brokers(self, directive):
-        ''' Action:CreateBrokers      
-            @param directive : the dictionary of params
-            @param check : if true, do not send the request, just check the validity of request
-                           return true if request is valid, otherwise return false
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["instances"], 
-                                  integer_params = [], 
-                                  list_params = ["instances"]):
-            return None      
-        
-        return self.conn.create_brokers(**directive)
-    
-    def delete_brokers(self, directive):
-        ''' Action:DeleteBrokers      
-            @param directive : the dictionary of params
-            @param check : if true, do not send the request, just check the validity of request
-                           return true if request is valid, otherwise return false
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["instances"], 
-                                  integer_params = [], 
-                                  list_params = ["instances"]):
-            return None    
-        
-        return self.conn.delete_brokers(**directive)
-    
-    def update_graphic_passwd(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["instances"], 
-                                  integer_params = [], 
-                                  list_params = ["instances"]):
-            return None 
-            
-        return self.conn.update_graphic_passwd(**directive) 
-    
-    def get_monitor(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["resource", "meters", "step", "start_time", "end_time"], 
-                                  integer_params = ["start_time", "end_time"], 
-                                  list_params = ["meters"]):
-            return None 
-        if directive["step"] not in ["10s", "1m", "5m", "15m", "30m", "1h", "2h", "1d"]:
-            print("illegal meter step [%s] in directive [%s]" % (directive["step"], directive))
-            return None
-            
-        return self.conn.get_monitor(**directive)
-    
     def describe_volumes(self, directive):
         ''' Action:DescribeVolumes  
             @param directive : the dictionary of params
@@ -527,18 +459,6 @@ class IaasHandler(object):
             return None 
             
         return self.conn.modify_keypair_attributes(**directive)
-    
-    def get_private_key(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["keypair"], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.get_private_key(**directive) 
     
     def describe_security_groups(self, directive):
         '''  
@@ -813,19 +733,7 @@ class IaasHandler(object):
                                   list_params = ["routers"]):
             return None
             
-        return self.conn.poweron_routers(**directive)         
-    
-    def resize_routers(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["routers", "router_type"],
-                                  integer_params = ["router_type"], 
-                                  list_params = ["routers"]):
-            return None
-            
-        return self.conn.resize_routers(**directive) 
+        return self.conn.poweron_routers(**directive)
     
     def join_router(self, directive):
         '''  
@@ -909,19 +817,7 @@ class IaasHandler(object):
                                   list_params = ["router_statics"]):
             return None 
             
-        return self.conn.delete_router_statics(**directive)   
-    
-    def get_vpn_certs(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive,
-                                  required_params=["router"],
-                                  integer_params=[],
-                                  list_params=[]):
-            return None 
-            
-        return self.conn.get_vpn_certs(**directive)
+        return self.conn.delete_router_statics(**directive)
     
     def describe_eips(self, directive):
         '''  
@@ -1005,323 +901,7 @@ class IaasHandler(object):
                                   list_params = []):
             return None 
             
-        return self.conn.modify_eip_attributes(**directive) 
-    
-    def describe_jobs(self, directive):
-        ''' Action:ACTION_DESCRIBE_JOBS
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = ["offset", "limit", "verbose"], 
-                                  list_params = []):
-            return None  
-            
-        return self.conn.describe_jobs(**directive)   
-    
-    def get_resource_summary(self, directive):
-        ''' Action:GetResourceSummary      
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [],
-                                  integer_params = [], 
-                                  list_params = ["resource_types"]):
-            return None
-        
-        return self.conn.get_resource_summary(**directive)
-    
-    def describe_access_keys(self, directive):
-        ''' Action:describe_access_keys      
-            @param directive : the dictionary of params
-        ''' 
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = ["offset", "limit"], 
-                                  list_params = ["access_keys"]):
-            return None 
-        
-        return self.conn.describe_access_keys(**directive)
-    
-    def create_access_key(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.create_access_key(**directive) 
-    
-    def delete_access_keys(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["access_keys"], 
-                                  integer_params = [], 
-                                  list_params = ["access_keys"]):
-            return None 
-            
-        return self.conn.delete_access_keys(**directive) 
-    
-    def modify_access_key_attributes(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["access_key"], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.modify_access_key_attributes(**directive)
-    
-    def describe_instance_types(self, directive):
-        ''' Action:describe_instance_type      
-            @param directive : the dictionary of params
-            @param check : if true, do not handle the request, just check the validity of request
-                           return true if request is valid, otherwise return false
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = [], 
-                                  list_params = ["instance_types"]):
-            return None 
-        
-        return self.conn.describe_instance_types(**directive)
-    
-    def describe_zones(self, directive):
-        ''' Action:describe_zones      
-            @param directive : the dictionary of params
-            @param check : if true, do not handle the request, just check the validity of request
-                           return true if request is valid, otherwise return false
-        '''      
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = [], 
-                                  list_params = ["zones"]):
-            return None 
-        
-        return self.conn.describe_zones(**directive)
-    
-    def modify_user_attributes(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = ["birthday"], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.modify_user_attributes(**directive) 
-    
-    def change_password(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["oldpasswd", "newpasswd"], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.reset_password(**directive) 
-    
-    def change_email(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["email"], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.change_email(**directive) 
-    
-    def send_email_veri_code(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.send_email_veri_code(**directive) 
-    
-    def send_confirm_email(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.send_confirm_email(**directive) 
-    
-    def get_balance(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None 
-            
-        return self.conn.get_balance(**directive) 
-    
-    def lease(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["resources"], 
-                                  integer_params = [], 
-                                  list_params = ["resources"]):
-            return None     
-           
-        return self.conn.lease(**directive) 
-    
-    def get_lease_info(self, directive):
-        '''  
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["resource"], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None   
-           
-        return self.conn.get_lease_info(**directive)  
-    
-    def get_charge_records(self, directive):
-        ''' Action:get charge records 
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = ["limit", "offset", "start_time", "end_time"], 
-                                  list_params = []):
-            return None       
-            
-        return self.conn.get_charge_records(**directive) 
-    
-    def get_charge_resources(self, directive):
-        ''' Action:get charge resources 
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = ["limit", "offset", "start_time", "end_time"], 
-                                  list_params = []):
-            return None       
-            
-        return self.conn.get_charge_resources(**directive) 
-    
-    def get_charge_summary(self, directive):
-        ''' Action:get charge summary 
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = ["limit", "offset", "start_time", "end_time"], 
-                                  list_params = []):
-            return None       
-            
-        return self.conn.get_charge_summary(**directive) 
-
-    def get_recharge_records(self, directive):
-        ''' Action:get recharge records 
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [], 
-                                  integer_params = ["limit", "offset", "start_time", "end_time"], 
-                                  list_params = []):
-            return None       
-            
-        return self.conn.get_recharge_records(**directive) 
-    
-    def get_price(self, directive):
-        ''' Action:get price 
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["resources"], 
-                                  integer_params = [], 
-                                  list_params = ["resources"]):
-            return None
-            
-        return self.conn.get_price(**directive)
-    
-    def describe_tickets(self, directive):
-        ''' Action:DescribeTickets      
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = [],
-                                  integer_params = ["offset", "limit"], 
-                                  list_params = ["tickets"]):
-            return None
-        
-        return self.conn.describe_tickets(**directive)
-    
-    def open_ticket(self, directive):
-        ''' Action:OpenTicket      
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["summary", "description"], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None
-        
-        return self.conn.open_ticket(**directive)
-    
-    def close_tickets(self, directive):
-        ''' Action:CloseTickets      
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["tickets"], 
-                                  integer_params = [], 
-                                  list_params = ["tickets"]):
-            return None
-        
-        return self.conn.close_tickets(**directive)
-
-    def add_ticket_reply(self, directive):
-        ''' Action:AddTicketReply      
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["ticket", "content"], 
-                                  integer_params = [], 
-                                  list_params = []):
-            return None
-        
-        return self.conn.add_ticket_reply(**directive)
-    
-    def describe_ticket_replies(self, directive):
-        ''' Action:DescribeTicketReplies     
-            @param directive : the dictionary of params
-        '''
-        if not self._check_params(directive, 
-                                  required_params = ["ticket"],
-                                  integer_params = ["offset", "limit"], 
-                                  list_params = []):
-            return None
-        
-        return self.conn.describe_ticket_replies(**directive)
+        return self.conn.modify_eip_attributes(**directive)
 
     def handle(self, action, directive):
         ''' dispatch request to specified handler according to action.
@@ -1342,10 +922,6 @@ class IaasHandler(object):
                        ACTION_RESIZE_INSTANCES : self.resize_instances, 
                        ACTION_RESET_INSTANCES : self.reset_instances,
                        ACTION_MODIFY_INSTANCE_ATTRIBUTES : self.modify_instance_attributes,
-                       ACTION_DELETE_BROKERS : self.delete_brokers,
-                       ACTION_CREATE_BROKERS : self.create_brokers,
-                       ACTION_UPDATE_GRAPHICS_PASSWD : self.update_graphic_passwd,
-                       ACTION_GET_MONITOR : self.get_monitor,
                        # volumes
                        ACTION_DESCRIBE_VOLUMES : self.describe_volumes,
                        ACTION_CREATE_VOLUMES  : self.create_volumes,
@@ -1361,7 +937,6 @@ class IaasHandler(object):
                        ACTION_CREATE_KEY_PAIR :self.create_keypair,
                        ACTION_DELETE_KEY_PAIRS : self.delete_keypairs,
                        ACTION_MODIFY_KEYPAIR_ATTRIBUTES : self.modify_keypair_attributes,
-                       ACTION_GET_PRIVATE_KEY : self.get_private_key,
                        # security groups
                        ACTION_DESCRIBE_SECURITY_GROUPS: self.describe_security_groups,
                        ACTION_CREATE_SECURITY_GROUP : self.create_security_group,
@@ -1387,7 +962,6 @@ class IaasHandler(object):
                        ACTION_DESCRIBE_ROUTERS : self.describe_routers, 
                        ACTION_POWEROFF_ROUTERS : self.poweroff_routers, 
                        ACTION_POWERON_ROUTERS : self.poweron_routers, 
-                       ACTION_RESIZE_ROUTERS : self.resize_routers,
                        ACTION_JOIN_ROUTER : self.join_router, 
                        ACTION_LEAVE_ROUTER: self.leave_router, 
                        ACTION_DESCRIBE_ROUTER_VXNETS: self.describe_router_vxnets,
@@ -1395,7 +969,6 @@ class IaasHandler(object):
                        ACTION_DESCRIBE_ROUTER_STATICS : self.describe_router_statics,
                        ACTION_ADD_ROUTER_STATICS : self.add_router_statics, 
                        ACTION_DELETE_ROUTER_STATICS : self.delete_router_statics, 
-                       ACTION_GET_VPN_CERTS : self.get_vpn_certs,
                        # eips
                        ACTION_DESCRIBE_EIPS : self.describe_eips,
                        ACTION_ASSOCIATE_EIP : self.associate_eip, 
@@ -1404,37 +977,6 @@ class IaasHandler(object):
                        ACTION_RELEASE_EIPS : self.release_eips,
                        ACTION_MODIFY_EIP_ATTRIBUTES : self.modify_eip_attributes,
                        ACTION_CHANGE_EIPS_BANDWIDTH : self.change_eips_bandwidth,
-                       # misc
-                       ACTION_DESCRIBE_INSTANCE_TYPES : self.describe_instance_types,
-                       ACTION_DESCRIBE_ZONES : self.describe_zones,
-                       ACTION_DESCRIBE_JOBS : self.describe_jobs,
-                       ACTION_GET_RESOURCE_SUMMARY : self.get_resource_summary,
-                       # access keys
-                       ACTION_DESCRIBE_ACCESS_KEYS : self.describe_access_keys,
-                       ACTION_CREATE_ACCESS_KEY : self.create_access_key, 
-                       ACTION_DELETE_ACCESS_KEYS : self.delete_access_keys,
-                       ACTION_MODIFY_ACCESS_KEY_ATTRIBUTES : self.modify_access_key_attributes,
-                       # user
-                       ACTION_MODIFY_USER_ATTRIBUTES : self.modify_user_attributes,
-                       ACTION_CHANGE_PASSWORD : self.change_password,
-                       ACTION_SEND_EMAIL_VERI_CODE : self.send_email_veri_code,
-                       ACTION_CHANGE_EMAIL : self.change_email,
-                       ACTION_SEND_CONFIRM_EMAIL : self.send_confirm_email,
-                       # biling
-                       ACTION_GET_BALANCE : self.get_balance,
-                       ACTION_LEASE : self.lease,
-                       ACTION_GET_LEASE_INFO : self.get_lease_info, 
-                       ACTION_GET_PRICE : self.get_price,
-                       ACTION_GET_CHARGE_RECORDS : self.get_charge_records,
-                       ACTION_GET_CHARGE_RESOURCES : self.get_charge_resources, 
-                       ACTION_GET_CHARGE_SUMMARY : self.get_charge_summary,
-                       ACTION_GET_RECHARGE_RECORDS : self.get_recharge_records,
-                       # ticket
-                       ACTION_DESCRIBE_TICKETS : self.describe_tickets, 
-                       ACTION_OPEN_TICKET : self.open_ticket, 
-                       ACTION_CLOSE_TICKETS : self.close_tickets, 
-                       ACTION_ADD_TICKET_REPLY : self.add_ticket_reply,
-                       ACTION_DESCRIBE_TICKET_REPLIES : self.describe_ticket_replies,
                        }
 
         if directive is None or not isinstance(directive, dict):

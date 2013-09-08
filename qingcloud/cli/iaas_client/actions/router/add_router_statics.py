@@ -13,12 +13,12 @@ class AddRouterStaticsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-r', '--router', dest='router',
                 action='store', type=str, default='',
-                help='The ID of router whose statics you want to add. ')
+                help='The ID of router you want to add statics to.')
 
         parser.add_argument('-s', '--statics', dest='statics',
                 action='store', type=str, default='',
                 help='''
-                JSON string of rules list. e.g.
+                JSON string of static list. e.g.
                 '[{"static_type":0,"val1":"i-12345678","val2":"192.168.99.2","val3":"52:54:29:5c:de:a5","vxnet":"vxnet-1234567"},
                 {"static_type":1,"val1":"80","val2":"192.168.99.2","val3":"8000"}]'
                 ''')

@@ -32,17 +32,17 @@ Installation
 Command Completion
 ------------------
 
-qingcloud-cli 包含命令自动补全功能，目前只支持 linux 系统。
+qingcloud-cli 包含命令自动补全功能 (目前只支持 linux 系统)。
 
 如果补全功能没有自动生效，请手动激活一下::
 
   $ source ~/.bashrc
 
-如果还不生效，则输入 ``complete`` 命令::
+如果还不行，则输入 ``complete`` 命令::
 
   $ complete -C qingcloud_completer qingcloud
 
-可以将这条命令加到你的启动脚本中 (如 ``~/.bash_profile``) 方便以后使用。
+并可将这条命令加到你的启动脚本中 (如 ``~/.bash_profile``) 方便以后使用。
 
 
 ---------------

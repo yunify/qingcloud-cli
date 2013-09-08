@@ -20,7 +20,7 @@ class DescribeImagesAction(BaseAction):
                 action='store', type=str, default='',
                 help='Status: pending, available, deleted')
 
-        parser.add_argument('-p', '--processor_type', dest='platform',
+        parser.add_argument('-p', '--processor_type', dest='processor_type',
                 action='store', type=str, default='',
                 help='Filter by processor type, supported processor types are `64bit` and `32bit`')
 

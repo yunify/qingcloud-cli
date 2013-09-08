@@ -57,16 +57,12 @@ class APIConnection(HttpConnection):
         return self.send(url, request, verb)
 
     def describe_images(self, images = None,
-                              platform = None,
-                              architecture = None,
                               os_family = None,
-                              hypervisor = None,
+                              processor_type = None,
                               status = None,
-                              transition_status = None,
                               visibility = None,
                               provider = "self",
                               verbose = 0,
-                              image_name = None,
                               search_word = None,
                               offset = None,
                               limit = None,
@@ -74,16 +70,13 @@ class APIConnection(HttpConnection):
         """ Action:DescribeImages
             @param images: An array including IDs of the images you want to list.
                           No ID specified means list all.
-            @param platform: What kind of bundled OS of the images you want to list.
-                            Linux, Windows, OpenSolaris. No platform specified means list all.
-            @param architecture: x86_64, i386.
-            @param hypervisor: xen, kvm.
+            @param os_family: os family, windows/debian/centos/ubuntu..
+            @param processor_type: supported processor types are `64bit` and `32bit`.
             @param status: Status of the image. Valid values include pending, available, deleted.
-            @param transition_status: Status of the image in transition, including creating, deleting.
             @param visibility: Who can see and use this image. Valid values include public, private, shared.
             @param provider: who provide this image, self, system or image-shop.
             @param verbose: the number to specify the verbose level, larger the number, the more detailed information will be returned.
-            @param image_name: the name of the image. Support partial match.
+            @param search_word: the search word.
             @param offset: the starting offset of the returning results.
             @param limit: specify the number of the returning results.
         """
@@ -91,26 +84,18 @@ class APIConnection(HttpConnection):
         body = {}
         if images:
             body['images'] = images
-        if platform:
-            body['platform'] = platform
-        if architecture:
-            body['architecture'] = architecture
         if os_family:
             body['os_family'] = os_family
-        if hypervisor:
-            body['hypervisor'] = hypervisor
+        if processor_type:
+            body['processor_type'] = processor_type
         if status:
             body['status'] = status
-        if transition_status:
-            body['transition_status'] = transition_status
         if visibility:
             body['visibility'] = visibility
         if provider:
             body['provider'] = provider
         if verbose:
             body['verbose'] = verbose
-        if image_name:
-            body['image_name'] = image_name
         if search_word:
             body['search_word'] = search_word
         if offset:

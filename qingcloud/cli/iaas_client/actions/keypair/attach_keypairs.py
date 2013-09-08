@@ -18,7 +18,7 @@ class AttachKeyPairsAction(BaseAction):
 
         parser.add_argument('-k', '--keypairs', dest='keypairs',
                 action='store', type=str, default='',
-                help='The comma separated IDs of keypairs you want to attach. ')
+                help='The comma separated IDs of keypairs you want to attach to instances. ')
       
     @classmethod
     def build_directive(cls, options):

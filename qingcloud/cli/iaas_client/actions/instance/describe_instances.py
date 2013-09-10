@@ -14,29 +14,29 @@ class DescribeInstancesAction(BaseAction):
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='The comma separated IDs of instances you want to describe.')
+                help='the comma separated IDs of instances you want to describe.')
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='Instance status: pending, running, stopped, terminated')
+                help='instance status: pending, running, stopped, terminated')
 
         parser.add_argument('-m', '--image_id', dest='image_id',
                 action='store', type=str, default='',
-                help='The image id of instances.')
+                help='the image id of instances.')
 
         parser.add_argument('-t', '--instance_type',
                 action='store', type=str,
                 dest='instance_type', default='',
-                help='Instance type: small_b, small_c, medium_a, medium_b, medium_c,\
+                help='instance type: small_b, small_c, medium_a, medium_b, medium_c, \
                 large_a, large_b, large_c')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='The combined search column')
+                help='the combined search column')
 
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
-                help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
+                help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
 
         return parser
 

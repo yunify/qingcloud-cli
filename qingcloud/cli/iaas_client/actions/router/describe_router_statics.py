@@ -13,23 +13,23 @@ class DescribeRouterStaticsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-s', '--router_statics', dest='router_statics',
                 action='store', type=str, default='',
-                help='The comma separated IDs of router_statics you want to list. ')
+                help='the comma separated IDs of router_statics you want to list. ')
         
         parser.add_argument('-r', '--router', dest='router',
                 action='store', type=str, default='',
-                help='Filter by router. ')
+                help='filter by router. ')
         
         parser.add_argument('-v', '--vxnet', dest='vxnet',
                 action='store', type=str, default='',
-                help='Filter by vxnet. ')
+                help='filter by vxnet. ')
         
         parser.add_argument('-t', '--static_type', dest='static_type',
                 action='store', type=str, default=None,
-                help='The static type. 0: fixed ips; 1: port forwarding.')
+                help='the static type. 0: fixed ips; 1: port forwarding.')
             
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
-                help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
+                help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
 
     @classmethod
     def build_directive(cls, options):

@@ -15,11 +15,11 @@ class ResizeVolumesAction(BaseAction):
         
         parser.add_argument('-v', '--volumes', dest='volumes',
                 action='store', type=str, default='',
-                help='The comma separated IDs of volumes you want to resize.')
+                help='the comma separated IDs of volumes you want to resize.')
         
         parser.add_argument('-s', '--size', dest='size',
                 action='store', type=int, default=0,
-                help='New volume size you want to resize to.')
+                help='new volume size you want to resize to.')
 
     @classmethod
     def build_directive(cls, options):

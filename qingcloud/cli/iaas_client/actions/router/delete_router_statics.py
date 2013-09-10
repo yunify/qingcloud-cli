@@ -13,7 +13,7 @@ class DeleteRouterStaticsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-s', '--router_statics', dest='router_statics',
                 action='store', type=str, default='',
-                help='The comma separated IDs of router_statics you want to delete. ')
+                help='the comma separated IDs of router_statics you want to delete. ')
 
     @classmethod
     def build_directive(cls, options):

@@ -15,11 +15,11 @@ class DetachVolumesAction(BaseAction):
     
         parser.add_argument('-i', '--instance', dest='instance',
                 action='store', type=str, default='',
-                help='The comma separated IDs of volumes you want to describe.')
+                help='the comma separated IDs of volumes you want to describe.')
 
         parser.add_argument('-v', '--volumes', dest='volumes',
                 action='store', type=str, default='',
-                help='The ID of instance the volumes will be detached from.')
+                help='the ID of instance the volumes will be detached from.')
 
     @classmethod
     def build_directive(cls, options):

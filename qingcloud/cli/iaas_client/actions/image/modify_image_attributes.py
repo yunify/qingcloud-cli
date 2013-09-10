@@ -17,11 +17,11 @@ class ModifyImageAttributesAction(BaseAction):
                 
         parser.add_argument('-N', '--image_name', dest='image_name',
                 action='store', type=str, default='',
-                help='Specify the new image name.')
+                help='specify the new image name.')
         
         parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
-                help='The detailed description of the resource')
+                help='the detailed description of the resource')
 
     @classmethod
     def build_directive(cls, options):

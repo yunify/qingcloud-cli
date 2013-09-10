@@ -13,7 +13,7 @@ class DeleteKeyPairsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-k', '--keypairs', dest='keypairs',
                 action='store', type=str, default='',
-                help='The comma separated IDs of keypairs you want to delete. ')
+                help='the comma separated IDs of keypairs you want to delete. ')
         
     @classmethod
     def build_directive(cls, options):

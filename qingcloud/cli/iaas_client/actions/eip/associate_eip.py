@@ -16,8 +16,9 @@ class AssociateEipAction(BaseAction):
                 action='store', type=str, default='',
                 help='the id of the eip that you want to associate with instance.')
                 
-        parser.add_argument('-i', '--instance_id', action = 'store', type = str,
-                dest = 'instance_id', help='''the instance you want to associate eip.''', default='')
+        parser.add_argument('-i', '--instance_id', dest='instance_id',
+                action='store', type=str, default='',
+                help='the instance you want to associate eip.')
 
     @classmethod
     def build_directive(cls, options):

@@ -17,13 +17,13 @@ class JoinVxnetAction(BaseAction):
 
         parser.add_argument('-v', '--vxnet', dest='vxnet',
                 action='store', type=str, default='',
-                help='The id of vxnet the instances will join.')
+                help='the id of vxnet the instances will join.')
 
     @classmethod
     def build_directive(cls, options):
         instances = explode_array(options.instances)
         if not options.vxnet or not instances:
-            print 'instances and vxnet should be specified'
+            print 'error: [instances] and [vxnet] should be specified'
             return None
 
         return {

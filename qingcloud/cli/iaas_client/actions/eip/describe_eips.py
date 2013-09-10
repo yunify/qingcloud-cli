@@ -14,27 +14,27 @@ class DescribeEipsAction(BaseAction):
 
         parser.add_argument('-e', '--eips', dest='eips',
                 action='store', type=str, default='',
-                help='The comma separated IDs of eips you want to describe. ')
+                help='the comma separated IDs of eips you want to describe. ')
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='Status: pending, available, associated, released.')
+                help='eip status: pending, available, associated, released.')
 
         parser.add_argument('-g', '--eip_group', dest='eip_group',
                 action='store', type=str, default='',
-                help='Filter by eip group.')
+                help='filter by eip group.')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='The combined search column')
+                help='the combined search column')
 
         parser.add_argument('-i', '--instance_id', dest='instance_id',
                 action='store', type=str, default='',
-                help='Filter eips by instance id')
+                help='filter eips by instance id')
 
         parser.add_argument('-n', '--need_icp', dest='need_icp',
                 action='store', type=str, default='',
-                help='Filter eips by need_icp')
+                help='filter eips by need_icp')
 
     @classmethod
     def build_directive(cls, options):

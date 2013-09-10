@@ -14,7 +14,7 @@ class DeleteImagesAction(BaseAction):
 
         parser.add_argument('-i', '--images', dest='images',
                 action='store', type=str, default='',
-                help='The comma separated IDs of images you want to delete. ')
+                help='the comma separated IDs of images you want to delete. ')
 
     @classmethod
     def build_directive(cls, options):

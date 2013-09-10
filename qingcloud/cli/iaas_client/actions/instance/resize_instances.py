@@ -18,7 +18,7 @@ class ResizeInstancesAction(BaseAction):
 
         parser.add_argument('-t', '--instance_type', dest='instance_type',
                 action='store', type=str, default='',
-                help='New instance type you want to resize to.')
+                help='new instance type you want to resize to.')
 
         return parser
 
@@ -27,7 +27,7 @@ class ResizeInstancesAction(BaseAction):
         instances = explode_array(options.instances)
         instance_type = options.instance_type
         if not instances or not instance_type:
-            print 'error: instances and instance_type should be specified'
+            print 'error: [instances] and [instance_type] should be specified'
             return None
 
         return {

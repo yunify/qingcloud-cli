@@ -17,19 +17,19 @@ class DescribeVxnetInstancesAction(BaseAction):
 
         parser.add_argument('-m', '--image', dest='image',
                 action='store', type=str, default='',
-                help='Filter by ID of image that instance based')
+                help='filter by ID of image that instance based')
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='Filter by comma separated IDs of instances')
+                help='filter by comma separated IDs of instances')
 
         parser.add_argument('-t', '--instance_type', dest='instance_type',
                 action='store', type=str, default='',
-                help='Filter by instance type')
+                help='filter by instance type')
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='Filter by instance status')
+                help='filter by instance status')
 
     @classmethod
     def build_directive(cls, options):

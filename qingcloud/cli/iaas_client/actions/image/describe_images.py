@@ -14,31 +14,31 @@ class DescribeImagesAction(BaseAction):
 
         parser.add_argument('-i', '--images', dest='images',
                 action='store', type=str, default='',
-                help='The comma separated IDs of images you want to describe. ')
+                help='the comma separated IDs of images you want to describe. ')
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='Status: pending, available, deleted')
+                help='status: pending, available, deleted')
 
         parser.add_argument('-p', '--processor_type', dest='processor_type',
                 action='store', type=str, default='',
-                help='Filter by processor type, supported processor types are `64bit` and `32bit`')
+                help='filter by processor type, supported processor types are `64bit` and `32bit`')
 
         parser.add_argument('-F', '--os_family', dest='os_family',
                 action='store', type=str, default='',
-                help='Filter by OS family, supported values are windows/debian/centos/ubuntu.')
+                help='filter by OS family, supported values are windows/debian/centos/ubuntu.')
 
         parser.add_argument('-v', '--visibility', dest='visibility',
                 action='store', type=str, default='',
-                help='Filter by visibility, supported values are `public`, `private`')
+                help='filter by visibility, supported values are `public`, `private`')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='The combined search column')
+                help='the combined search column')
 
         parser.add_argument('-P', '--provider', dest='provider',
                 action='store', type=str, default='',
-                help='Filter by the image provider, supported values are `self`, `system`')
+                help='filter by the image provider, supported values are `self`, `system`')
 
     @classmethod
     def build_directive(cls, options):

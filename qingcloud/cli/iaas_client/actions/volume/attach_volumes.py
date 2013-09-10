@@ -15,11 +15,11 @@ class AttachVolumesAction(BaseAction):
 
         parser.add_argument('-i', '--instance', dest='instance',
                 action='store', type=str, default='',
-                help='The ID of instance the volumes will be attached to.')
+                help='the ID of instance the volumes will be attached to.')
 
         parser.add_argument('-v', '--volumes', dest='volumes',
                 action='store', type=str, default='',
-                help='The comma separated IDs of volumes you want to attach.')
+                help='the comma separated IDs of volumes you want to attach.')
 
     @classmethod
     def build_directive(cls, options):

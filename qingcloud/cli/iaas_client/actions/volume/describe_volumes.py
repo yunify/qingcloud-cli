@@ -14,7 +14,7 @@ class DescribeVolumesAction(BaseAction):
 
         parser.add_argument('-v', '--volumes', dest='volumes',
                 action='store', type=str, default='',
-                help='The comma separated IDs of volumes you want to describe.')
+                help='the comma separated IDs of volumes you want to describe.')
 
         parser.add_argument('-i', '--instance_id', dest='instance_id',
                 action='store', type=str, default='',
@@ -22,11 +22,11 @@ class DescribeVolumesAction(BaseAction):
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='Status: pending, available, in-use, deleted.')
+                help='volume status: pending, available, in-use, deleted.')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='The combined search column')
+                help='the combined search column')
 
     @classmethod
     def build_directive(cls, options):

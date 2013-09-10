@@ -12,15 +12,15 @@ class CreateVxnetsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-c', '--count', dest='count',
                 action='store', type=int, default=1,
-                help='The number of vxnets to create.')
+                help='the number of vxnets to create.')
         
         parser.add_argument('-N', '--vxnet_name', dest='vxnet_name',
                 action='store', type=str, default='',
-                help='The short name of vxnet you want to create.')
+                help='the short name of vxnet you want to create.')
 
         parser.add_argument('-t', '--vxnet_type', dest='vxnet_type',
                 action='store', type=int, default=1,
-                help='The vxnet type. 0: unmanaged vxnet, 1: managed vxnet. Default 1.')
+                help='the vxnet type. 0: unmanaged vxnet, 1: managed vxnet. Default 1.')
         
     @classmethod
     def build_directive(cls, options):

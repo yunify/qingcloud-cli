@@ -14,11 +14,11 @@ class ChangeEipsBandwidthAction(BaseAction):
 
         parser.add_argument('-e', '--eips', dest='eips',
                 action='store', type=str, default='',
-                help='The comma separated IDs of eips you want to change their bandwidth.')
+                help='the comma separated IDs of eips you want to change their bandwidth.')
 
         parser.add_argument('-b', '--bandwidth', dest='bandwidth',
                 action='store', type=int, default=0,
-                help='New bandwidth, in MB.')
+                help='new bandwidth, in MB.')
 
         return parser
 

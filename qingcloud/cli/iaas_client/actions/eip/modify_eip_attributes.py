@@ -13,15 +13,15 @@ class ModifyEipAttributesAction(BaseAction):
      
         parser.add_argument('-e', '--eip_id', dest = 'eip_id',
                 action='store', type=str, default='',
-                help='The id of the eip whose attributes you want to modify.')
+                help='the id of the eip whose attributes you want to modify.')
                 
         parser.add_argument('-n', '--eip_name', dest='eip_name',
                 action='store', type=str, default='',
-                help='Specify the new eip name.')
+                help='specify the new eip name.')
 
         parser.add_argument('-d', '--description', dest='description',
                 action='store', type=str, default='',
-                help='The detailed description of the resource')
+                help='the detailed description of the resource')
 
     @classmethod
     def build_directive(cls, options):

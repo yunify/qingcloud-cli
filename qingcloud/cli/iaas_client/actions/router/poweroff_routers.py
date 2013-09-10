@@ -13,7 +13,7 @@ class PowerOffRoutersAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-r', '--routers', dest='routers',
                 action='store', type=str, default='',
-                help='The comma separated IDs of routers you want to poweroff.')
+                help='the comma separated IDs of routers you want to poweroff.')
 
     @classmethod
     def build_directive(cls, options):

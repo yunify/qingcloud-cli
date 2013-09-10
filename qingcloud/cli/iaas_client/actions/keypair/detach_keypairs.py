@@ -14,11 +14,11 @@ class DetachKeyPairsAction(BaseAction):
         
         parser.add_argument('-k', '--keypairs', dest='keypairs',
                 action='store', type=str, default='',
-                help='The comma separated IDs of keypairs you want to detach from instances. ')
+                help='the comma separated IDs of keypairs you want to detach from instances. ')
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='The IDs of instances the keypairs will be detached from.')
+                help='the IDs of instances the keypairs will be detached from.')
 
     @classmethod
     def build_directive(cls, options):

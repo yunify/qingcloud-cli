@@ -13,15 +13,15 @@ class CreateVolumesAction(BaseAction):
 
         parser.add_argument('-s', '--size', dest='size',
                 action='store', type=int, default=None,
-                help='The size of each volume. Unit is GB.')
+                help='the size of each volume. Unit is GB.')
 
         parser.add_argument('-c', '--count', dest='count',
                 action='store', type=int, default=1,
-                help='The number of volumes to create.')
+                help='the number of volumes to create.')
 
         parser.add_argument('-N', '--volume_name', dest='volume_name',
                 action='store', type=str, default='',
-                help='Short name of volume')
+                help='short name of volume')
 
     @classmethod
     def build_directive(cls, options):

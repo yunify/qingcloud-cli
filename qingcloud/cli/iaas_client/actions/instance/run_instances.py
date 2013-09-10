@@ -14,36 +14,36 @@ class RunInstancesAction(BaseAction):
 
         parser.add_argument('-m', '--image_id', dest='image_id',
                 action='store', type=str, default='',
-                help='Image ID')
+                help='image ID')
 
         parser.add_argument('-t', '--instance_type', dest='instance_type',
                 action='store', type=str, default=None,
-                help='Instance type: small_b, small_c, medium_a, medium_b, medium_c,\
+                help='instance type: small_b, small_c, medium_a, medium_b, medium_c, \
                 large_a, large_b, large_c')
 
         parser.add_argument('-c', '--count', dest = 'count',
                 action='store', type=int, default=1,
-                help='The number of instances to launch, default 1.')
+                help='the number of instances to launch, default 1.')
 
         parser.add_argument('-C', '--cpu', dest='cpu',
                 action='store', type=int, default=0,
-                help='CPU core: 1, 2, 4, 8, 16')
+                help='cpu core: 1, 2, 4, 8, 16')
 
         parser.add_argument('-M', '--memory', dest='memory',
                 action='store', type=int, default=0,
-                help='Memory size in MB: 512, 1024, 2048, 4096, 8192, 16384')
+                help='memory size in MB: 512, 1024, 2048, 4096, 8192, 16384')
 
         parser.add_argument('-N', '--instance_name', dest='instance_name',
                 action='store', type=str, default='',
-                help='Instance name')
+                help='instance name')
 
         parser.add_argument('-n', '--vxnets', dest='vxnets',
                 action='store', type=str, default='',
-                help='Specifies the IDs of vxnets the instance will join.')
+                help='specifies the IDs of vxnets the instance will join.')
 
         parser.add_argument('-s', '--security_group', dest='security_group',
                 action='store', type=str, default='',
-                help='The ID of security group that will be applied to instance')
+                help='the ID of security group that will be applied to instance')
 
         parser.add_argument('-l', '--login_mode', dest='login_mode',
                 action='store', type=str, default='',
@@ -51,11 +51,11 @@ class RunInstancesAction(BaseAction):
 
         parser.add_argument('-p', '--login_passwd', dest='login_passwd',
                 action='store', type=str, default='',
-                help='Login_passwd, should specified when SSH login mode is "passwd".')
+                help='login_passwd, should specified when SSH login mode is "passwd".')
 
         parser.add_argument('-k', '--login_keypair', dest='login_keypair',
                 action='store', type=str, default='',
-                help='Login_keypair, should specified when SSH login mode is "keypair".')
+                help='login_keypair, should specified when SSH login mode is "keypair".')
 
         return parser
 

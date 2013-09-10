@@ -31,15 +31,15 @@ class BaseAction(object):
         if cls.command.startswith('describe-'):
             parser.add_argument('-O', '--offset', dest='offset',
                     action='store', type=int, default=0,
-                    help='The starting offset of the returning results.')
+                    help='the starting offset of the returning results.')
 
             parser.add_argument('-L', '--limit', dest='limit',
                     action='store', type=int, default=20,
-                    help='Specify the number of the returning results.')
+                    help='specify the number of the returning results.')
 
         parser.add_argument('-f', '--config', dest='conf_file',
                 action='store', type=str, default='~/.qingcloud/config.yaml',
-                help='Config file of your access keys')
+                help='config file of your access keys')
 
     @classmethod
     def add_ext_arguments(cls, parser):

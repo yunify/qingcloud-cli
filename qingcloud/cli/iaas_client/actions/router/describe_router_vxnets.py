@@ -16,11 +16,11 @@ class DescribeRouterVxnetsAction(BaseAction):
         
         parser.add_argument('-v', '--vxnet', dest='vxnet',
                 action='store', type=str, default='',
-                help='Filter by vxnet ID. ')
+                help='filter by vxnet ID. ')
         
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
-                help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
+                help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
          
     @classmethod
     def build_directive(cls, options):

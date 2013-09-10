@@ -18,7 +18,7 @@ class ApplySecurityGroupAction(BaseAction):
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='The comma-separated IDs of instances you want to apply the security group to.')
+                help='the comma-separated IDs of instances you want to apply the security group to.')
       
     @classmethod
     def build_directive(cls, options):

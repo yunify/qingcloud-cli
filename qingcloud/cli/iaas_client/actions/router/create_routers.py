@@ -12,11 +12,11 @@ class CreateRoutersAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-c', '--count', dest='count',
                 action='store', type=int, default=1,
-                help='The number of routers to create.')
+                help='the number of routers to create.')
         
         parser.add_argument('-N', '--router_name', dest='router_name',
                 action='store', type=str, default='',
-                help='The short name of routers')
+                help='the short name of routers')
         
         parser.add_argument('-s', '--security_group', dest='security_group',
                 action='store', type=str, default='',

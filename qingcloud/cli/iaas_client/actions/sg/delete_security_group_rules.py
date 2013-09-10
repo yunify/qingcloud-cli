@@ -13,7 +13,7 @@ class DeleteSecurityGroupRulesAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-r', '--security_group_rules', dest='security_group_rules',
                 action='store', type=str, default='',
-                help='The comma separated IDs of security group rules you want to delete. ')
+                help='the comma separated IDs of security group rules you want to delete. ')
 
     @classmethod
     def build_directive(cls, options):

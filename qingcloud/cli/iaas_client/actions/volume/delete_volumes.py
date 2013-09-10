@@ -14,7 +14,7 @@ class DeleteVolumesAction(BaseAction):
     
         parser.add_argument('-v', '--volumes', dest='volumes',
                 action='store', type=str, default='',
-                help='The comma separated IDs of volumes you want to delete.')
+                help='the comma separated IDs of volumes you want to delete.')
         
     @classmethod
     def build_directive(cls, options):

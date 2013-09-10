@@ -16,7 +16,7 @@ class ModifySecurityGroupRuleAttributesAction(BaseAction):
 
         parser.add_argument('-p', '--priority', dest='priority',
                 action='store', type=int, default=None,
-                help='The priority of the rule. ')
+                help='the priority of the rule. ')
 
     @classmethod
     def build_directive(cls, options):

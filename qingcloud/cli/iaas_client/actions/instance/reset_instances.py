@@ -15,7 +15,7 @@ class ResetInstancesAction(BaseAction):
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='The comma separated IDs of instances you want to reset.')
+                help='the comma separated IDs of instances you want to reset.')
 
         return parser
 
@@ -23,7 +23,7 @@ class ResetInstancesAction(BaseAction):
     def build_directive(cls, options):
         instances = explode_array(options.instances)
         if len(instances) == 0:
-            print 'error:instance_id should be specified'
+            print 'error: [instances] should be specified'
             return None
 
         return {'instances': instances}

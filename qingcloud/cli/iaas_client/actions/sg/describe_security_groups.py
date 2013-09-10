@@ -13,15 +13,15 @@ class DescribeSecurityGroupsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-s', '--security_groups', dest='security_groups',
                 action='store', type=str, default='',
-                help='The comma separated IDs of security_groups you want to list. ')
+                help='the comma separated IDs of security_groups you want to list. ')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='The combined search column')
+                help='the combined search column')
 
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type =int, default=0,
-                help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
+                help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
 
     @classmethod
     def build_directive(cls, options):

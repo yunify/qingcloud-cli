@@ -13,7 +13,7 @@ class AddRouterStaticsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-r', '--router', dest='router',
                 action='store', type=str, default='',
-                help='The ID of router you want to add statics to.')
+                help='the ID of router you want to add statics to.')
 
         parser.add_argument('-s', '--statics', dest='statics',
                 action='store', type=str, default='',

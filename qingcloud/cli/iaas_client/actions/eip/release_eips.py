@@ -14,7 +14,7 @@ class ReleaseEipsAction(BaseAction):
      
         parser.add_argument('-e', '--eips', dest='eips',
                 action='store', type=str, default='',
-                help='The comma separated IDs of eips you want to release.')
+                help='the comma separated IDs of eips you want to release.')
         
         parser.add_argument('-F', '--force', dest='force',
                 action='store', type=int, default=0,

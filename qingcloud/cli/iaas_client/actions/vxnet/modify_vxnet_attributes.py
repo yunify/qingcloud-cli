@@ -12,15 +12,15 @@ class ModifyVxnetAttributesAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-v', '--vxnet_id', dest='vxnet_id',
                 action='store', type=str, default='',
-                help='The id of the vxnet whose attributes you want to modify.')
+                help='the ID of the vxnet whose attributes you want to modify.')
 
         parser.add_argument('-N', '--vxnet_name', dest='vxnet_name',
                 action='store', type=str, default='',
-                help='Specify the new vxnet name.')
+                help='specify the new vxnet name.')
 
         parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
-                help='The detailed description of the resource')
+                help='the detailed description of the resource')
 
     @classmethod
     def build_directive(cls, options):

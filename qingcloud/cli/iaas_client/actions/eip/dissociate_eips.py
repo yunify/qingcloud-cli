@@ -11,11 +11,10 @@ class DissociateEipsAction(BaseAction):
 
     @classmethod
     def add_ext_arguments(cls, parser):
-     
         parser.add_argument('-e', '--eips', dest='eips',
                 action='store', type=str, default='',
-                help='The comma separated IDs of eips you want to dissociate with instances.')
-            
+                help='the comma separated IDs of eips you want to dissociate from instances.')
+
     @classmethod
     def build_directive(cls, options):
         eips = explode_array(options.eips)

@@ -14,12 +14,12 @@ class StopInstancesAction(BaseAction):
 
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
-                help='The comma separated IDs of instances you want to stop.')
+                help='the comma separated IDs of instances you want to stop.')
 
         parser.add_argument('-F', '--force',
                 action='store_const', const=1,
                 dest='force',
-                help='For forcibly shutdown.')
+                help='forcibly shutdown.')
 
         return parser
 
@@ -27,7 +27,7 @@ class StopInstancesAction(BaseAction):
     def build_directive(cls, options):
         instances = explode_array(options.instances)
         if not instances:
-            print 'error:instance_id should be specified'
+            print 'error: [instances] should be specified'
             return None
 
         directive = {

@@ -16,19 +16,19 @@ class JoinRouterAction(BaseAction):
 
         parser.add_argument('-v', '--vxnet', dest='vxnet',
                 action='store', type=str, default='',
-                help='The id of the vxnet that will join the router.')
+                help='the id of the vxnet that will join the router.')
 
         parser.add_argument('-F', '--features', dest='features',
                 action='store', type=int, default=1,
                 help='''
-                The integer value of the bit mask that represent the selected features.
+                the integer value of the bit mask that represent the selected features.
                 Masking Bit:
                 1 - dhcp server
                 ''')
 
         parser.add_argument('-n', '--ip_network', dest='ip_network',
                 action='store', type=str, default='',
-                help='The ip_network, e.g. `192.168.x.0/24` ')
+                help='the ip_network, e.g. `192.168.x.0/24` ')
 
     @classmethod
     def build_directive(cls, options):

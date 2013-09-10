@@ -17,11 +17,11 @@ class ModifyKeyPairAttributesAction(BaseAction):
                 
         parser.add_argument('-N', '--keypair_name', dest='keypair_name',
                 action='store', type=str, default='',
-                help='Specify the new keypair name.')
+                help='specify the new keypair name.')
         
         parser.add_argument('-D', '--description', dest='description',
                 action='store', type=str, default='',
-                help='The detailed description of the resource')
+                help='the detailed description of the resource')
 
     @classmethod
     def build_directive(cls, options):

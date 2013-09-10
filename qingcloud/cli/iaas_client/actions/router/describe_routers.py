@@ -13,19 +13,19 @@ class DescribeRoutersAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-r', '--routers', dest='routers',
                 action='store', type=str, default='',
-                help='The comma separated IDs of routers you want to list.')
+                help='the comma separated IDs of routers you want to list.')
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='The status of routers.')
+                help='the status of routers.')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',
-                help='The combined search column')
+                help='the combined search column')
 
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
-                help='The number to specify the verbose level, larger the number, the more detailed information will be returned.')
+                help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
 
 
     @classmethod

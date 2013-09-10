@@ -13,11 +13,11 @@ class LeaveRouterAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-r', '--router', dest='router',
                 action='store', type=str, default='',
-                help='The id of the router the vxnet will leave.')
+                help='the id of the router the vxnet will leave.')
      
         parser.add_argument('-v', '--vxnets', dest='vxnets',
                 action='store', type=str, default='',
-                help='The comm separated IDs of the vxnets that will leave the router.')
+                help='the comm separated IDs of the vxnets that will leave the router.')
 
     @classmethod
     def build_directive(cls, options):

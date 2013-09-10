@@ -14,22 +14,27 @@ class ModifySecurityGroupRuleAttributesAction(BaseAction):
                 action='store', type=str, default='',
                 help='ID of security group rule whose attributes you want to update.')
 
+        parser.add_argument('-n', '--name', dest='name',
+                action='store', type=str, default=None,
+                help='name of the rule. ')
+
         parser.add_argument('-p', '--priority', dest='priority',
                 action='store', type=int, default=None,
-                help='the priority of the rule. ')
+                help='priority of the rule. ')
 
     @classmethod
     def build_directive(cls, options):
         required_params = {
                 'security_group_rule': options.security_group_rule,
                 'priority': options.priority,
-                } 
+                }
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
-                print 'param [%s] should be specified' % param
+                print 'error: [%s] should be specified' % param
                 return None
     
         return {
                 'security_group_rule': options.security_group_rule,
                 'priority': options.priority,
+                'security_group_rule_name': options.name,
                 }

@@ -19,7 +19,7 @@ class AddSecurityGroupRulesAction(BaseAction):
 
         parser.add_argument('-r', '--rules', dest='rules',
                 action='store', type=str, default='',
-                help='JSON string of rules list. e.g. "[{"protocol":"icmp","priority":"0","action":"accept","val2":"0","val1":"11"}]"')
+                help='JSON string of rules list. e.g. \'[{"security_group_rule_name":"ping","protocol":"icmp","priority":"0","action":"accept","val2":"0","val1":"8"}]\'')
 
     @classmethod
     def build_directive(cls, options):

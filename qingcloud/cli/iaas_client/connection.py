@@ -774,16 +774,19 @@ class APIConnection(HttpConnection):
     def modify_security_group_rule_attributes(self,
                                               security_group_rule,
                                               priority,
+                                              security_group_rule_name=None,
                                               **params):
         """
             @param security_group_rule: the ID of the security group rule whose attributes you
                                       want to update.
             @param priority: priority [0 - 100].
+            @param security_group_rule_name: name of the rule.
         """
         action = ACTION_MODIFY_SECURITY_GROUP_RULE_ATTRIBUTES
         body = {}
         body['security_group_rule'] = security_group_rule
         body['priority'] = priority
+        body['security_group_rule_name'] = security_group_rule_name
 
         return self.send_request(action, body)
 

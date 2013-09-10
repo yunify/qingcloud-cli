@@ -1,5 +1,6 @@
 # coding: utf-8
 
+from qingcloud.cli.misc.utils import explode_array
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
 class DescribeSecurityGroupRulesAction(BaseAction):
@@ -26,7 +27,7 @@ class DescribeSecurityGroupRulesAction(BaseAction):
     def build_directive(cls, options):
         return {
                 'security_group': options.security_group,
-                'security_group_rules': options.security_group_rules,
+                'security_group_rules': explode_array(options.security_group_rules),
                 'direction': options.direction,
                 'offset':options.offset,
                 'limit': options.limit,

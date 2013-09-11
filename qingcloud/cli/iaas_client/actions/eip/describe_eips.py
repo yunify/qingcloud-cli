@@ -32,10 +32,6 @@ class DescribeEipsAction(BaseAction):
                 action='store', type=str, default='',
                 help='filter eips by instance id')
 
-        parser.add_argument('-n', '--need_icp', dest='need_icp',
-                action='store', type=str, default='',
-                help='filter eips by need_icp')
-
     @classmethod
     def build_directive(cls, options):
         return {
@@ -43,7 +39,6 @@ class DescribeEipsAction(BaseAction):
                 'status': explode_array(options.status),
                 'eip_group': explode_array(options.eip_group),
                 'instance_id': options.instance_id,
-                'need_icp': explode_array(options.need_icp),
                 'search_word': options.search_word,
                 'offset':options.offset,
                 'limit': options.limit,

@@ -7,7 +7,7 @@ class AddRouterStaticsAction(BaseAction):
 
     action = 'AddRouterStatics'
     command = 'add-router-statics'
-    usage = '%(prog) -r <router_id> -v <vxnet_id> -s <statics> [-f <conf_file>]'
+    usage = '%(prog)s -r <router_id> -s <statics> [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):

@@ -36,7 +36,7 @@ class JoinRouterAction(BaseAction):
         vxnet = options.vxnet
         ip_addr = options.ip_network
         if not router or not vxnet or not ip_addr:
-            print 'error: router, vxnet and ip_network should be specified.'
+            print 'error: [router], [vxnet] and [ip_network] should be specified.'
             return None
 
         return {

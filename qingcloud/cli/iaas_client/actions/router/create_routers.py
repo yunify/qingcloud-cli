@@ -20,7 +20,7 @@ class CreateRoutersAction(BaseAction):
         
         parser.add_argument('-s', '--security_group', dest='security_group',
                 action='store', type=str, default='',
-                help='ID of the security group you want to apply to router.')
+                help='ID of the security group you want to apply to router, use default security group if not specified')
         
     @classmethod
     def build_directive(cls, options):

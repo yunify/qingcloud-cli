@@ -5,7 +5,7 @@ from qingcloud.cli.iaas_client.actions.base import BaseAction
 class ModifySecurityGroupAttributesAction(BaseAction):
 
     action = 'ModifySecurityGroupAttributes'
-    command = 'modify-security-groups-attributes'
+    command = 'modify-security-group-attributes'
     usage = '%(prog)s -s <security_group_id> [options] [-f <conf_file>]'
 
     @classmethod

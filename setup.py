@@ -1,6 +1,7 @@
 # coding:utf-8
 
 import os
+import sys
 import platform
 from setuptools import setup, find_packages
 
@@ -40,14 +41,16 @@ def setup_qingcloud_completer():
             fd.write(cmd)
 
 
-if is_windows():
+if len(sys.argv) < 2 or sys.argv[1] != 'install':
+    bin_scripts = ['bin/qingcloud', 'bin/qingcloud.cmd', 'bin/qingcloud_completer']
+elif is_windows():
     bin_scripts = ['bin/qingcloud.cmd']
 else:
     bin_scripts = ['bin/qingcloud', 'bin/qingcloud_completer']
 
 setup(
     name = 'qingcloud-cli',
-    version = '0.9.1',
+    version = '0.9.2',
     description = 'Command Line Interface for QingCloud.',
     long_description = open('README.rst', 'rb').read().decode('utf-8'),
     keywords = 'qingcloud iaas cli',

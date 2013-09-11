@@ -1232,6 +1232,7 @@ class APIConnection(HttpConnection):
                       status = None,
                       eip_group = None,
                       eip_name = None,
+                      instance_id = None,
                       search_word = None,
                       offset = None,
                       limit = None,
@@ -1241,6 +1242,7 @@ class APIConnection(HttpConnection):
             @param status: filter eips by status
             @param eip_group: filter eips by eip group.
             @param eip_name: the name of the eip. Support partial match.
+            @param instance_id: filter eips by instance.
             @param search_word: search word column.
             @param offset: the starting offset of the returning results.
             @param limit: specify the number of the returning results.
@@ -1256,6 +1258,8 @@ class APIConnection(HttpConnection):
             body['eip_group'] = eip_group
         if eip_name:
             body['eip_name'] = eip_name
+        if instance_id:
+            body['instance_id'] = instance_id
         if search_word:
             body['search_word'] = search_word
         if offset:

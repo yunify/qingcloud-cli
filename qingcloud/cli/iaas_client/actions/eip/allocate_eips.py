@@ -5,7 +5,7 @@ from qingcloud.cli.iaas_client.actions.base import BaseAction
 class AllocateEipsAction(BaseAction):
 
     action = 'AllocateEips'
-    command = 'allocate-eip'
+    command = 'allocate-eips'
     usage = '%(prog)s --bandwidth <bandwidth> --count <count> [options] [-f <conf_file>]'
 
     @classmethod

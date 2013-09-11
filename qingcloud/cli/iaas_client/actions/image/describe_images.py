@@ -18,7 +18,7 @@ class DescribeImagesAction(BaseAction):
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='status: pending, available, deleted')
+                help='status: pending, available, deleted, ceased')
 
         parser.add_argument('-p', '--processor_type', dest='processor_type',
                 action='store', type=str, default='',

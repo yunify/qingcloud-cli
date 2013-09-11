@@ -22,7 +22,7 @@ class DescribeVolumesAction(BaseAction):
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='volume status: pending, available, in-use, deleted.')
+                help='volume status: pending, available, in-use, deleted, ceased.')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',

@@ -29,7 +29,7 @@ class DescribeVxnetInstancesAction(BaseAction):
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='filter by instance status')
+                help='filter by instance status: pending, running, stopped, suspended, terminated, ceased')
 
     @classmethod
     def build_directive(cls, options):

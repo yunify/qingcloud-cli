@@ -17,7 +17,7 @@ class DescribeRoutersAction(BaseAction):
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='the status of routers.')
+                help='router status: pending, active, poweroffed, suspended, deleted, ceased')
 
         parser.add_argument('-W', '--search_word', dest='search_word',
                 action='store', type=str, default='',

@@ -18,7 +18,7 @@ class DescribeInstancesAction(BaseAction):
 
         parser.add_argument('-s', '--status', dest='status',
                 action='store', type=str, default='',
-                help='instance status: pending, running, stopped, terminated')
+                help='instance status: pending, running, stopped, terminated, ceased')
 
         parser.add_argument('-m', '--image_id', dest='image_id',
                 action='store', type=str, default='',

@@ -10,6 +10,9 @@ qy_secret_access_key: 'QINGCLOUDSECRETACCESSKEYEXAMPLE'
 zone: 'pek1'
 '''
 
+def is_windows():
+    return platform.system().lower() == 'windows'
+
 def prepare_config_file():
     config_file = os.path.expanduser('~/.qingcloud/config.yaml')
     if os.path.exists(config_file):
@@ -24,7 +27,7 @@ def prepare_config_file():
 
 def setup_qingcloud_completer():
     # only support linux
-    if platform.system().lower() == 'windows':
+    if is_windows():
         return
 
     cmd = 'complete -C qingcloud_completer qingcloud'
@@ -37,6 +40,11 @@ def setup_qingcloud_completer():
             fd.write(cmd)
 
 
+if is_windows():
+    bin_scripts = ['bin/qingcloud.cmd']
+else:
+    bin_scripts = ['bin/qingcloud', 'bin/qingcloud_completer']
+
 setup(
     name = 'qingcloud-cli',
     version = '0.9',
@@ -46,7 +54,7 @@ setup(
     author = 'Yunify Team',
     author_email = 'simon@yunify.com',
     url = 'https://docs.qingcloud.com/cli/',
-    scripts=['bin/qingcloud', 'bin/qingcloud_completer', 'bin/qingcloud.cmd'],
+    scripts=bin_scripts,
     packages = find_packages('.'),
     package_dir = {'qingcloud-cli': 'qingcloud'},
     include_package_data = True,

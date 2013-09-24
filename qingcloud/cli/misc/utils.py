@@ -1,24 +1,17 @@
 # coding: utf-8
 
-import time
 import os
-import errno
-import stat
+import json
 
 from .yaml_tool import yaml_load
-from .json_tool import json_load, json_dump
 
 def explode_array(list_str, separator = ","):
     """
     Explode list string into array
     """
-    result = []
-    disk_list = list_str.split(separator)
-    for disk in disk_list:
-        disk = disk.strip()
-        if disk != "":
-            result.append(disk)
-    return result
+    if not list_str:
+        return []
+    return [item for item in list_str.split(separator) if item.strip() != '']
 
 def send_request(action, directive, mgmt_handler):
     request = directive
@@ -61,72 +54,12 @@ def prints(req, rep):
     """ print request and reply """
 
     if isinstance(req, str):
-        req = json_load(req)
+        req = json.loads(req)
     if isinstance(rep, str):
-        rep = json_load(rep)
+        rep = json.loads(rep)
 
     #print '======================================='
-    #print "sending:", json_dump(req, indent=2)
+    #print "sending:", json.dumps(req, indent=2)
     #print '======================================='
-    #print "recv:", json_dump(rep, indent=2)
-    print json_dump(rep, indent=2)
-
-def save_private_key(file_name, private_key):
-    """ save ssh private key """
-    if not save_file(file_name, private_key):
-        return False
-    os.chmod(file_name, stat.S_IREAD + stat.S_IWRITE)
-    return True
-
-def save_file(file_name, content):
-    try:
-        with open("%s" % file_name, "w") as f:
-            f.write("%s" % content)
-    except Exception, e:
-        print "save private key [%s] to [%s] failed, [%s]" % (content, file_name, e)
-        return False
-    return True
-
-def mkdir(path):
-    try:
-        os.makedirs(path)
-    except OSError as exc: # Python >2.5
-        if exc.errno == errno.EEXIST and os.path.isdir(path):
-            pass
-        else: raise
-
-def get_utf8_value(value):
-    if not isinstance(value, str) and not isinstance(value, unicode):
-        value = str(value)
-    if isinstance(value, unicode):
-        return value.encode('utf-8')
-    else:
-        return value
-
-ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
-ISO8601_MS = '%Y-%m-%dT%H:%M:%S.%fZ'
-
-def get_ts(ts=None):
-    """
-    Get formatted time
-    """
-    if not ts:
-        ts = time.gmtime()
-    return time.strftime(ISO8601, ts)
-
-def parse_ts(ts):
-    """
-    Return as timestamp
-    """
-    ts = ts.strip()
-    try:
-        ts_s = time.strptime(ts, ISO8601)
-        return time.mktime(ts_s)
-    except ValueError:
-        ts_s = time.strptime(ts, ISO8601_MS)
-        return time.mktime(ts_s)
-
-def get_expired_ts(ts, time_out):
-    ts_expired_s = parse_ts(ts) + time_out
-    ts_expired = time.localtime(ts_expired_s)
-    return get_ts(ts_expired)
+    #print "recv:", json.dumps(rep, indent=2)
+    print json.dumps(rep, indent=2, ensure_ascii=False)

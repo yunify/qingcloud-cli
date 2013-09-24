@@ -23,12 +23,15 @@ class ResizeVolumesAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
-        volumes = explode_array(options.volumes)
-        size = options.size
-        if not volumes or size == 0:
+        if not options.volumes:
+            print 'error: [volumes] should be specified'
+            return None
+
+        if options.size <= 0:
+            print 'error: [size] should be larger than 0'
             return None
 
         return {
-                'volumes': volumes,
-                'size': size
+                'volumes': explode_array(options.volumes),
+                'size': options.size
                 }

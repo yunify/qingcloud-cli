@@ -12,7 +12,7 @@ class DetachVolumesAction(BaseAction):
 
     @classmethod
     def add_ext_arguments(cls, parser):
-    
+
         parser.add_argument('-i', '--instance', dest='instance',
                 action='store', type=str, default='',
                 help='the comma separated IDs of volumes you want to describe.')
@@ -23,11 +23,16 @@ class DetachVolumesAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
-        volumes = explode_array(options.volumes)
-        if not volumes or not options.instance:
-            return None
+        required_params = {
+                'volumes': options.volumes,
+                'instance': options.instance,
+                }
+        for param in required_params:
+            if required_params[param] is None or required_params[param] == '':
+                print 'error: [%s] should be specified' % param
+                return None
 
         return {
-                'volumes': volumes,
+                'volumes': explode_array(options.volumes),
                 'instance': options.instance,
                 }

@@ -25,15 +25,14 @@ class CreateVolumesAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
-        required_params = {'size': options.size,
-                          } 
+        required_params = {'size': options.size}
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
-                print 'error: param [%s] should be specified' % param
+                print 'error: [%s] should be specified' % param
                 return None
-        
+
         return {
                 'size': options.size,
-                'count' : options.count, 
+                'count' : options.count,
                 'volume_name' : options.volume_name
                 }

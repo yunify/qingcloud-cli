@@ -14,22 +14,18 @@ class DescribeRouterStaticsAction(BaseAction):
         parser.add_argument('-s', '--router_statics', dest='router_statics',
                 action='store', type=str, default='',
                 help='the comma separated IDs of router_statics you want to list. ')
-        
+
         parser.add_argument('-r', '--router', dest='router',
                 action='store', type=str, default='',
                 help='filter by router. ')
-        
+
         parser.add_argument('-v', '--vxnet', dest='vxnet',
                 action='store', type=str, default='',
                 help='filter by vxnet. ')
-        
+
         parser.add_argument('-t', '--static_type', dest='static_type',
                 action='store', type=str, default=None,
-                help='the static type. 0: fixed ips; 1: port forwarding.')
-            
-        parser.add_argument('-V', '--verbose', dest='verbose',
-                action='store', type=int, default=0,
-                help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
+                help='the static type. 1: port forwarding; 2: VPN; 3: DHCP options; 4: tunnels')
 
     @classmethod
     def build_directive(cls, options):
@@ -37,7 +33,6 @@ class DescribeRouterStaticsAction(BaseAction):
                 'router_statics': explode_array(options.router_statics),
                 'router': options.router,
                 'vxnet': options.vxnet,
-                'verbose': options.verbose,
                 'offset':options.offset,
                 'limit': options.limit,
                 }

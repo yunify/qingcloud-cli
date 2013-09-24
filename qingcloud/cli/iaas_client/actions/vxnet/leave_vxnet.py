@@ -18,7 +18,7 @@ class LeaveVxnetAction(BaseAction):
         parser.add_argument('-v', '--vxnet', dest='vxnet',
                 action='store', type=str, default='',
                 help='the ID of the vxnet the instances will leave. ')
-      
+
     @classmethod
     def build_directive(cls, options):
         instances = explode_array(options.instances)

@@ -23,11 +23,16 @@ class AttachVolumesAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
-        volumes = explode_array(options.volumes)
-        if not volumes or not options.instance:
-            return None
+        required_params = {
+                'instance': options.instance,
+                'volumes': options.volumes,
+                }
+        for param in required_params:
+            if required_params[param] is None or required_params[param] == '':
+                print 'error: [%s] should be specified' % param
+                return None
 
         return {
-                'volumes': volumes,
+                'volumes': explode_array(options.volumes),
                 'instance': options.instance,
                 }

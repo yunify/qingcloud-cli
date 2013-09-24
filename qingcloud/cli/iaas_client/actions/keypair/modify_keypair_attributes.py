@@ -10,17 +10,17 @@ class ModifyKeyPairAttributesAction(BaseAction):
 
     @classmethod
     def add_ext_arguments(cls, parser):
-     
+
         parser.add_argument('-k', '--keypair', dest='keypair',
                 action='store', type=str, default='',
                 help='the id of the keypair whose attributes you want to modify.')
-                
+
         parser.add_argument('-N', '--keypair_name', dest='keypair_name',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='specify the new keypair name.')
-        
+
         parser.add_argument('-D', '--description', dest='description',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='the detailed description of the resource')
 
     @classmethod

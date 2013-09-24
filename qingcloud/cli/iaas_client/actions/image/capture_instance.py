@@ -12,7 +12,7 @@ class CaptureInstanceAction(BaseAction):
     def add_ext_arguments(cls, parser):
 
         parser.add_argument('-i', '--instance', dest='instance',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='ID of the instance you want to capture.')
 
         parser.add_argument('-N', '--image_name', dest='image_name',
@@ -23,7 +23,7 @@ class CaptureInstanceAction(BaseAction):
     def build_directive(cls, options):
         if not options.instance:
             return None
-            
+
         return {
                 'instance': options.instance,
                 'image_name': options.image_name

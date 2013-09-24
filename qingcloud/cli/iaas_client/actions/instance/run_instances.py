@@ -26,11 +26,11 @@ class RunInstancesAction(BaseAction):
                 help='the number of instances to launch, default 1.')
 
         parser.add_argument('-C', '--cpu', dest='cpu',
-                action='store', type=int, default=0,
+                action='store', type=int, default=None,
                 help='cpu core: 1, 2, 4, 8, 16')
 
         parser.add_argument('-M', '--memory', dest='memory',
-                action='store', type=int, default=0,
+                action='store', type=int, default=None,
                 help='memory size in MB: 512, 1024, 2048, 4096, 8192, 16384')
 
         parser.add_argument('-N', '--instance_name', dest='instance_name',
@@ -38,15 +38,15 @@ class RunInstancesAction(BaseAction):
                 help='instance name')
 
         parser.add_argument('-n', '--vxnets', dest='vxnets',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='specifies the IDs of vxnets the instance will join.')
 
         parser.add_argument('-s', '--security_group', dest='security_group',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='the ID of security group that will be applied to instance')
 
         parser.add_argument('-l', '--login_mode', dest='login_mode',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='SSH login mode: keypair or passwd')
 
         parser.add_argument('-p', '--login_passwd', dest='login_passwd',
@@ -64,11 +64,14 @@ class RunInstancesAction(BaseAction):
 
         required_params = {
                 'image_id': options.image_id,
-                'instance_type': options.instance_type,
                 }
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
-                print 'error: param [%s] should be specified' % param
+                print 'error: [%s] should be specified' % param
+                return None
+        if not options.instance_type:
+            if not options.cpu or not options.memory:
+                print 'error: [instance_type] should be specified or specify both [cpu] and [memory]'
                 return None
 
         return {

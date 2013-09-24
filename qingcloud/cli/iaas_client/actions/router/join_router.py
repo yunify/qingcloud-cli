@@ -32,16 +32,19 @@ class JoinRouterAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
-        router = options.router
-        vxnet = options.vxnet
-        ip_addr = options.ip_network
-        if not router or not vxnet or not ip_addr:
-            print 'error: [router], [vxnet] and [ip_network] should be specified.'
-            return None
+        required_params = {
+                'router': options.router,
+                'vxnet': options.vxnet,
+                'ip_netword': options.ip_network,
+                }
+        for param in required_params:
+            if required_params[param] is None or required_params[param] == '':
+                print 'error: [%s] should be specified' % param
+                return None
 
         return {
-                'router': router,
-                'vxnet': vxnet,
+                'router': options.router,
+                'vxnet': options.vxnet,
                 'features': options.features,
                 'ip_network': options.ip_network,
                 }

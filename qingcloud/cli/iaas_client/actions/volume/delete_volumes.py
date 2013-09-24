@@ -18,8 +18,8 @@ class DeleteVolumesAction(BaseAction):
         
     @classmethod
     def build_directive(cls, options):
-        volumes = explode_array(options.volumes)
-        if not volumes:
+        if not options.volumes:
+            print 'error: [volumes] should be specified'
             return None
 
-        return {'volumes': volumes}
+        return {'volumes': explode_array(options.volumes)}

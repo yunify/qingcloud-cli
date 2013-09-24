@@ -3,9 +3,10 @@
 import sys
 from argparse import ArgumentParser
 
-from qingcloud.cli.misc.utils import load_conf, send_request
+from qingcloud.iaas.connection import APIConnection
+
 from qingcloud.cli.iaas_client.handler import IaasHandler
-from qingcloud.cli.iaas_client.connection import APIConnection
+from qingcloud.cli.misc.utils import load_conf, send_request
 
 class BaseAction(object):
 
@@ -66,6 +67,5 @@ class BaseAction(object):
 
         # send request
         connection = APIConnection(**conf)
-        mgmt_handler = IaasHandler(connection)
-
-        return send_request(cls.action, directive, mgmt_handler)
+        handler = IaasHandler(connection)
+        return send_request(cls.action, directive, handler)

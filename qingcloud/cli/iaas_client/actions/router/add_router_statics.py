@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from qingcloud.cli.misc.json_tool import json_load
+import json
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
 class AddRouterStaticsAction(BaseAction):
@@ -35,5 +35,5 @@ class AddRouterStaticsAction(BaseAction):
 
         return {
                 'router': options.router,
-                'statics': json_load(options.statics),
+                'statics': json.loads(options.statics),
                 }

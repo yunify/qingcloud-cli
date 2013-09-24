@@ -20,17 +20,32 @@ class ResizeInstancesAction(BaseAction):
                 action='store', type=str, default='',
                 help='new instance type you want to resize to.')
 
+        parser.add_argument('-C', '--cpu', dest='cpu',
+                action='store', type=int, default=None,
+                help='cpu core: 1, 2, 4, 8, 16')
+
+        parser.add_argument('-M', '--memory', dest='memory',
+                action='store', type=int, default=None,
+                help='memory size in MB: 512, 1024, 2048, 4096, 8192, 16384')
+
         return parser
 
     @classmethod
     def build_directive(cls, options):
         instances = explode_array(options.instances)
-        instance_type = options.instance_type
-        if not instances or not instance_type:
-            print 'error: [instances] and [instance_type] should be specified'
+        if not instances:
+            print 'error: [instances] should be specified'
             return None
+
+        instance_type = options.instance_type
+        if not instance_type:
+            if not options.cpu or not options.memory:
+                print 'error: [instance_type] should be specified or specify both [cpu] and [memory]'
+                return None
 
         return {
                 'instances': instances,
                 'instance_type': instance_type,
+                'cpu': options.cpu,
+                'memory': options.memory,
                 }

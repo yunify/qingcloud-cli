@@ -13,15 +13,11 @@ class DescribeRouterVxnetsAction(BaseAction):
         parser.add_argument('-r', '--router', dest='router',
                 action='store', type=str, default='',
                 help='ID of router whose vxnets you want to list.')
-        
+
         parser.add_argument('-v', '--vxnet', dest='vxnet',
                 action='store', type=str, default='',
                 help='filter by vxnet ID. ')
-        
-        parser.add_argument('-V', '--verbose', dest='verbose',
-                action='store', type=int, default=0,
-                help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
-         
+
     @classmethod
     def build_directive(cls, options):
         if not options.router:
@@ -31,7 +27,6 @@ class DescribeRouterVxnetsAction(BaseAction):
         return {
                 'router': options.router,
                 'vxnet': options.vxnet,
-                'verbose': options.verbose,
                 'offset':options.offset,
                 'limit': options.limit,
                 }

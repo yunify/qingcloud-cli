@@ -10,17 +10,17 @@ class ModifyEipAttributesAction(BaseAction):
 
     @classmethod
     def add_ext_arguments(cls, parser):
-     
+
         parser.add_argument('-e', '--eip_id', dest = 'eip_id',
                 action='store', type=str, default='',
                 help='the id of the eip whose attributes you want to modify.')
-                
+
         parser.add_argument('-n', '--eip_name', dest='eip_name',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='specify the new eip name.')
 
         parser.add_argument('-d', '--description', dest='description',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='the detailed description of the resource')
 
     @classmethod

@@ -1,6 +1,7 @@
 # coding: utf-8
 
-from qingcloud.cli.misc.json_tool import json_load
+import json
+
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
 class AddSecurityGroupRulesAction(BaseAction):
@@ -23,13 +24,16 @@ class AddSecurityGroupRulesAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
-        security_group = options.security_group
-        rules = json_load(options.rules)
-        if not rules or not security_group:
-            print 'error: [rules] and [security_group] should be specified'
-            return None
+        required_params = {
+                'security_group': options.security_group,
+                'rules': options.rules,
+                }
+        for param in required_params:
+            if required_params[param] is None or required_params[param] == '':
+                print 'error: [%s] should be specified' % param
+                return None
 
         return {
-                'security_group': security_group,
-                     'rules': rules,
-                    }
+                'security_group': options.security_group,
+                'rules': json.loads(options.rules),
+                }

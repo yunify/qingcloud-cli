@@ -16,11 +16,11 @@ class ModifyInstanceAttributesAction(BaseAction):
                 help='the id of the instance whose attributes you want to modify.')
 
         parser.add_argument('-N', '--instance_name', dest='instance_name',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='instance name')
 
         parser.add_argument('-D', '--description', dest='description',
-                action='store', type=str, default='',
+                action='store', type=str, default=None,
                 help='instance description')
 
         return parser

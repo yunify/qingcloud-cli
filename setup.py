@@ -68,6 +68,6 @@ setup(
     ]
 )
 
-prepare_config_file()
-
-setup_qingcloud_completer()
+if len(sys.argv) >= 2 and sys.argv[1] == 'install':
+    prepare_config_file()
+    setup_qingcloud_completer()

@@ -65,7 +65,7 @@ setup(
     install_requires = [
         'argparse>=1.1',
         'PyYAML>=3.1',
-        'qingcloud-sdk>=0.6',
+        'qingcloud-sdk>=0.8',
     ]
 )
 

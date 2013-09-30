@@ -60,6 +60,7 @@ setup(
     scripts=bin_scripts,
     packages = find_packages('.'),
     package_dir = {'qingcloud-cli': 'qingcloud'},
+    namespace_packages = ['qingcloud'],
     include_package_data = True,
     install_requires = [
         'argparse>=1.1',

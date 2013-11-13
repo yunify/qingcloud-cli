@@ -6,7 +6,7 @@ class JoinRouterAction(BaseAction):
 
     action = 'JoinRouter'
     command = 'join-router'
-    usage = '%(prog)s -r <router_id>] -v <vxnet_id> -n <ip_network> [-f <features>] [options] [-f <conf_file>]'
+    usage = '%(prog)s -r <router_id> -v <vxnet_id> -n <ip_network> [-f <features> -m <manager_ip> -S <dyn_ip_start> -E <dyn_ip_end>] [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -18,6 +18,10 @@ class JoinRouterAction(BaseAction):
                 action='store', type=str, default='',
                 help='the id of the vxnet that will join the router.')
 
+        parser.add_argument('-n', '--ip_network', dest='ip_network',
+                action='store', type=str, default='',
+                help='ip for vxnet, e.g. `192.168.x.0/24` ')
+
         parser.add_argument('-F', '--features', dest='features',
                 action='store', type=int, default=1,
                 help='''
@@ -26,9 +30,17 @@ class JoinRouterAction(BaseAction):
                 1 - dhcp server
                 ''')
 
-        parser.add_argument('-n', '--ip_network', dest='ip_network',
-                action='store', type=str, default='',
-                help='the ip_network, e.g. `192.168.x.0/24` ')
+        parser.add_argument('-m', '--manager_ip', dest='manager_ip',
+                action='store', type=str, default=None,
+                help='the manager ip, this can be used as default gateway within the private network, e.g. "192.168.x.2".')
+
+        parser.add_argument('-S', '--dyn_ip_start', dest='dyn_ip_start',
+                action='store', type=str, default=None,
+                help='starting ip allocated from DHCP server, e.g. "192.168.x.2".')
+
+        parser.add_argument('-E', '--dyn_ip_end', dest='dyn_ip_end',
+                action='store', type=str, default=None,
+                help='ending ip allocated from DHCP server, e.g. "192.168.x.254".')
 
     @classmethod
     def build_directive(cls, options):
@@ -47,4 +59,7 @@ class JoinRouterAction(BaseAction):
                 'vxnet': options.vxnet,
                 'features': options.features,
                 'ip_network': options.ip_network,
+                'manager_ip': options.manager_ip,
+                'dyn_ip_start': options.dyn_ip_start,
+                'dyn_ip_end': options.dyn_ip_end,
                 }

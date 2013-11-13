@@ -6,7 +6,7 @@ class ModifyRouterAttributesAction(BaseAction):
 
     action = 'ModifyRouterAttributes'
     command = 'modify-router-attributes'
-    usage = '%(prog)s -r <router_id>] [-s <security_group> -e <eip>] [options] [-f <conf_file>]'
+    usage = '%(prog)s -r <router_id> [-s <security_group> -e <eip> -v <vxnet> -F <features> -S <dyn_start_ip> -E <dyn_end_ip>] [options] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -30,17 +30,48 @@ class ModifyRouterAttributesAction(BaseAction):
                 action='store', type=str, default=None,
                 help='new description.')
 
+        parser.add_argument('-v', '--vxnet', dest='vxnet',
+                action='store', type=str, default=None,
+                help='the id of the vxnet whose feature you want to modify.')
+
+        parser.add_argument('-F', '--features', dest='features',
+                action='store', type=int, default=None,
+                help='''
+                the integer value of the bit mask that represent the selected features.
+                Masking Bit:
+                1 - dhcp server
+                ''')
+
+        parser.add_argument('-S', '--dyn_ip_start', dest='dyn_ip_start',
+                action='store', type=str, default=None,
+                help='starting ip allocated from DHCP server, e.g. "192.168.x.2".')
+
+        parser.add_argument('-E', '--dyn_ip_end', dest='dyn_ip_end',
+                action='store', type=str, default=None,
+                help='ending ip allocated from DHCP server, e.g. "192.168.x.254".')
+
     @classmethod
     def build_directive(cls, options):
-        router = options.router
-        if not router:
-            print '[router] should be specified.'
+        if not options.router:
+            print 'error: [router] should be specified.'
+            return None
+
+        if options.features is not None and not options.vxnet:
+            print 'error: [vxnet] should be specified if modify features.'
+            return None
+
+        if (options.dyn_ip_start or options.dyn_ip_end) and options.features is None:
+            print 'error: [features] should be specified if modify ip range.'
             return None
 
         return {
-                'router': router,
+                'router': options.router,
                 'router_name': options.router_name,
                 'description': options.description,
                 'eip': options.eip,
                 'security_group': options.security_group,
+                'vxnet': options.vxnet,
+                'features': options.features,
+                'dyn_ip_start': options.dyn_ip_start,
+                'dyn_ip_end': options.dyn_ip_end,
                 }

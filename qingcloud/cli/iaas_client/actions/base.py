@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 from qingcloud.iaas.connection import APIConnection
 
 from qingcloud.cli.iaas_client.handler import IaasHandler
-from qingcloud.cli.misc.utils import load_conf, send_request
+from qingcloud.cli.misc.utils import load_conf, send_request, get_expire_time
 
 class BaseAction(object):
 
@@ -38,6 +38,10 @@ class BaseAction(object):
                     action='store', type=int, default=20,
                     help='specify the number of the returning results.')
 
+        parser.add_argument('--expire_time', dest='expire_time',
+                action='store', type=str, default=get_expire_time(),
+                help='request expire time, using ISO 8601 format (e.g. 2013-12-15T22:55:20Z )')
+
         parser.add_argument('-f', '--config', dest='conf_file',
                 action='store', type=str, default='~/.qingcloud/config.yaml',
                 help='config file of your access keys')
@@ -64,6 +68,8 @@ class BaseAction(object):
         conf = load_conf(options.conf_file)
         if conf is None:
             sys.exit(-1)
+        if options.expire_time:
+            conf['expires'] = options.expire_time
 
         # send request
         connection = APIConnection(**conf)

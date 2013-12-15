@@ -2,6 +2,7 @@
 
 import os
 import json
+import time
 
 from .yaml_tool import yaml_load
 
@@ -63,3 +64,10 @@ def prints(req, rep):
     #print '======================================='
     #print "recv:", json.dumps(rep, indent=2)
     print json.dumps(rep, indent=2, ensure_ascii=False)
+
+def get_expire_time():
+    curr_ts = time.time()
+    adjust = 20 * 60
+    expire_ts = curr_ts + adjust
+    ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
+    return time.strftime(ISO8601, time.gmtime(expire_ts))

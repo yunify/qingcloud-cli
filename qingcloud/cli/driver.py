@@ -7,7 +7,7 @@ from difflib import get_close_matches
 from .iaas_client.actions import ActionManager
 
 SERVICES = ('iaas')
-valid_actions = ActionManager.action_table().keys()
+valid_actions = ActionManager.action_table.keys()
 valid_actions.sort()
 
 def exit_due_to_invalid_args(suggest_actions=None):

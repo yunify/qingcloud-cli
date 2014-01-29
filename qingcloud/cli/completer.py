@@ -14,7 +14,7 @@ def return_no_choices():
 
 def complete(cmdline, point):
     service_names = ('iaas',)
-    action_names = ActionManager.action_table().keys()
+    action_names = ActionManager.action_table.keys()
 
     service_name = None
     action_name = None
@@ -35,11 +35,10 @@ def complete(cmdline, point):
 
     # If we found service name, complete the action name
     if service_name:
-        if action_name:
-            # TODO: complete action's argument
-            return_no_choices()
-        elif current_word != service_name:
+        if current_word != service_name:
             action_names = [act for act in action_names if act.startswith(current_word)]
+            if action_name and len(action_names) == 1:
+                return_no_choices()
         return_choices(action_names)
     else:
         return_choices(service_names)

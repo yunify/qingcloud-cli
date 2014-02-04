@@ -9,6 +9,7 @@ from qingcloud.cli.iaas_client.actions import router
 from qingcloud.cli.iaas_client.actions import sg
 from qingcloud.cli.iaas_client.actions import vxnet
 from qingcloud.cli.iaas_client.actions import lb
+from qingcloud.cli.iaas_client.actions import monitor
 
 class ActionManager(object):
 
@@ -113,4 +114,8 @@ class ActionManager(object):
             'start-loadbalancers': lb.StartLoadBalancersAction,
             'stop-loadbalancers': lb.StopLoadBalancersAction,
             'update-loadbalancers': lb.UpdateLoadBalancersAction,
+
+            ## monitor ##
+            'get-monitoring-data': monitor.GetMonitorAction,
+            'get-loadbalancer-monitoring-data': monitor.GetLoadBalancerMonitorAction,
             }

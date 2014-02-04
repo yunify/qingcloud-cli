@@ -15,11 +15,17 @@ class GetMonitorAction(BaseAction):
 
         parser.add_argument('-r', '--resource', dest='resource',
                 action='store', type=str, default=None,
-                help='the ID of resource you want to get its monitoring data.')
+                help='the ID of resource, can be instance_id, volume_id, eip_id or router_id.')
 
         parser.add_argument('-m', '--meters', dest='meters',
                 action='store', type=str, default=None,
-                help='list of metering types you want to get.')
+                help='''list of metering types you want to get.
+                If resource is instance, meter can be "cpu", "disk-os", "memory",
+                "disk-"+attached_volume_id, "if-"+vxnet_mac_address.
+                If resource is volume, meter should be "disk-"+volume_id.
+                If resource is eip, meter should be "traffic".
+                If resource is router, meter should be "vxnet-0".
+                ''')
 
         parser.add_argument('-s', '--step', dest='step',
                 action='store', type=str, default=None,
@@ -27,11 +33,11 @@ class GetMonitorAction(BaseAction):
 
         parser.add_argument('-b', '--start_time', dest='start_time',
                 action='store', type=str, default=None,
-                help='the starting time stamp in the format YYYY-MM-DDThh:mm:ssZ.')
+                help='the start time(UTC) in the format YYYY-MM-DDThh:mm:ssZ.')
 
         parser.add_argument('-e', '--end_time', dest='end_time',
                 action='store', type=str, default=None,
-                help='the ending time stamp in the format YYYY-MM-DDThh:mm:ssZ.')
+                help='the end time(UTC) in the format YYYY-MM-DDThh:mm:ssZ.')
 
     @classmethod
     def build_directive(cls, options):

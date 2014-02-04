@@ -15,11 +15,14 @@ class GetLoadBalancerMonitorAction(BaseAction):
 
         parser.add_argument('-r', '--resource', dest='resource',
                 action='store', type=str, default=None,
-                help='the ID of resource you want to get its monitoring data.')
+                help='the ID of resource, can be loadbalancer_id, listener_id or backend_id.')
 
         parser.add_argument('-m', '--meters', dest='meters',
                 action='store', type=str, default=None,
-                help='list of metering types you want to get.')
+                help='''list of metering types you want to get.
+                If resouce is loadbalancer, meter should be "traffic",
+                otherwise meter should be "request".
+                ''')
 
         parser.add_argument('-s', '--step', dest='step',
                 action='store', type=str, default=None,
@@ -27,11 +30,11 @@ class GetLoadBalancerMonitorAction(BaseAction):
 
         parser.add_argument('-b', '--start_time', dest='start_time',
                 action='store', type=str, default=None,
-                help='the starting time stamp in the format YYYY-MM-DDThh:mm:ssZ.')
+                help='the start time(UTF) stamp in the format YYYY-MM-DDThh:mm:ssZ.')
 
         parser.add_argument('-e', '--end_time', dest='end_time',
                 action='store', type=str, default=None,
-                help='the ending time stamp in the format YYYY-MM-DDThh:mm:ssZ.')
+                help='the end time(UTF) stamp in the format YYYY-MM-DDThh:mm:ssZ.')
 
     @classmethod
     def build_directive(cls, options):

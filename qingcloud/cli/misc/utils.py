@@ -3,6 +3,7 @@
 import os
 import json
 import time
+from datetime import datetime
 
 from .yaml_tool import yaml_load
 
@@ -65,9 +66,18 @@ def prints(req, rep):
     #print "recv:", json.dumps(rep, indent=2)
     print json.dumps(rep, indent=2, ensure_ascii=False)
 
+ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
 def get_expire_time():
     curr_ts = time.time()
     adjust = 20 * 60
     expire_ts = curr_ts + adjust
-    ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
     return time.strftime(ISO8601, time.gmtime(expire_ts))
+
+def convert_to_utctime(time_str):
+    try:
+        _format = '%Y-%m-%d %H:%M:%S'
+        dt = datetime.strptime(time_str, _format)
+        gmt = time.gmtime(time.mktime(dt.timetuple()))
+        return time.strftime(ISO8601, gmt)
+    except:
+        return None

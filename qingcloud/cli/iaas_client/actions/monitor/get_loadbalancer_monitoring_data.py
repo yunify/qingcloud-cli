@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from qingcloud.cli.iaas_client.actions.base import BaseAction
-from qingcloud.cli.misc.utils import explode_array
+from qingcloud.cli.misc.utils import explode_array, convert_to_utctime
 
 class GetLoadBalancerMonitorAction(BaseAction):
 
@@ -30,20 +30,22 @@ class GetLoadBalancerMonitorAction(BaseAction):
 
         parser.add_argument('-b', '--start_time', dest='start_time',
                 action='store', type=str, default=None,
-                help='the start time(UTF) stamp in the format YYYY-MM-DDThh:mm:ssZ.')
+                help='the start time stamp in the format YYYY-MM-DD hh:mm:ss.')
 
         parser.add_argument('-e', '--end_time', dest='end_time',
                 action='store', type=str, default=None,
-                help='the end time(UTF) stamp in the format YYYY-MM-DDThh:mm:ssZ.')
+                help='the end time stamp in the format YYYY-MM-DD hh:mm:ss.')
 
     @classmethod
     def build_directive(cls, options):
+        start_time = convert_to_utctime(options.start_time)
+        end_time = convert_to_utctime(options.end_time)
         required_params = {
                 'resource': options.resource,
                 'meters': options.meters,
                 'step': options.step,
-                'start_time': options.start_time,
-                'end_time': options.end_time,
+                'start_time': start_time,
+                'end_time': end_time,
                 }
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
@@ -54,6 +56,6 @@ class GetLoadBalancerMonitorAction(BaseAction):
                 'resource': options.resource,
                 'meters': explode_array(options.meters),
                 'step': options.step,
-                'start_time': options.start_time,
-                'end_time': options.end_time,
+                'start_time': start_time,
+                'end_time': end_time,
                 }

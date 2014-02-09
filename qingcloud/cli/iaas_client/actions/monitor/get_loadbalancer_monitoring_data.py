@@ -36,6 +36,10 @@ class GetLoadBalancerMonitorAction(BaseAction):
                 action='store', type=str, default=None,
                 help='the end time stamp in the format YYYY-MM-DD hh:mm:ss.')
 
+        parser.add_argument('--decompress', dest='decompress',
+                action='store_true',
+                help='decompress mointoring data from api.')
+
     @classmethod
     def build_directive(cls, options):
         start_time = convert_to_utctime(options.start_time)
@@ -58,4 +62,5 @@ class GetLoadBalancerMonitorAction(BaseAction):
                 'step': options.step,
                 'start_time': start_time,
                 'end_time': end_time,
+                'decompress': options.decompress,
                 }

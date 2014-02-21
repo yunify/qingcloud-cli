@@ -13,7 +13,7 @@ def explode_array(list_str, separator = ","):
     """
     if not list_str:
         return []
-    return [item for item in list_str.split(separator) if item.strip() != '']
+    return [item.strip() for item in list_str.split(separator) if item.strip() != '']
 
 def send_request(action, directive, mgmt_handler):
     request = directive

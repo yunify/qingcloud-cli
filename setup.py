@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 config_sample = '''
 qy_access_key_id: 'QINGCLOUDACCESSKEYID'
 qy_secret_access_key: 'QINGCLOUDSECRETACCESSKEYEXAMPLE'
-zone: 'pek1'
+zone: 'ZONEID'
 '''
 
 def is_windows():

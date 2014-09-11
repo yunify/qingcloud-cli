@@ -1,5 +1,6 @@
 # coding: utf-8
 
+from qingcloud.cli.iaas_client.actions import job
 from qingcloud.cli.iaas_client.actions import instance
 from qingcloud.cli.iaas_client.actions import volume
 from qingcloud.cli.iaas_client.actions import eip
@@ -18,6 +19,9 @@ class ActionManager(object):
         return cls.action_table.get(action)
 
     action_table = {
+            ## job ##
+            'describe-jobs': job.DescribeJobsAction,
+
             ## instance ##
             'run-instances': instance.RunInstancesAction,
             'modify-instance-attributes': instance.ModifyInstanceAttributesAction,

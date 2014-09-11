@@ -11,6 +11,9 @@ class IaasHandler(object):
         '''
 
         handler_map = {
+                # jobs
+                const.ACTION_DESCRIBE_JOBS: self.conn.describe_jobs,
+
                 # images
                 const.ACTION_DESCRIBE_IMAGES: self.conn.describe_images,
                 const.ACTION_DELETE_IMAGES: self.conn.delete_images,

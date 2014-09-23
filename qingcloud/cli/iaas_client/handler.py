@@ -79,6 +79,7 @@ class IaasHandler(object):
                 const.ACTION_LEAVE_ROUTER: self.conn.leave_router,
                 const.ACTION_DESCRIBE_ROUTER_VXNETS: self.conn.describe_router_vxnets,
                 const.ACTION_MODIFY_ROUTER_ATTRIBUTES: self.conn.modify_router_attributes,
+                const.ACTION_MODIFY_ROUTER_STATIC_ATTRIBUTES: self.conn.modify_router_static_attributes,
                 const.ACTION_DESCRIBE_ROUTER_STATICS: self.conn.describe_router_statics,
                 const.ACTION_ADD_ROUTER_STATICS: self.conn.add_router_statics,
                 const.ACTION_DELETE_ROUTER_STATICS: self.conn.delete_router_statics,
@@ -120,7 +121,7 @@ class IaasHandler(object):
             directive = {}
 
         if action not in handler_map:
-            print "can not handler this action: [%s]" % action
+            print "can not handle this action: [%s]" % action
 
         try:
             return handler_map[action](**directive)

@@ -85,6 +85,7 @@ class ActionManager(object):
             'leave-router': router.LeaveRouterAction,
             'create-routers': router.CreateRoutersAction,
             'modify-router-attributes': router.ModifyRouterAttributesAction,
+            'modify-router-static-attributes': router.ModifyRouterStaticAttributesAction,
             'delete-router-statics': router.DeleteRouterStaticsAction,
             'delete-routers': router.DeleteRoutersAction,
             'poweroff-routers': router.PowerOffRoutersAction,

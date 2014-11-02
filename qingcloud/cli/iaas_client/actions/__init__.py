@@ -50,6 +50,7 @@ class ActionManager(object):
             'associate-eip': eip.AssociateEipAction,
             'dissociate-eips': eip.DissociateEipsAction,
             'change-eips-bandwidth': eip.ChangeEipsBandwidthAction,
+            'change-eips-billing-mode': eip.ChangeEipsBillingModeAction,
 
             ## sg ##
             'create-security-group': sg.CreateSecurityGroupAction,

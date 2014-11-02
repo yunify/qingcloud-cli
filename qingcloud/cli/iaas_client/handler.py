@@ -92,6 +92,7 @@ class IaasHandler(object):
                 const.ACTION_RELEASE_EIPS: self.conn.release_eips,
                 const.ACTION_MODIFY_EIP_ATTRIBUTES: self.conn.modify_eip_attributes,
                 const.ACTION_CHANGE_EIPS_BANDWIDTH: self.conn.change_eips_bandwidth,
+                const.ACTION_CHANGE_EIPS_BILLING_MODE: self.conn.change_eips_billing_mode,
 
                 # lb
                 const.ACTION_DESCRIBE_LOADBALANCERS: self.conn.describe_loadbalancers,

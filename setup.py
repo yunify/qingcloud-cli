@@ -50,7 +50,7 @@ else:
 
 setup(
     name = 'qingcloud-cli',
-    version = '0.9.9',
+    version = '1.0',
     description = 'Command Line Interface for QingCloud.',
     long_description = open('README.rst', 'rb').read().decode('utf-8'),
     keywords = 'qingcloud iaas cli',
@@ -65,7 +65,7 @@ setup(
     install_requires = [
         'argparse>=1.1',
         'PyYAML>=3.1',
-        'qingcloud-sdk>=0.9.1',
+        'qingcloud-sdk>=0.9.2',
     ]
 )
 

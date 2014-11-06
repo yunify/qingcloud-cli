@@ -11,6 +11,7 @@ from qingcloud.cli.iaas_client.actions import sg
 from qingcloud.cli.iaas_client.actions import vxnet
 from qingcloud.cli.iaas_client.actions import lb
 from qingcloud.cli.iaas_client.actions import monitor
+from qingcloud.cli.iaas_client.actions import snapshot
 
 class ActionManager(object):
 
@@ -124,4 +125,13 @@ class ActionManager(object):
             ## monitor ##
             'get-monitoring-data': monitor.GetMonitorAction,
             'get-loadbalancer-monitoring-data': monitor.GetLoadBalancerMonitorAction,
+
+            ## snapshot ##
+            'describe-snapshots': snapshot.DescribeSnapshotsAction,
+            'create-snapshots': snapshot.CreateSnapshotsAction,
+            'delete-snapshots': snapshot.DeleteSnapshotsAction,
+            'apply-snapshots': snapshot.ApplySnapshotsAction,
+            'modify-snapshot-attributes': snapshot.ModifySnapshotAttributesAction,
+            'capture-instance-from-snapshot': snapshot.CaptureInstanceFromSnapshotAction,
+            'create-volume-from-snapshot': snapshot.CreateVolumeFromSnapshotAction,
             }

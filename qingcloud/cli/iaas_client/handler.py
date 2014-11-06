@@ -116,6 +116,15 @@ class IaasHandler(object):
                 # monitor
                 const.ACTION_GET_MONITOR: self.conn.get_monitoring_data,
                 const.ACTION_GET_LOADBALANCER_MONITOR: self.conn.get_loadbalancer_monitoring_data,
+
+                # snapshot
+                const.ACTION_DESCRIBE_SNAPSHOTS: self.conn.describe_snapshots,
+                const.ACTION_CREATE_SNAPSHOTS: self.conn.create_snapshots,
+                const.ACTION_DELETE_SNAPSHOTS: self.conn.delete_snapshots,
+                const.ACTION_APPLY_SNAPSHOTS: self.conn.apply_snapshots,
+                const.ACTION_MODIFY_SNAPSHOT_ATTRIBUTES: self.conn.modify_snapshot_attributes,
+                const.ACTION_CAPTURE_INSTANCE_FROM_SNAPSHOT: self.conn.capture_instance_from_snapshot,
+                const.ACTION_CREATE_VOLUME_FROM_SNAPSHOT: self.conn.create_volume_from_snapshot,
                 }
 
         if not isinstance(directive, dict):

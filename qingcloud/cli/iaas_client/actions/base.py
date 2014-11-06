@@ -29,6 +29,14 @@ class BaseAction(object):
 
     @classmethod
     def add_common_arguments(cls, parser):
+        parser.add_argument('-z', '--zone', dest='zone',
+                action='store', type=str, default=None,
+                help='the ID of zone you want to access, this will override zone ID in config file.')
+
+        parser.add_argument('-f', '--config', dest='conf_file',
+                action='store', type=str, default='~/.qingcloud/config.yaml',
+                help='config file of your access keys')
+
         if cls.command.startswith('describe-'):
             parser.add_argument('-O', '--offset', dest='offset',
                     action='store', type=int, default=0,
@@ -37,10 +45,6 @@ class BaseAction(object):
             parser.add_argument('-L', '--limit', dest='limit',
                     action='store', type=int, default=20,
                     help='specify the number of the returning results.')
-
-        parser.add_argument('-f', '--config', dest='conf_file',
-                action='store', type=str, default='~/.qingcloud/config.yaml',
-                help='config file of your access keys')
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -65,6 +69,9 @@ class BaseAction(object):
         if conf is None:
             sys.exit(-1)
         conf['expires'] = get_expire_time()
+
+        if options.zone:
+            conf.update(zone=options.zone)
 
         # send request
         connection = APIConnection(**conf)

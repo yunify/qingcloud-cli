@@ -64,7 +64,8 @@ def prints(req, rep):
     #print "sending:", json.dumps(req, indent=2)
     #print '======================================='
     #print "recv:", json.dumps(rep, indent=2)
-    print json.dumps(rep, indent=2, ensure_ascii=False)
+    content = json.dumps(rep, indent=2, ensure_ascii=False)
+    print content.encode('utf-8')
 
 ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
 def get_expire_time():

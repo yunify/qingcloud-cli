@@ -29,6 +29,11 @@ def check_argument(args):
         exit_due_to_invalid_args()
     if args[1] not in SERVICES:
         exit_due_to_invalid_args()
+    if args[2].lower() in ('--version', '-v'):
+        import pkg_resources
+        version = pkg_resources.require("qingcloud-cli")[0].version
+        print 'qingcloud-cli %s' % version
+        sys.exit(0)
     if args[2] not in valid_actions:
         suggest_actions = get_close_matches(args[2], valid_actions)
         exit_due_to_invalid_args(suggest_actions)

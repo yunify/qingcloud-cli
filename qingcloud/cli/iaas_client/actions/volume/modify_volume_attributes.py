@@ -26,7 +26,7 @@ class ModifyVolumeAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.volume_id:
-            print 'error: [volumes_id] should be specified'
+            print('error: [volumes_id] should be specified')
             return None
 
         return {

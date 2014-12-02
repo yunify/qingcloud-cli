@@ -28,7 +28,7 @@ class ModifyInstanceAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if options.instance_id == '':
-            print 'error:instance_id should be specified'
+            print('error:instance_id should be specified')
             return None
 
         return {

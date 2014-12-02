@@ -51,16 +51,16 @@ class ModifySecurityGroupRuleAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.security_group_rule:
-            print 'error: [security_group_rule] should be specified'
+            print('error: [security_group_rule] should be specified')
             return None
 
         if options.rule_action or options.direction or options.protocol:
             if not options.priority:
-                print 'error: [priority] should be specified'
+                print('error: [priority] should be specified')
                 return None
 
             if not options.protocol:
-                print 'error: [protocol] should be specified'
+                print('error: [protocol] should be specified')
                 return None
 
         return {

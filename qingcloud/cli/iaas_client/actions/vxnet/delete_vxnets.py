@@ -19,7 +19,7 @@ class DeleteVxnetsAction(BaseAction):
     def build_directive(cls, options):
         vxnets = explode_array(options.vxnets)
         if not vxnets:
-            print '[vxnets] should be specified.'
+            print('[vxnets] should be specified.')
             return None
         
         return {'vxnets': vxnets}

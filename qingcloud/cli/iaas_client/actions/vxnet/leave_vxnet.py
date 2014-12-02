@@ -23,7 +23,7 @@ class LeaveVxnetAction(BaseAction):
     def build_directive(cls, options):
         instances = explode_array(options.instances)
         if not options.vxnet or not instances:
-            print 'error: [instances] and [vxnet] should be specified'
+            print('error: [instances] and [vxnet] should be specified')
             return None
 
         return {

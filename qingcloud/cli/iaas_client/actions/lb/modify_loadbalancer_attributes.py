@@ -31,7 +31,7 @@ class ModifyLoadBalancerAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.loadbalancer:
-            print 'error: load balancer should be specified'
+            print('error: load balancer should be specified')
             return None
 
         return {

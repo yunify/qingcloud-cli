@@ -53,15 +53,15 @@ class ModifyRouterAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.router:
-            print 'error: [router] should be specified.'
+            print('error: [router] should be specified.')
             return None
 
         if options.features is not None and not options.vxnet:
-            print 'error: [vxnet] should be specified if modify features.'
+            print('error: [vxnet] should be specified if modify features.')
             return None
 
         if (options.dyn_ip_start or options.dyn_ip_end) and options.features is None:
-            print 'error: [features] should be specified if modify ip range.'
+            print('error: [features] should be specified if modify ip range.')
             return None
 
         return {

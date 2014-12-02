@@ -27,7 +27,7 @@ class StopInstancesAction(BaseAction):
     def build_directive(cls, options):
         instances = explode_array(options.instances)
         if not instances:
-            print 'error: [instances] should be specified'
+            print('error: [instances] should be specified')
             return None
 
         directive = {

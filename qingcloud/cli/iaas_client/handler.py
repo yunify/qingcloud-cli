@@ -131,9 +131,9 @@ class IaasHandler(object):
             directive = {}
 
         if action not in handler_map:
-            print "can not handle this action: [%s]" % action
+            print("can not handle this action: [%s]" % action)
 
         try:
             return handler_map[action](**directive)
         except StandardError, e:
-            print e
+            print(e)

@@ -25,7 +25,7 @@ class AttachKeyPairsAction(BaseAction):
         keypairs = explode_array(options.keypairs)
         instances = explode_array(options.instances)
         if not keypairs or not instances:
-            print 'note: [keypairs] and [instances] should be specified'
+            print('note: [keypairs] and [instances] should be specified')
             return None
             
         return {

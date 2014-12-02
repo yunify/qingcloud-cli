@@ -25,7 +25,7 @@ class ApplySecurityGroupAction(BaseAction):
         required_params = {'security_group_id': options.security_group_id} 
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
-                print 'error: [%s] should be specified' % param
+                print('error: [%s] should be specified' % param)
                 return None
         
         return {

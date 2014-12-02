@@ -26,7 +26,7 @@ class ModifySnapshotAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.snapshot:
-            print 'error: [snapshot] should be specified'
+            print('error: [snapshot] should be specified')
             return None
 
         return {

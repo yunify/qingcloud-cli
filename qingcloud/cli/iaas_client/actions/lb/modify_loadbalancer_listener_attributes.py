@@ -47,7 +47,7 @@ class ModifyLoadBalancerListenerAttributessAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.lb_listener:
-            print 'error: listener should be specified'
+            print('error: listener should be specified')
             return None
 
         forwardfor = options.forwardfor

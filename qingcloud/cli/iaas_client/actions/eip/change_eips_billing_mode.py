@@ -27,7 +27,7 @@ class ChangeEipsBillingModeAction(BaseAction):
         eips = explode_array(options.eips)
         billing_mode = options.billing_mode
         if not eips or not billing_mode:
-            print 'error: [eips] and [billing-mode] should be specified'
+            print('error: [eips] and [billing-mode] should be specified')
             return None
 
         return {

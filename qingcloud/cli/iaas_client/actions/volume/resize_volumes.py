@@ -24,11 +24,11 @@ class ResizeVolumesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.volumes:
-            print 'error: [volumes] should be specified'
+            print('error: [volumes] should be specified')
             return None
 
         if options.size <= 0:
-            print 'error: [size] should be larger than 0'
+            print('error: [size] should be larger than 0')
             return None
 
         return {

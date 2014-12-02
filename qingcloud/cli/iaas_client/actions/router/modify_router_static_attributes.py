@@ -1,6 +1,5 @@
 # coding: utf-8
 
-import json
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
 class ModifyRouterStaticAttributesAction(BaseAction):
@@ -54,7 +53,7 @@ class ModifyRouterStaticAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.router_static:
-            print 'error: [router-static] should be specified.'
+            print('error: [router-static] should be specified.')
             return None
 
         directive = {

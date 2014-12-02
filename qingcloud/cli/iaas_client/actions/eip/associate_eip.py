@@ -23,7 +23,7 @@ class AssociateEipAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.eip_id or not options.instance_id:
-            print 'error: [eip] and [instance] should be specified'
+            print('error: [eip] and [instance] should be specified')
             return None
             
         return {

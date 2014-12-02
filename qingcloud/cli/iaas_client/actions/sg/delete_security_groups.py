@@ -19,7 +19,7 @@ class DeleteSecurityGroupsAction(BaseAction):
     def build_directive(cls, options):
         security_groups = explode_array(options.security_groups)
         if not security_groups:
-            print '[security_groups] should be specified.'
+            print('[security_groups] should be specified.')
             return None
         
         return {

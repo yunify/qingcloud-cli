@@ -34,7 +34,7 @@ class DescribeVxnetInstancesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.vxnet:
-            print '[vxnet] should be provided'
+            print('[vxnet] should be provided')
             return None
 
         return {

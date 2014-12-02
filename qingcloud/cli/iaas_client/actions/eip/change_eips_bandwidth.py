@@ -27,7 +27,7 @@ class ChangeEipsBandwidthAction(BaseAction):
         eips = explode_array(options.eips)
         bandwidth = options.bandwidth
         if not eips or not bandwidth:
-            print 'error: [eips] and [bandwidth] should be specified'
+            print('error: [eips] and [bandwidth] should be specified')
             return None
 
         return {

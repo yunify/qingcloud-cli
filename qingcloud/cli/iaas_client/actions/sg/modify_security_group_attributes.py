@@ -29,7 +29,7 @@ class ModifySecurityGroupAttributesAction(BaseAction):
                 }
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
-                print 'param [%s] should be specified' % param
+                print('param [%s] should be specified' % param)
                 return None
 
         return {

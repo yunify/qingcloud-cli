@@ -21,7 +21,7 @@ class DescribeRouterVxnetsAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.router:
-            print 'error: [router] should be specified'
+            print('error: [router] should be specified')
             return None
 
         return {

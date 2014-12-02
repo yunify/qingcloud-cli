@@ -31,7 +31,7 @@ class ModifyLoadBalancerBackendAttributesAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.lb_backend:
-            print 'error: backend should be specified'
+            print('error: backend should be specified')
             return None
 
         return {

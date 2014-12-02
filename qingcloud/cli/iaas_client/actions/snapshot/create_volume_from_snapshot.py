@@ -23,7 +23,7 @@ class CreateVolumeFromSnapshotAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.snapshot:
-            print 'error: [snapshots] should be specified'
+            print('error: [snapshots] should be specified')
             return None
 
         return {

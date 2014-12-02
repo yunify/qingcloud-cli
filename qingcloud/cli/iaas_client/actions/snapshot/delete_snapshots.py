@@ -19,7 +19,7 @@ class DeleteSnapshotsAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.snapshots:
-            print 'error: [snapshots] should be specified'
+            print('error: [snapshots] should be specified')
             return None
 
         return {'snapshots': explode_array(options.snapshots)}

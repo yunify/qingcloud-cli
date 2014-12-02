@@ -25,7 +25,7 @@ class CreateVxnetsAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
         if not options.vxnet_name:
-            print '[vxnet_name] should be specified.'
+            print('[vxnet_name] should be specified.')
             return None
         
         return {

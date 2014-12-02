@@ -24,7 +24,7 @@ class ReleaseEipsAction(BaseAction):
     def build_directive(cls, options):
         eips = explode_array(options.eips)
         if not eips:
-            print 'error: [eips] should be specified'
+            print('error: [eips] should be specified')
             return None
 
         return {

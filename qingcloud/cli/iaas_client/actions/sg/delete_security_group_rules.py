@@ -19,7 +19,7 @@ class DeleteSecurityGroupRulesAction(BaseAction):
     def build_directive(cls, options):
         security_group_rules = explode_array(options.security_group_rules)
         if not security_group_rules:
-            print "[security_groups_rules] should be specified."
+            print("[security_groups_rules] should be specified.")
             return None
         
         return {

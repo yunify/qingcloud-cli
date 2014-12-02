@@ -31,24 +31,24 @@ def load_conf(conf_file):
             ]
 
     if conf_file == "":
-        print "config file should be specified"
+        print("config file should be specified")
         return None
 
     if conf_file.startswith('~'):
         conf_file = os.path.expanduser(conf_file)
 
     if not os.path.isfile(conf_file):
-        print "config file [%s] not exists" % conf_file
+        print("config file [%s] not exists" % conf_file)
         return None
 
     with open(conf_file, "r") as fd:
         conf = yaml_load(fd)
         if conf is None:
-            print "config file [%s] format error" % conf_file
+            print("config file [%s] format error" % conf_file)
             return None
         for param in require_params:
             if param not in conf:
-                print "[%s] should be specified in conf_file" % param
+                print("[%s] should be specified in conf_file" % param)
                 return None
     return conf
 
@@ -60,12 +60,12 @@ def prints(req, rep):
     if isinstance(rep, str):
         rep = json.loads(rep)
 
-    #print '======================================='
-    #print "sending:", json.dumps(req, indent=2)
-    #print '======================================='
-    #print "recv:", json.dumps(rep, indent=2)
+    #print('=======================================')
+    #print("sending:%s" % json.dumps(req, indent=2))
+    #print('=======================================')
+    #print("recv:%s" % json.dumps(rep, indent=2))
     content = json.dumps(rep, indent=2, ensure_ascii=False)
-    print content.encode('utf-8')
+    print(content.encode('utf-8'))
 
 ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
 def get_expire_time():

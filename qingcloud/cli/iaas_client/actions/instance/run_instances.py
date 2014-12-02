@@ -67,11 +67,11 @@ class RunInstancesAction(BaseAction):
                 }
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
-                print 'error: [%s] should be specified' % param
+                print('error: [%s] should be specified' % param)
                 return None
         if not options.instance_type:
             if not options.cpu or not options.memory:
-                print 'error: [instance_type] should be specified or specify both [cpu] and [memory]'
+                print('error: [instance_type] should be specified or specify both [cpu] and [memory]')
                 return None
 
         return {

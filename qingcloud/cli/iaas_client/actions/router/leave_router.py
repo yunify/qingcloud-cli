@@ -24,7 +24,7 @@ class LeaveRouterAction(BaseAction):
         router = options.router
         vxnets = explode_array(options.vxnets)
         if not router or not vxnets:
-            print 'error: [router] and [vxnets] should be specified.'
+            print('error: [router] and [vxnets] should be specified.')
             return None
 
         return {

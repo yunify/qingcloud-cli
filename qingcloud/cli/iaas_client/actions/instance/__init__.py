@@ -7,3 +7,8 @@ from .run_instances import RunInstancesAction
 from .start_instances import StartInstancesAction
 from .stop_instances import StopInstancesAction
 from .terminate_instances import TerminateInstancesAction
+
+__all__ = [DescribeInstancesAction, ModifyInstanceAttributesAction,
+        ResetInstancesAction, ResizeInstancesAction, RestartInstancesAction,
+        RunInstancesAction, StartInstancesAction, StopInstancesAction,
+        TerminateInstancesAction]

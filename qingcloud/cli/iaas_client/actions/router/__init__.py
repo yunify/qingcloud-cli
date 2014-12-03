@@ -12,3 +12,10 @@ from .modify_router_static_attributes import ModifyRouterStaticAttributesAction
 from .poweroff_routers import PowerOffRoutersAction
 from .poweron_routers import PowerOnRoutersAction
 from .update_routers import UpdateRoutersAction
+
+__all__ = [AddRouterStaticsAction, CreateRoutersAction, DeleteRouterStaticsAction,
+        DeleteRoutersAction, DescribeRouterStaticsAction,
+        DescribeRouterVxnetsAction, DescribeRoutersAction,
+        JoinRouterAction, LeaveRouterAction, ModifyRouterAttributesAction,
+        ModifyRouterStaticAttributesAction, PowerOffRoutersAction,
+        PowerOnRoutersAction, UpdateRoutersAction]

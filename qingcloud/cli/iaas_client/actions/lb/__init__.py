@@ -15,3 +15,12 @@ from .modify_loadbalancer_listener_attributes import ModifyLoadBalancerListenerA
 from .start_loadbalancers import StartLoadBalancersAction
 from .stop_loadbalancers import StopLoadBalancersAction
 from .update_loadbalancers import UpdateLoadBalancersAction
+
+__all__ = [AddLoadBalancerBackendsAction, AddLoadBalancerListenersAction,
+        AssociateEipsToLoadBalancerAction, CreateLoadBalancerAction,
+        DeleteLoadBalancerBackendsAction, DeleteLoadBalancerListenersAction,
+        DeleteLoadBalancersAction, DescribeLoadBalancerBackendsAction,
+        DescribeLoadBalancerListenersAction, DescribeLoadBalancersAction,
+        DissociateEipsFromLoadBalancerAction, ModifyLoadBalancerAttributesAction,
+        ModifyLoadBalancerBackendAttributesAction, ModifyLoadBalancerListenerAttributessAction,
+        StartLoadBalancersAction, StopLoadBalancersAction, UpdateLoadBalancersAction]

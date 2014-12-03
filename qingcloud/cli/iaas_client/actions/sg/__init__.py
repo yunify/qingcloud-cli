@@ -7,3 +7,9 @@ from .create_security_group import CreateSecurityGroupAction
 from .modify_security_group_attributes import ModifySecurityGroupAttributesAction
 from .delete_security_group_rules import DeleteSecurityGroupRulesAction
 from .modify_security_group_rule_attributes import ModifySecurityGroupRuleAttributesAction
+
+__all__ = [DeleteSecurityGroupsAction, AddSecurityGroupRulesAction,
+        DescribeSecurityGroupRulesAction, ApplySecurityGroupAction,
+        DescribeSecurityGroupsAction, CreateSecurityGroupAction,
+        ModifySecurityGroupAttributesAction, DeleteSecurityGroupRulesAction,
+        ModifySecurityGroupRuleAttributesAction]

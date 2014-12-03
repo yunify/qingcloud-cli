@@ -5,3 +5,7 @@ from .describe_volumes import DescribeVolumesAction
 from .detach_volumes import DetachVolumesAction
 from .modify_volume_attributes import ModifyVolumeAttributesAction
 from .resize_volumes import ResizeVolumesAction
+
+__all__ = [AttachVolumesAction, CreateVolumesAction, DeleteVolumesAction,
+        DescribeVolumesAction, DetachVolumesAction,
+        ModifyVolumeAttributesAction, ResizeVolumesAction]

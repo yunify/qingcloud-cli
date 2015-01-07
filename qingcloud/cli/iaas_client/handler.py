@@ -135,5 +135,5 @@ class IaasHandler(object):
 
         try:
             return handler_map[action](**directive)
-        except StandardError, e:
+        except Exception as e:
             print(e)

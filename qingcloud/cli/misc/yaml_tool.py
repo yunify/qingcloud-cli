@@ -14,7 +14,7 @@ def yaml_dump(obj):
     '''
     try:
         output = dump(obj, Dumper=Dumper)
-    except Exception, e:
+    except Exception as e:
         print(e)
         output = None
     return output
@@ -27,7 +27,7 @@ def yaml_load(stream):
     '''
     try:
         obj = load(stream, Loader=Loader)
-    except Exception, e:
+    except Exception as e:
         print(e)
         obj = None
     return obj

@@ -65,7 +65,11 @@ def prints(req, rep):
     #print('=======================================')
     #print("recv:%s" % json.dumps(rep, indent=2))
     content = json.dumps(rep, indent=2, ensure_ascii=False)
-    print(content.encode('utf-8'))
+    # python2/3 compatibility
+    if str(type(content)) == "<type 'unicode'>":
+        print(content.encode('utf-8'))
+    else:
+        print(content)
 
 ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
 def get_expire_time():

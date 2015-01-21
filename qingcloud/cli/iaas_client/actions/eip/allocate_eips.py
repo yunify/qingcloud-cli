@@ -19,6 +19,10 @@ class AllocateEipsAction(BaseAction):
                 action='store', type=int, default=None,
                 help='the bandwidth of the eip. Unit is MB.')
 
+        parser.add_argument('-B', '--billing-mode', dest='billing_mode',
+                action='store', type=str, default="bandwidth",
+                help='the billing mode of the eip: "bandwidth" or "traffic".')
+
         parser.add_argument('-i', '--need_icp', dest='need_icp',
                 action='store', type=int, default=0,
                 help='whether need ICP code.')
@@ -38,6 +42,7 @@ class AllocateEipsAction(BaseAction):
         return {
                 'count': options.count,
                 'bandwidth': options.bandwidth,
+                'billing_mode': options.billing_mode,
                 'eip_name' : options.eip_name,
                 'need_icp': options.need_icp,
                 }

@@ -50,7 +50,7 @@ else:
 
 setup(
     name = 'qingcloud-cli',
-    version = '1.0.1',
+    version = '1.0.2',
     description = 'Command Line Interface for QingCloud.',
     long_description = open('README.rst', 'rb').read().decode('utf-8'),
     keywords = 'qingcloud iaas cli',

@@ -10,12 +10,15 @@ SERVICES = ('iaas')
 valid_actions = list(ActionManager.action_table.keys())
 valid_actions.sort()
 
+INDENT = ' ' * 2
+NEWLINE = '\n' + INDENT
+
 def exit_due_to_invalid_args(suggest_actions=None):
-    usage = '%(prog)s iaas <action> [parameters]\n\nHere are valid actions:\n\n'
-    usage += '\n'.join(valid_actions)
+    usage = NEWLINE + '%(prog)s iaas <action> [parameters]\n\nHere are valid actions:\n\n'
+    usage += INDENT + NEWLINE.join(valid_actions)
     if suggest_actions:
         usage += '\n\nInvalid action, maybe you meant:\n'
-        usage += '\n'.join(suggest_actions)
+        usage += NEWLINE.join(suggest_actions)
 
     parser = argparse.ArgumentParser(
         prog = 'qingcloud',

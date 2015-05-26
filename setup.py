@@ -33,12 +33,13 @@ def setup_qingcloud_completer():
 
     cmd = 'complete -C qingcloud_completer qingcloud'
     complete_file = '/etc/bash_completion.d/qingcloud-cli'
-    if not os.path.exists(os.path.dirname(complete_file)):
-        with open(os.path.expanduser('~/.bash_profile'), 'a') as fd:
-            fd.write('\n\n# QingCloud CLI\n%s\n' % cmd)
-    else:
+    complete_dir = os.path.dirname(complete_file)
+    if os.path.exists(complete_dir) and os.access(complete_dir, os.W_OK):
         with open((complete_file), 'w') as fd:
             fd.write(cmd)
+    else:
+        with open(os.path.expanduser('~/.bash_profile'), 'a') as fd:
+            fd.write('\n\n# QingCloud CLI\n%s\n' % cmd)
 
 
 if len(sys.argv) < 2 or sys.argv[1] != 'install':

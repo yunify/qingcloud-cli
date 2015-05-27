@@ -7,7 +7,7 @@ with it you can check, create, delete and operate all your resources,
 it supports Linux, Mac and Windows for now.
 
 This CLI is licensed under
-   `Apache Licence, Version 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>`_.
+`Apache Licence, Version 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>`_.
   
 .. note::
   Requires Python 2.6 or higher, for more information please see
@@ -52,7 +52,7 @@ Getting Started
 -----------------
 
 To use qingcloud-cli, there must be a configuration file to configure your own
-``qy_access_key_id`` , ``qy_secret_access_key`` and ``zone`` . For example ::
+``qy_access_key_id`` , ``qy_secret_access_key`` and ``zone`` , such as::
 
   qy_access_key_id: 'QINGCLOUDACCESSKEYID'
   qy_secret_access_key: 'QINGCLOUDSECRETACCESSKEYEXAMPLE'
@@ -61,11 +61,11 @@ To use qingcloud-cli, there must be a configuration file to configure your own
 access key can be applied for in `Qingcloud Console <https://console.qingcloud.com/access_keys/>`_.
 zone is the Node ID where your resources are,
 and it can be checked in the switching node on the console,
-such as 'pek1', 'pek2', 'gd1', 'ap1' etc.
+such as ``pek1``, ``pek2``, ``gd1``, ``ap1`` .
 
-The configuration files are put in ``~/.qingcloud/config.yaml`` by default,
-and it can be also assigned by the parameter ``-f /path/to/config``
-every time the command is executed.
+The configuration file is saved in ``~/.qingcloud/config.yaml`` by default,
+it also can be assigned by the parameter ``-f /path/to/config``
+when executing the command.
 
 
 ----------------
@@ -74,11 +74,11 @@ Input Parameters
 
 The parameters of qingcloud-cli only include ``int`` and ``string`` type.
 If the parameters support the list passing,
-the values shall be separated by *English comma* "," . For example::
+the values shall be separated by *English comma* . For example::
 
   qingcloud iaas describe-keypairs -k 'kp-bn2n77ow, kp-b2ivaf15' -L 2
 
-Sometimes, the parameter needs to be the character string in JSON format, such as::
+Sometimes, the parameter needs to be string in JSON format, such as::
 
   qingcloud iaas add-router-statics -r rtr-ba2nbge6 -s '[{"static_type":1,"val1":"80","val2":"192.168.99.2","val3":"8000"}]'
 

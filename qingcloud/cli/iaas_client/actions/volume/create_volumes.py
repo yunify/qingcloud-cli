@@ -29,6 +29,14 @@ class CreateVolumesAction(BaseAction):
                 action='store', type=int, default=None,
                 help='the size of each volume. Unit is GB.')
 
+        parser.add_argument('-t', '--type', dest='volume_type',
+                action='store', type=int, default=0,
+                help='''the type of volumes:
+                "0" means high performance volume.
+                "1" means high capacity volume in pek1, gd1, ap1.
+                "2" means high capacity volume in pek2.
+                ''')
+
         parser.add_argument('-c', '--count', dest='count',
                 action='store', type=int, default=1,
                 help='the number of volumes to create.')
@@ -48,5 +56,6 @@ class CreateVolumesAction(BaseAction):
         return {
                 'size': options.size,
                 'count' : options.count,
-                'volume_name' : options.volume_name
+                'volume_name' : options.volume_name,
+                'volume_type' : options.volume_type,
                 }

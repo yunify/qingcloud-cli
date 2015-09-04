@@ -110,6 +110,12 @@ class IaasHandler(object):
                 const.ACTION_CHANGE_EIPS_BANDWIDTH: self.conn.change_eips_bandwidth,
                 const.ACTION_CHANGE_EIPS_BILLING_MODE: self.conn.change_eips_billing_mode,
 
+                # dns alias
+                const.ACTION_DESCRIBE_DNS_ALIASES: self.conn.describe_dns_aliases,
+                const.ACTION_ASSOCIATE_DNS_ALIAS: self.conn.associate_dns_alias,
+                const.ACTION_DISSOCIATE_DNS_ALIASES: self.conn.dissociate_dns_aliases,
+                const.ACTION_GET_DNS_LABEL: self.conn.get_dns_label,
+
                 # lb
                 const.ACTION_DESCRIBE_LOADBALANCERS: self.conn.describe_loadbalancers,
                 const.ACTION_CREATE_LOADBALANCER: self.conn.create_loadbalancer,

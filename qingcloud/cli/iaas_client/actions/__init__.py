@@ -26,6 +26,7 @@ from qingcloud.cli.iaas_client.actions import vxnet
 from qingcloud.cli.iaas_client.actions import lb
 from qingcloud.cli.iaas_client.actions import monitor
 from qingcloud.cli.iaas_client.actions import snapshot
+from qingcloud.cli.iaas_client.actions import dns_alias
 
 class ActionManager(object):
 
@@ -148,4 +149,10 @@ class ActionManager(object):
             'modify-snapshot-attributes': snapshot.ModifySnapshotAttributesAction,
             'capture-instance-from-snapshot': snapshot.CaptureInstanceFromSnapshotAction,
             'create-volume-from-snapshot': snapshot.CreateVolumeFromSnapshotAction,
+
+            ## dns alias ##
+            'describe-dns-aliases': dns_alias.DescribeDNSAliasesAction,
+            'associate-dns-alias': dns_alias.AssociateDNSAliasAction,
+            'dissociate-dns-aliases': dns_alias.DissociateDNSAliasesAction,
+            'get-dns-label': dns_alias.GetDNSLabelAction,
             }

@@ -38,6 +38,10 @@ class ModifyLoadBalancerBackendAttributesAction(BaseAction):
                 action='store', type=int, default=None,
                 help='the backend weight, valid value is from 1 to 100.')
 
+        parser.add_argument('--disabled', dest='disabled',
+                action='store', type=int, default=None,
+                help='disable this backend or not, 0: enable, 1: disable.')
+
         parser.add_argument('-N', '--name', dest='name',
                 action='store', type=str, default=None,
                 help='new backend name')
@@ -53,4 +57,5 @@ class ModifyLoadBalancerBackendAttributesAction(BaseAction):
                 'loadbalancer_backend_name': options.name,
                 'port': options.port,
                 'weight': options.weight,
+                'disabled': options.disabled,
                 }

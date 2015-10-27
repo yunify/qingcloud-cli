@@ -27,6 +27,7 @@ from qingcloud.cli.iaas_client.actions import lb
 from qingcloud.cli.iaas_client.actions import monitor
 from qingcloud.cli.iaas_client.actions import snapshot
 from qingcloud.cli.iaas_client.actions import dns_alias
+from qingcloud.cli.iaas_client.actions import tag
 
 class ActionManager(object):
 
@@ -155,4 +156,13 @@ class ActionManager(object):
             'associate-dns-alias': dns_alias.AssociateDNSAliasAction,
             'dissociate-dns-aliases': dns_alias.DissociateDNSAliasesAction,
             'get-dns-label': dns_alias.GetDNSLabelAction,
+
+            ## tag ##
+            'create-tag': tag.CreateTagAction,
+            'describe-tags': tag.DescribeTagsAction,
+            'attach-tags': tag.AttachTagsAction,
+            'detach-tags': tag.DetachTagsAction,
+            'modify-tag-attributes': tag.ModifyTagAttributesAction,
+            'delete-tags': tag.DeleteTagsAction,
+
             }

@@ -1,1 +1,5 @@
 *.pyg
+*.pyc
+build/
+dist/
+qingcloud_cli.egg-info/

@@ -51,7 +51,7 @@ class BaseAction(object):
                 action='store', type=str, default='~/.qingcloud/config.yaml',
                 help='config file of your access keys')
 
-        if cls.command.startswith('describe-'):
+        if cls.command.startswith('describe-') and not cls.command.startswith('describe-tags'):
             parser.add_argument('-O', '--offset', dest='offset',
                     action='store', type=int, default=0,
                     help='the starting offset of the returning results.')
@@ -59,6 +59,10 @@ class BaseAction(object):
             parser.add_argument('-L', '--limit', dest='limit',
                     action='store', type=int, default=20,
                     help='specify the number of the returning results.')
+
+            parser.add_argument('-T', '--tags', dest='tags',
+                action='store', type=str, default='',
+                help='tags: the IDs of tags.')
 
     @classmethod
     def add_ext_arguments(cls, parser):

@@ -51,4 +51,5 @@ class DescribeRoutersAction(BaseAction):
                 'search_word': options.search_word,
                 'offset':options.offset,
                 'limit': options.limit,
+                'tags': explode_array(options.tags),
                 }

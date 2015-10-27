@@ -65,4 +65,5 @@ class DescribeInstancesAction(BaseAction):
                 'verbose': options.verbose,
                 'offset':options.offset,
                 'limit': options.limit,
+                'tags': explode_array(options.tags),
                 }

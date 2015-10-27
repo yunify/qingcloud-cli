@@ -19,7 +19,7 @@ from qingcloud.iaas import constants as const
 class IaasHandler(object):
     ''' handle request and send requests to pitrix service '''
 
-    def __init__(self, connection = None):
+    def __init__(self, connection=None):
         self.conn = connection
 
     def handle(self, action, directive):
@@ -49,7 +49,7 @@ class IaasHandler(object):
 
                 # volumes
                 const.ACTION_DESCRIBE_VOLUMES: self.conn.describe_volumes,
-                const.ACTION_CREATE_VOLUMES : self.conn.create_volumes,
+                const.ACTION_CREATE_VOLUMES: self.conn.create_volumes,
                 const.ACTION_DELETE_VOLUMES: self.conn.delete_volumes,
                 const.ACTION_ATTACH_VOLUMES: self.conn.attach_volumes,
                 const.ACTION_DETACH_VOLUMES: self.conn.detach_volumes,
@@ -147,7 +147,15 @@ class IaasHandler(object):
                 const.ACTION_MODIFY_SNAPSHOT_ATTRIBUTES: self.conn.modify_snapshot_attributes,
                 const.ACTION_CAPTURE_INSTANCE_FROM_SNAPSHOT: self.conn.capture_instance_from_snapshot,
                 const.ACTION_CREATE_VOLUME_FROM_SNAPSHOT: self.conn.create_volume_from_snapshot,
-                }
+
+                # key pair
+                const.ACTION_DESCRIBE_TAGS: self.conn.describe_tags,
+                const.ACTION_ATTACH_TAGS: self.conn.attach_tags,
+                const.ACTION_DETACH_TAGS: self.conn.detach_tags,
+                const.ACTION_CREATE_TAG: self.conn.create_tag,
+                const.ACTION_DELETE_TAGS: self.conn.delete_tags,
+                const.ACTION_MODIFY_TAG_ATTRIBUTES: self.conn.modify_tag_attributes,
+        }
 
         if not isinstance(directive, dict):
             directive = {}

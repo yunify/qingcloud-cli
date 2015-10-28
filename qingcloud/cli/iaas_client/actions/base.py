@@ -69,7 +69,7 @@ class BaseAction(object):
         if cls.command in actions_with_tags:
             parser.add_argument('-T', '--tags', dest='tags',
                 action='store', type=str, default='',
-                help='tags: the IDs of tags.')
+                help='the comma separated IDs of tags.')
 
     @classmethod
     def add_ext_arguments(cls, parser):

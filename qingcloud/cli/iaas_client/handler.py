@@ -148,7 +148,7 @@ class IaasHandler(object):
                 const.ACTION_CAPTURE_INSTANCE_FROM_SNAPSHOT: self.conn.capture_instance_from_snapshot,
                 const.ACTION_CREATE_VOLUME_FROM_SNAPSHOT: self.conn.create_volume_from_snapshot,
 
-                # key pair
+                # tags
                 const.ACTION_DESCRIBE_TAGS: self.conn.describe_tags,
                 const.ACTION_ATTACH_TAGS: self.conn.attach_tags,
                 const.ACTION_DETACH_TAGS: self.conn.detach_tags,

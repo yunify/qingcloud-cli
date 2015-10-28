@@ -51,7 +51,13 @@ class BaseAction(object):
                 action='store', type=str, default='~/.qingcloud/config.yaml',
                 help='config file of your access keys')
 
-        if cls.command.startswith('describe-') and not cls.command.startswith('describe-tags'):
+        actions_with_tags = ['describe-instances', 'describe-volumes',
+                             'describe-keypairs', 'describe-security-groups',
+                             'describe-vxnets', 'describe-routers',
+                             'describe-eips', 'describe-loadbalancers',
+                             'describe-snapshots']
+
+        if cls.command.startswith('describe-'):
             parser.add_argument('-O', '--offset', dest='offset',
                     action='store', type=int, default=0,
                     help='the starting offset of the returning results.')
@@ -60,6 +66,7 @@ class BaseAction(object):
                     action='store', type=int, default=20,
                     help='specify the number of the returning results.')
 
+        if cls.command in actions_with_tags:
             parser.add_argument('-T', '--tags', dest='tags',
                 action='store', type=str, default='',
                 help='tags: the IDs of tags.')

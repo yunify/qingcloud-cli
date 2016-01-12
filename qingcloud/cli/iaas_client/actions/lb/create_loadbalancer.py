@@ -27,6 +27,10 @@ class CreateLoadBalancerAction(BaseAction):
     @classmethod
     def add_ext_arguments(cls, parser):
 
+        parser.add_argument('-t', '--loadbalancer_type', dest='loadbalancer_type',
+                action='store', type=int, default='0',
+                help='the type of load balancer.')
+
         parser.add_argument('-e', '--eips', dest='eips',
                 action='store', type=str, default='',
                 help='the comma separated IDs of eips you want to associate.')
@@ -38,6 +42,10 @@ class CreateLoadBalancerAction(BaseAction):
         parser.add_argument('-s', '--sg', dest='sg',
                 action='store', type=str, default=None,
                 help='the ID of security group which will be applied to load balancer.')
+
+        parser.add_argument('-c', '--node_count', dest='node_count',
+                action='store', type=int, default=None,
+                help='the number of nodes in load balancer cluster.')
 
     @classmethod
     def build_directive(cls, options):
@@ -52,5 +60,7 @@ class CreateLoadBalancerAction(BaseAction):
         return {
                 'eips': explode_array(options.eips),
                 'loadbalancer_name': options.name,
+                'loadbalancer_type': options.loadbalancer_type,
                 'security_group': options.sg,
+                'node_count': options.node_count,
                 }

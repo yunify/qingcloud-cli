@@ -33,13 +33,6 @@ class BaseAction(object):
     @classmethod
     def add_common_arguments(cls, parser):
         parser.add_argument(
-            "-v",
-            "--version",
-            action="version",
-            version="%(prog)s version 0.1 Copyright (c) 2016 Yunify, Inc.",
-            help="Show the version"
-        )
-        parser.add_argument(
             "-f",
             "--config",
             dest="conf_file",

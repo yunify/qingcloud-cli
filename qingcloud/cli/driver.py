@@ -78,7 +78,7 @@ def check_argument(args):
 
     if args[1].lower() in ('--version', '-v'):
         version = pkg_resources.require("qingcloud-cli")[0].version
-        print('qingcloud-cli %s' % version)
+        print('qingcloud-cli version %s' % version)
         sys.exit(0)
 
     service = args[1]

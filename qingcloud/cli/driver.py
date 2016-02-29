@@ -14,25 +14,27 @@
 # limitations under the License.
 # =========================================================================
 
-import argparse
 import sys
+import argparse
+import pkg_resources
 from difflib import get_close_matches
 
-from .iaas_client.actions import ActionManager
+from .iaas_client.actions import ActionManager as IaaSActionManager
+from .qs_client.actions import ActionManager as QSActionManager
 
-SERVICES = ('iaas')
-valid_actions = list(ActionManager.action_table.keys())
-valid_actions.sort()
+SERVICES = ('iaas', 'qs')
 
 INDENT = ' ' * 2
 NEWLINE = '\n' + INDENT
 
-def exit_due_to_invalid_args(suggest_actions=None):
-    usage = NEWLINE + '%(prog)s iaas <action> [parameters]\n\nHere are valid actions:\n\n'
-    usage += INDENT + NEWLINE.join(valid_actions)
-    if suggest_actions:
-        usage += '\n\nInvalid action, maybe you meant:\n'
-        usage += NEWLINE.join(suggest_actions)
+def exit_due_to_invalid_service(suggest_services=None):
+    usage = NEWLINE + '%(prog)s <service> <action> [parameters]\n\n' \
+                + 'Here are valid services:\n\n' \
+                + INDENT + NEWLINE.join(SERVICES)
+
+    if suggest_services:
+        usage += '\n\nInvalid service, maybe you meant:' \
+                + ','.join(suggest_services)
 
     parser = argparse.ArgumentParser(
         prog = 'qingcloud',
@@ -41,29 +43,60 @@ def exit_due_to_invalid_args(suggest_actions=None):
     parser.print_help()
     sys.exit(-1)
 
-def check_argument(args):
-    if len(args) < 3:
-        exit_due_to_invalid_args()
-    if args[1] not in SERVICES:
-        exit_due_to_invalid_args()
-    if args[2].lower() in ('--version', '-v'):
-        import pkg_resources
-        version = pkg_resources.require("qingcloud-cli")[0].version
-        print('qingcloud-cli %s' % version)
-        sys.exit(0)
-    if args[2] not in valid_actions:
-        suggest_actions = get_close_matches(args[2], valid_actions)
-        exit_due_to_invalid_args(suggest_actions)
+def exit_due_to_invalid_action(service, suggest_actions=None):
+    usage = NEWLINE + '%(prog)s <action> [parameters]\n\n' \
+                + 'Here are valid actions:\n\n' \
+                + INDENT + NEWLINE.join(get_valid_actions(service))
+
+    if suggest_actions:
+        usage += '\n\nInvalid action, maybe you meant:\n' \
+                + NEWLINE.join(suggest_actions)
+
+    parser = argparse.ArgumentParser(
+        prog = 'qingcloud %s' % service,
+        usage = usage,
+    )
+    parser.print_help()
+    sys.exit(-1)
+
+def get_valid_actions(service):
+    if service == 'iaas':
+        return IaaSActionManager.get_valid_actions()
+    elif service == 'qs':
+        return QSActionManager.get_valid_actions()
 
 def get_action(service, action):
     if service == 'iaas':
-        return ActionManager.get_action(action)
-    exit_due_to_invalid_args()
+        return IaaSActionManager.get_action(action)
+    elif service == 'qs':
+        return QSActionManager.get_action(action)
+
+def check_argument(args):
+
+    if len(args) < 2:
+        exit_due_to_invalid_service()
+
+    if args[1].lower() in ('--version', '-v'):
+        version = pkg_resources.require("qingcloud-cli")[0].version
+        print('qingcloud-cli %s' % version)
+        sys.exit(0)
+
+    service = args[1]
+
+    if service not in SERVICES:
+        suggest_services = get_close_matches(service, SERVICES)
+        exit_due_to_invalid_service(suggest_services)
+
+    if len(args) < 3:
+        exit_due_to_invalid_action(service)
+
+    valid_actions = get_valid_actions(service)
+    if args[2] not in valid_actions:
+        suggest_actions = get_close_matches(args[2], valid_actions)
+        exit_due_to_invalid_action(service, suggest_actions)
 
 def main():
     args = sys.argv
     check_argument(args)
-
-    service = args[1]
-    action = get_action(service, args[2])
+    action = get_action(args[1], args[2])
     action.main(args[3:])

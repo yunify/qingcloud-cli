@@ -16,21 +16,17 @@
 
 import sys
 
-from .iaas_client.actions import ActionManager
-
+from .driver import get_valid_actions
 
 def return_choices(choices):
     print('\n'.join(choices))
     sys.exit(0)
 
-
 def return_no_choices():
     sys.exit(0)
 
-
 def complete(cmdline, point):
-    service_names = ('iaas',)
-    action_names = ActionManager.action_table.keys()
+    service_names = ('iaas', 'qs')
 
     service_name = None
     action_name = None
@@ -46,18 +42,20 @@ def complete(cmdline, point):
     for w in non_options:
         if w in service_names:
             service_name = w
-        elif w in action_names:
-            action_name = w
 
     # If we found service name, complete the action name
     if service_name:
+        action_names = get_valid_actions(service_name)
         if current_word != service_name:
             action_names = [act for act in action_names if act.startswith(current_word)]
             if action_name and len(action_names) == 1:
                 return_no_choices()
         return_choices(action_names)
     else:
-        return_choices(service_names)
+        closed_services = [s for s in service_names if s.startswith(current_word)]
+        if not closed_services:
+            closed_services = service_names
+        return_choices(closed_services)
 
 if __name__ == '__main__':
     if len(sys.argv) == 3:

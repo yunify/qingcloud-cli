@@ -72,7 +72,7 @@ when executing the command.
 Input Parameters
 ----------------
 
-The parameters of qingcloud-cli only include ``int`` and ``string`` type.
+For iaas service, the parameters of qingcloud-cli only include ``int`` and ``string`` type.
 If the parameters support the list passing,
 the values shall be separated by *English comma* . For example::
 
@@ -82,13 +82,19 @@ Sometimes, the parameter needs to be string in JSON format, such as::
 
   qingcloud iaas add-router-statics -r rtr-ba2nbge6 -s '[{"static_type":1,"val1":"80","val2":"192.168.99.2","val3":"8000"}]'
 
+For qs service, the parameters include ``int``, ``string`` and ``list`` type.
+If the parameters support the list passing,
+the values shall be separated by *spaces*. For example::
+
+  qingcloud qs set-bucket-acl -b mybucket -A QS_ACL_EVERYONE,READ usr-wmTc0avW,FULL_CONTROL
+
 
 --------------
 Command Output
 --------------
 
 The returned result of Command is in JSON format.
-For example, the returned result of describe-keypair.::
+For example, the returned result of describe-keypair of 'iaas' service.::
 
   {
     "action":"DescribeKeyPairsResponse",
@@ -115,4 +121,32 @@ For example, the returned result of describe-keypair.::
       }
     ],
     "ret_code":0
+  }
+
+The returned result of list-objects of 'qs' service.::
+
+  {
+    "name": "mybucket",
+    "keys": [
+      {
+        "key": "myphoto.jpg",
+        "size": 67540,
+        "modified": 1456226022,
+        "mime_type": "image/jpeg",
+        "created": "2016-02-23T11:13:42.000Z"
+      },
+      {
+        "key": "mynote.txt",
+        "size": 11,
+        "modified": 1456298679,
+        "mime_type": "text/plain",
+        "created": "2016-02-24T06:49:23.000Z"
+      }
+    ],
+    "prefix": "",
+    "owner": "qingcloud",
+    "delimiter": "",
+    "limit": 20,
+    "marker": "mynote.txt",
+    "common_prefixes": []
   }

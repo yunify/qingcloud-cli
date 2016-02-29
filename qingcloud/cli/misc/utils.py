@@ -66,6 +66,9 @@ def load_conf(conf_file):
                 return None
     return conf
 
+def json_dumps(data, indent=0, ensure_ascii=False):
+    return json.dumps(data, indent=indent, ensure_ascii=ensure_ascii)
+
 def prints(req, rep):
     """ print request and reply """
 
@@ -78,12 +81,19 @@ def prints(req, rep):
     #print("sending:%s" % json.dumps(req, indent=2))
     #print('=======================================')
     #print("recv:%s" % json.dumps(rep, indent=2))
-    content = json.dumps(rep, indent=2, ensure_ascii=False)
+    content = json_dumps(rep, indent=2, ensure_ascii=False)
     # python2/3 compatibility
     if str(type(content)) == "<type 'unicode'>":
         print(content.encode('utf-8'))
     else:
         print(content)
+
+def prints_body(resp):
+    if resp.getheader("content-type").startswith("application/json"):
+        body = json.loads(resp.read())
+        print json_dumps(body, indent=2)
+    else:
+        print resp.read()
 
 ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
 def get_expire_time():

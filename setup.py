@@ -51,13 +51,13 @@ else:
 
 setup(
     name = 'qingcloud-cli',
-    version = '1.0.5',
+    version = '1.0.6',
     description = 'Command Line Interface for QingCloud.',
     long_description = open('README.rst', 'rb').read().decode('utf-8'),
-    keywords = 'qingcloud iaas cli',
+    keywords = 'qingcloud iaas qingstor cli',
     author = 'Yunify Team',
     author_email = 'simon@yunify.com',
-    url = 'https://docs.qingcloud.com/cli/',
+    url = 'https://docs.qingcloud.com',
     scripts=bin_scripts,
     packages = find_packages('.'),
     package_dir = {'qingcloud-cli': 'qingcloud'},

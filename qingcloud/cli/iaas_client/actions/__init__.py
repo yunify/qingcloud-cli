@@ -35,6 +35,10 @@ class ActionManager(object):
     def get_action(cls, action):
         return cls.action_table.get(action)
 
+    @classmethod
+    def get_valid_actions(cls):
+        return sorted(ActionManager.action_table.keys())
+
     action_table = {
             ## job ##
             'describe-jobs': job.DescribeJobsAction,

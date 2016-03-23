@@ -29,7 +29,6 @@ def complete(cmdline, point):
     service_names = ('iaas', 'qs')
 
     service_name = None
-    action_name = None
     words = cmdline[0:point].split()
     if not words:
         return
@@ -48,7 +47,7 @@ def complete(cmdline, point):
         action_names = get_valid_actions(service_name)
         if current_word != service_name:
             action_names = [act for act in action_names if act.startswith(current_word)]
-            if action_name and len(action_names) == 1:
+            if current_word in action_names and len(action_names) == 1:
                 return_no_choices()
         return_choices(action_names)
     else:

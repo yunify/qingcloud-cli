@@ -29,6 +29,10 @@ class DescribeVxnetsAction(BaseAction):
                 action='store', type=str, default='',
                 help='the comma separated IDs of vxnets you want to list.')
 
+        parser.add_argument('-t', '--vxnet_type', dest='vxnet_type',
+                action='store', type=int, default=None,
+                help='filter by vxnet type: 0 - unmanaged vxnet, 1 - managed vxnet')
+
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
                 help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
@@ -41,9 +45,10 @@ class DescribeVxnetsAction(BaseAction):
     def build_directive(cls, options):
         return {
                 'vxnets': explode_array(options.vxnets),
+                'vxnet_type': options.vxnet_type,
                 'search_word': options.search_word,
                 'verbose': options.verbose,
-                'offset':options.offset,
+                'offset': options.offset,
                 'limit': options.limit,
                 'tags': explode_array(options.tags),
                 }

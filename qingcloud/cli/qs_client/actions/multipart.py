@@ -20,7 +20,7 @@ import json
 
 from .base import BaseAction
 from ...misc.utils import prints_body
-from ..constants import BUFSIZE, HTTP_OK_CREATED, HTTP_OK_NO_CONTENT
+from ..constants import HTTP_OK_CREATED, HTTP_OK_NO_CONTENT
 
 class InitiateMultipartAction(BaseAction):
 

@@ -75,7 +75,7 @@ class CreateObjectAction(BaseAction):
                 print "No such file: %s" % options.file
                 sys.exit(-1)
             key = options.key or os.path.basename(options.file)
-            data = open(options.file, "r")
+            data = open(options.file, "rb")
         elif options.data:
             key = options.key
             if not key:

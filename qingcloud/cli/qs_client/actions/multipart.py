@@ -119,7 +119,7 @@ class UploadMultipartAction(BaseAction):
             if not os.path.isfile(options.file):
                 print "No such file: %s" % options.file
                 sys.exit(-1)
-            data = open(options.file, "r")
+            data = open(options.file, "rb")
         elif options.data:
             data = options.data
         else:

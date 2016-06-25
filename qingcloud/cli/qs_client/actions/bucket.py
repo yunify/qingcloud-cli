@@ -224,7 +224,7 @@ class SetBucketAclAction(BaseAction):
             nargs="*",
             help="ACL entries, each entry is in format "
                  "user_id,permission. permission can be READ, "
-                 "WRITE or FULL. Multiple entries are separated by spaces"
+                 "WRITE or FULL_CONTROL. Multiple entries are separated by spaces"
         )
         return parser
 

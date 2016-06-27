@@ -71,6 +71,10 @@ class RunInstancesAction(BaseAction):
                 action='store', type=str, default='',
                 help='login_keypair, should specified when SSH login mode is "keypair".')
 
+        parser.add_argument('--hostname', dest='hostname',
+                action='store', type=str, default='',
+                help='the hostname you want to specify for the new instance.')
+
         return parser
 
     @classmethod
@@ -100,4 +104,5 @@ class RunInstancesAction(BaseAction):
                 'login_mode': options.login_mode,
                 'login_passwd': options.login_passwd,
                 'login_keypair': options.login_keypair,
+                'hostname': options.hostname,
                 }

@@ -75,6 +75,22 @@ class RunInstancesAction(BaseAction):
                 action='store', type=str, default='',
                 help='the hostname you want to specify for the new instance.')
 
+        parser.add_argument('--need_userdata', dest='need_userdata',
+                action='store_const', const=1,
+                help='use userdata')
+
+        parser.add_argument('--userdata_type', dest='userdata_type',
+                action='store', type=str, default=None,
+                help='userdata_type: plain, exec, tar')
+
+        parser.add_argument('--userdata_value', dest='userdata_value',
+                action='store', type=str, default=None,
+                help='userdata_value')
+
+        parser.add_argument('--userdata_path', dest='userdata_path',
+                action='store', type=str, default=None,
+                help='userdata_path')
+
         return parser
 
     @classmethod
@@ -105,4 +121,8 @@ class RunInstancesAction(BaseAction):
                 'login_passwd': options.login_passwd,
                 'login_keypair': options.login_keypair,
                 'hostname': options.hostname,
+                'need_userdata': options.need_userdata or 0,
+                'userdata_type': options.userdata_type,
+                'userdata_path': options.userdata_path,
+                'userdata_value': options.userdata_value,
                 }

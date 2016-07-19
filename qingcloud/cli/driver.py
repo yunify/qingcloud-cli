@@ -33,7 +33,7 @@ def exit_due_to_invalid_service(suggest_services=None):
                 + INDENT + NEWLINE.join(SERVICES)
 
     if suggest_services:
-        usage += '\n\nInvalid service, maybe you meant:' \
+        usage += '\n\nInvalid service, maybe you meant:\n  ' \
                 + ','.join(suggest_services)
 
     parser = argparse.ArgumentParser(
@@ -49,7 +49,7 @@ def exit_due_to_invalid_action(service, suggest_actions=None):
                 + INDENT + NEWLINE.join(get_valid_actions(service))
 
     if suggest_actions:
-        usage += '\n\nInvalid action, maybe you meant:\n' \
+        usage += '\n\nInvalid action, maybe you meant:\n  ' \
                 + NEWLINE.join(suggest_actions)
 
     parser = argparse.ArgumentParser(

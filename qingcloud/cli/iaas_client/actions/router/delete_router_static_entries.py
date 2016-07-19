@@ -17,24 +17,24 @@
 from qingcloud.cli.misc.utils import explode_array
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
-class DeleteRouterStaticsAction(BaseAction):
+class DeleteRouterStaticEntriesAction(BaseAction):
 
-    action = 'DeleteRouterStatics'
-    command = 'delete-router-statics'
-    usage = '%(prog)s -s "router_static_id, ..." [-f <conf_file>]'
+    action = 'DeleteRouterStaticEntries'
+    command = 'delete-router-static-entries'
+    usage = '%(prog)s -e "router_static_entry_id, ..." [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
-        parser.add_argument('-s', '--router_statics', dest='router_statics',
+        parser.add_argument('-e', '--router_static_entries', dest='router_static_entries',
                 action='store', type=str, default='',
-                help='the comma separated IDs of router_statics you want to delete. ')
+                help='the comma separated IDs of router static entries you want to delete. ')
 
     @classmethod
     def build_directive(cls, options):
-        router_statics = explode_array(options.router_statics)
-        if not router_statics:
+        router_static_entries = explode_array(options.router_static_entries)
+        if not router_static_entries:
             return None
 
         return {
-            'router_statics': router_statics,
+            'router_static_entries': router_static_entries,
         }

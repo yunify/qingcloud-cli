@@ -99,6 +99,10 @@ class IaasHandler(object):
                 const.ACTION_DESCRIBE_ROUTER_STATICS: self.conn.describe_router_statics,
                 const.ACTION_ADD_ROUTER_STATICS: self.conn.add_router_statics,
                 const.ACTION_DELETE_ROUTER_STATICS: self.conn.delete_router_statics,
+                const.ACTION_MODIFY_ROUTER_STATIC_ENTRY_ATTRIBUTES: self.conn.modify_router_static_entry_attributes,
+                const.ACTION_DESCRIBE_ROUTER_STATIC_ENTRIES: self.conn.describe_router_static_entries,
+                const.ACTION_ADD_ROUTER_STATIC_ENTRIES: self.conn.add_router_static_entries,
+                const.ACTION_DELETE_ROUTER_STATIC_ENTRIES: self.conn.delete_router_static_entries,
 
                 # eips
                 const.ACTION_DESCRIBE_EIPS: self.conn.describe_eips,

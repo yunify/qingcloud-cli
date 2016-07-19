@@ -103,17 +103,21 @@ class ActionManager(object):
 
             ## router ##
             'add-router-statics': router.AddRouterStaticsAction,
+            'add-router-static-entries': router.AddRouterStaticEntriesAction,
             'join-router': router.JoinRouterAction,
             'leave-router': router.LeaveRouterAction,
             'create-routers': router.CreateRoutersAction,
             'modify-router-attributes': router.ModifyRouterAttributesAction,
             'modify-router-static-attributes': router.ModifyRouterStaticAttributesAction,
+            'modify-router-static-entry-attributes': router.ModifyRouterStaticEntryAttributesAction,
             'delete-router-statics': router.DeleteRouterStaticsAction,
+            'delete-router-static-entries': router.DeleteRouterStaticEntriesAction,
             'delete-routers': router.DeleteRoutersAction,
             'poweroff-routers': router.PowerOffRoutersAction,
             'poweron-routers': router.PowerOnRoutersAction,
             'describe-routers': router.DescribeRoutersAction,
             'describe-router-statics': router.DescribeRouterStaticsAction,
+            'describe-router-static-entries': router.DescribeRouterStaticEntriesAction,
             'describe-router-vxnets': router.DescribeRouterVxnetsAction,
             'update-routers': router.UpdateRoutersAction,
 

@@ -14,27 +14,40 @@
 # limitations under the License.
 # =========================================================================
 
-from qingcloud.cli.misc.utils import explode_array
+import json
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
-class DeleteRouterStaticsAction(BaseAction):
+class AddRouterStaticEntriesAction(BaseAction):
 
-    action = 'DeleteRouterStatics'
-    command = 'delete-router-statics'
-    usage = '%(prog)s -s "router_static_id, ..." [-f <conf_file>]'
+    action = 'AddRouterStaticEntries'
+    command = 'add-router-static-entries'
+    usage = '%(prog)s -r <router_static_id> -e <entries> [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
-        parser.add_argument('-s', '--router_statics', dest='router_statics',
+        parser.add_argument('-s', '--static', dest='static',
                 action='store', type=str, default='',
-                help='the comma separated IDs of router_statics you want to delete. ')
+                help='the ID of router static you want to add entries to.')
+
+        parser.add_argument('-e', '--entries', dest='entries',
+                action='store', type=str, default='',
+                help='''
+                JSON string of static entry list. e.g.
+                '[{"val1":"vpn username","val2":"vpn passwd"}]'
+                ''')
 
     @classmethod
     def build_directive(cls, options):
-        router_statics = explode_array(options.router_statics)
-        if not router_statics:
-            return None
+        required_params = {
+            'static': options.static,
+            'entries': options.entries,
+        }
+        for param in required_params:
+            if required_params[param] is None or required_params[param] == '':
+                print('param [%s] should be specified' % param)
+                return None
 
         return {
-            'router_statics': router_statics,
+            'router_static': options.static,
+            'entries': json.loads(options.entries),
         }

@@ -64,9 +64,15 @@ class ModifySecurityGroupRuleAttributesAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
-        if not options.security_group_rule:
-            print('error: [security_group_rule] should be specified')
-            return None
+        required_params = {
+            'security_group_rule': options.security_group_rule,
+            'priority': options.priority,
+            'protocol': options.protocol,
+        }
+        for param in required_params:
+            if required_params[param] is None:
+                print('param [%s] should be specified' % param)
+                return None
 
         if options.rule_action or options.direction or options.protocol:
             if not options.priority:

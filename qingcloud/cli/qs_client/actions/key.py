@@ -63,7 +63,7 @@ class CreateObjectAction(BaseAction):
             "-t",
             "--type",
             dest="type",
-            default="application/oct-stream",
+            default="application/octet-stream",
             help="The object type"
         )
         return parser

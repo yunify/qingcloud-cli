@@ -83,6 +83,10 @@ class ActionManager(object):
             'modify-security-group-rule-attributes': sg.ModifySecurityGroupRuleAttributesAction,
             'add-security-group-rules': sg.AddSecurityGroupRulesAction,
             'delete-security-group-rules': sg.DeleteSecurityGroupRulesAction,
+            'describe-security-group-ipsets': sg.DescribeSecurityGroupIPSetsAction,
+            'modify-security-group-ipset-attributes': sg.ModifySecurityGroupIPSetAttributesAction,
+            'create-security-group-ipset': sg.CreateSecurityGroupIPSetAction,
+            'delete-security-group-ipsets': sg.DeleteSecurityGroupIPSetsAction,
 
             ## keypair ##
             'create-keypair': keypair.CreateKeyPairAction,

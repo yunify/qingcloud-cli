@@ -28,6 +28,7 @@ from qingcloud.cli.iaas_client.actions import monitor
 from qingcloud.cli.iaas_client.actions import snapshot
 from qingcloud.cli.iaas_client.actions import dns_alias
 from qingcloud.cli.iaas_client.actions import tag
+from qingcloud.cli.iaas_client.actions import notification
 
 class ActionManager(object):
 
@@ -40,6 +41,9 @@ class ActionManager(object):
         return sorted(ActionManager.action_table.keys())
 
     action_table = {
+            ## notification ##
+            'describe-notification-center-user-posts': notification.DescribeNotificationCenterUserPostsAction,
+
             ## job ##
             'describe-jobs': job.DescribeJobsAction,
 

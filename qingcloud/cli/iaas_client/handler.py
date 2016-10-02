@@ -27,6 +27,9 @@ class IaasHandler(object):
         '''
 
         handler_map = {
+                # notification
+                const.ACTION_DESCRIBE_NOTIFICATION_CENTER_USER_POSTS: self.conn.describe_notification_center_user_posts,
+
                 # jobs
                 const.ACTION_DESCRIBE_JOBS: self.conn.describe_jobs,
 

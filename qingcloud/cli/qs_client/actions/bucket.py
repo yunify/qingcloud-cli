@@ -223,7 +223,7 @@ class SetBucketAclAction(BaseAction):
             required=True,
             nargs="*",
             help="ACL entries, each entry is in format "
-                 "user_id,permission. permission can be READ, "
+                 "type,id|name,permission. permission can be READ, "
                  "WRITE or FULL_CONTROL. Multiple entries are separated by spaces"
         )
         return parser
@@ -231,11 +231,25 @@ class SetBucketAclAction(BaseAction):
     @classmethod
     def send_request(cls, options):
         params = {"acl": None}
-        body = {}
+        acl = []
         for pairs in options.acl:
-            grantee, perm = pairs.split(",")
-            body[grantee] = perm
+            parts = pairs.split(",")
+            if len(parts) != 3:
+                print "Error: Argument -A or --acl is wrong"
+                exit(1)
+            t, grantee, perm = parts
+            if t == "user":
+                grantee = {"type": t, "id": grantee}
+            elif t == "group":
+                grantee = {"type": t, "name": grantee}
+            else:
+                print "Error: Wrong grantee type [%s]" % t
+                exit(1)
+            acl.append({
+                "grantee": grantee,
+                "permission": perm
+            })
         resp = cls.conn.make_request("PUT", options.bucket, params=params,
-                                     data=json_dumps(body))
+                                     data=json_dumps({"acl": acl}))
         if resp.status != HTTP_OK:
             prints_body(resp)

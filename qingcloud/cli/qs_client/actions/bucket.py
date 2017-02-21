@@ -253,3 +253,63 @@ class SetBucketAclAction(BaseAction):
                                      data=json_dumps({"acl": acl}))
         if resp.status != HTTP_OK:
             prints_body(resp)
+
+
+class ListMultipartUploadsAction(BaseAction):
+
+    command = "list-multipart-uploads"
+    usage = "%(prog)s -b <bucket> [-p <prefix> -d <delimiter> -m <marker> -l " \
+            + "<limit> -f <conf_file>]"
+
+    @classmethod
+    def add_ext_arguments(cls, parser):
+        parser.add_argument(
+            "-b",
+            "--bucket",
+            dest="bucket",
+            required=True,
+            help="The bucket name"
+        )
+        parser.add_argument(
+            "-p",
+            "--prefix",
+            dest="prefix",
+            help="The specified prefix that returned keys should start with"
+        )
+        parser.add_argument(
+            "-d",
+            "--delimiter",
+            dest="delimiter",
+            help="Which character to use for grouping the keys"
+        )
+        parser.add_argument(
+            "-m",
+            "--marker",
+            dest="marker",
+            help="The key to start with when listing objects in the bucket"
+        )
+        parser.add_argument(
+            "-l",
+            "--limit",
+            dest="limit",
+            type=int,
+            default=20,
+            help="The maximum number of keys returned"
+        )
+        return parser
+
+    @classmethod
+    def send_request(cls, options):
+        params = {
+            "uploads": None
+        }
+        if options.prefix:
+            params["prefix"] = options.prefix
+        if options.delimiter:
+            params["delimiter"] = options.delimiter
+        if options.marker:
+            params["marker"] = options.marker
+        if options.limit is not None:
+            params["limit"] = str(options.limit)
+        resp = cls.conn.make_request("GET", options.bucket, params=params)
+        prints_body(resp)

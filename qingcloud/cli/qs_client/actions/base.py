@@ -20,7 +20,7 @@ from argparse import ArgumentParser
 from qingcloud.qingstor.connection import QSConnection
 
 from ...misc.utils import load_conf
-from ..constants import ENDPOINT
+from ..constants import DEFAULT_ENDPOINT
 
 class BaseAction(object):
 
@@ -59,10 +59,11 @@ class BaseAction(object):
 
     @classmethod
     def get_connection(cls, conf):
+        endpoint = conf.get("endpoint", DEFAULT_ENDPOINT)
         if cls.command in ("create-bucket", "list-buckets"):
-            host = ENDPOINT
+            host = endpoint
         else:
-            host = "%s.%s" % (conf["zone"], ENDPOINT)
+            host = "%s.%s" % (conf["zone"], endpoint)
 
         return QSConnection(qy_access_key_id=conf["qy_access_key_id"], \
             qy_secret_access_key=conf["qy_secret_access_key"], host=host)

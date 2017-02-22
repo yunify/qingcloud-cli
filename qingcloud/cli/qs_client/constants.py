@@ -14,7 +14,7 @@
 # limitations under the License.
 # =========================================================================
 
-ENDPOINT = "qingstor.com"
+DEFAULT_ENDPOINT = "qingstor.com"
 
 BUFSIZE = 1024*1024*4
 

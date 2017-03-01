@@ -91,9 +91,9 @@ def prints(req, rep):
 def prints_body(resp):
     if resp.getheader("content-type").startswith("application/json"):
         body = json.loads(resp.read())
-        print json_dumps(body, indent=2)
+        print(json_dumps(body, indent=2))
     else:
-        print resp.read()
+        print(resp.read())
 
 ISO8601 = '%Y-%m-%dT%H:%M:%SZ'
 def get_expire_time():

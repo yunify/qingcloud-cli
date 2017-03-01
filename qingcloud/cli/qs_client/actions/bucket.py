@@ -48,7 +48,7 @@ class CreateBucketAction(BaseAction):
             headers["Location"] = options.zone
         resp = cls.conn.make_request("PUT", options.bucket, headers=headers)
         if resp.status == HTTP_OK_CREATED:
-            print "Bucket [%s] is created" % options.bucket
+            print("Bucket [%s] is created" % options.bucket)
         else:
             prints_body(resp)
 
@@ -96,7 +96,7 @@ class HeadBucketAction(BaseAction):
     def send_request(cls, options):
         resp = cls.conn.make_request("HEAD", options.bucket)
         if resp.status != HTTP_OK:
-            print "Error: %s %s" % (resp.status, resp.reason)
+            print("Error: %s %s" % (resp.status, resp.reason))
 
 
 class StatsBucketAction(BaseAction):
@@ -235,7 +235,7 @@ class SetBucketAclAction(BaseAction):
         for pairs in options.acl:
             parts = pairs.split(",")
             if len(parts) != 3:
-                print "Error: Argument -A or --acl is wrong"
+                print("Error: Argument -A or --acl is wrong")
                 exit(1)
             t, grantee, perm = parts
             if t == "user":
@@ -243,7 +243,7 @@ class SetBucketAclAction(BaseAction):
             elif t == "group":
                 grantee = {"type": t, "name": grantee}
             else:
-                print "Error: Wrong grantee type [%s]" % t
+                print("Error: Wrong grantee type [%s]" % t)
                 exit(1)
             acl.append({
                 "grantee": grantee,

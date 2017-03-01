@@ -72,18 +72,18 @@ class CreateObjectAction(BaseAction):
     def send_request(cls, options):
         if options.file:
             if not os.path.isfile(options.file):
-                print "No such file: %s" % options.file
+                print("No such file: %s" % options.file)
                 sys.exit(-1)
             key = options.key or os.path.basename(options.file)
             data = open(options.file, "rb")
         elif options.data:
             key = options.key
             if not key:
-                print "Must specify --key parameter"
+                print("Must specify --key parameter")
                 sys.exit(-1)
             data = options.data
         else:
-            print "Must specify --file or --data parameter"
+            print("Must specify --file or --data parameter")
             sys.exit(1)
 
         headers = {}
@@ -144,7 +144,7 @@ class GetObjectAction(BaseAction):
 
         directory = os.path.dirname(path)
         if not os.path.isdir(directory):
-            print "No such directory: %s" % directory
+            print("No such directory: %s" % directory)
             sys.exit(-1)
 
         headers = {}
@@ -230,6 +230,6 @@ class HeadObjectAction(BaseAction):
                 "ETag": resp.getheader("etag"),
                 "Last-Modified": resp.getheader("last-modified")
             }
-            print json_dumps(data, indent=2)
+            print(json_dumps(data, indent=2))
         else:
-            print "Error: %s %s" % (resp.status, resp.reason)
+            print("Error: %s %s" % (resp.status, resp.reason))

@@ -35,6 +35,10 @@ class RunInstancesAction(BaseAction):
                 help='instance type: small_b, small_c, medium_a, medium_b, medium_c, \
                 large_a, large_b, large_c')
 
+        parser.add_argument('-i', '--instance_class', dest='instance_class',
+                action='store', type=str, default=None,
+                help='instance class: 0 is performance; 1 is high performance, default 0.')
+
         parser.add_argument('-c', '--count', dest = 'count',
                 action='store', type=int, default=1,
                 help='the number of instances to launch, default 1.')
@@ -111,6 +115,7 @@ class RunInstancesAction(BaseAction):
         return {
                 'image_id': options.image_id,
                 'instance_type' : options.instance_type,
+                'instance_class' : options.instance_class,
                 'cpu': options.cpu,
                 'memory': options.memory,
                 'instance_name' : options.instance_name,

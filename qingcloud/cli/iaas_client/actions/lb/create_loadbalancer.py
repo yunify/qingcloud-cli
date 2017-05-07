@@ -47,6 +47,10 @@ class CreateLoadBalancerAction(BaseAction):
                 action='store', type=int, default=None,
                 help='the number of nodes in load balancer cluster.')
 
+        parser.add_argument('--target-user', dest='target_user',
+                action='store', type=str, default=None,
+                help='ID of user who will own this resource, should be one of your sub-account.')
+
     @classmethod
     def build_directive(cls, options):
         required_params = {
@@ -63,4 +67,5 @@ class CreateLoadBalancerAction(BaseAction):
                 'loadbalancer_type': options.loadbalancer_type,
                 'security_group': options.sg,
                 'node_count': options.node_count,
+                'target_user': options.target_user,
                 }

@@ -45,6 +45,10 @@ class AllocateEipsAction(BaseAction):
                 action='store', type=str, default='',
                 help='the short name of eip')
 
+        parser.add_argument('--target-user', dest='target_user',
+                action='store', type=str, default=None,
+                help='ID of user who will own this resource, should be one of your sub-account.')
+
     @classmethod
     def build_directive(cls, options):
         required_params = {'bandwidth': options.bandwidth}
@@ -59,4 +63,5 @@ class AllocateEipsAction(BaseAction):
                 'billing_mode': options.billing_mode,
                 'eip_name' : options.eip_name,
                 'need_icp': options.need_icp,
+                'target_user': options.target_user,
                 }

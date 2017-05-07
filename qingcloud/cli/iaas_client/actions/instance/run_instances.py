@@ -91,6 +91,10 @@ class RunInstancesAction(BaseAction):
                 action='store', type=str, default=None,
                 help='userdata_path')
 
+        parser.add_argument('--target-user', dest='target_user',
+                action='store', type=str, default=None,
+                help='ID of user who will own this resource, should be one of your sub-account.')
+
         return parser
 
     @classmethod
@@ -125,4 +129,5 @@ class RunInstancesAction(BaseAction):
                 'userdata_type': options.userdata_type,
                 'userdata_path': options.userdata_path,
                 'userdata_value': options.userdata_value,
+                'target_user': options.target_user,
                 }

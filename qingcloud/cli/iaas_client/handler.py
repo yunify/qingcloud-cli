@@ -59,6 +59,14 @@ class IaasHandler(object):
                 const.ACTION_MODIFY_VOLUME_ATTRIBUTES: self.conn.modify_volume_attributes,
                 const.ACTION_RESIZE_VOLUMES: self.conn.resize_volumes,
 
+                # nics
+                const.ACTION_DESCRIBE_NICS: self.conn.describe_nics,
+                const.ACTION_CREATE_NICS: self.conn.create_nics,
+                const.ACTION_DELETE_NICS: self.conn.delete_nics,
+                const.ACTION_ATTACH_NICS: self.conn.attach_nics,
+                const.ACTION_DETACH_NICS: self.conn.detach_nics,
+                const.ACTION_MODIFY_NIC_ATTRIBUTES: self.conn.modify_nic_attributes,
+
                 # key pair
                 const.ACTION_DESCRIBE_KEY_PAIRS: self.conn.describe_key_pairs,
                 const.ACTION_ATTACH_KEY_PAIRS: self.conn.attach_keypairs,

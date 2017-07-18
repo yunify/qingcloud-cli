@@ -170,6 +170,9 @@ class IaasHandler(object):
                 const.ACTION_CREATE_TAG: self.conn.create_tag,
                 const.ACTION_DELETE_TAGS: self.conn.delete_tags,
                 const.ACTION_MODIFY_TAG_ATTRIBUTES: self.conn.modify_tag_attributes,
+
+                # S2
+                const.ACTION_CREATE_S2_SERVER: self.conn.create_s2_server,
         }
 
         if not isinstance(directive, dict):

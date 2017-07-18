@@ -30,6 +30,7 @@ from qingcloud.cli.iaas_client.actions import snapshot
 from qingcloud.cli.iaas_client.actions import dns_alias
 from qingcloud.cli.iaas_client.actions import tag
 from qingcloud.cli.iaas_client.actions import notification
+from qingcloud.cli.iaas_client.actions import s2
 
 class ActionManager(object):
 
@@ -185,5 +186,8 @@ class ActionManager(object):
             'detach-tags': tag.DetachTagsAction,
             'modify-tag-attributes': tag.ModifyTagAttributesAction,
             'delete-tags': tag.DeleteTagsAction,
+
+            ## S2 ##
+            'create-s2-server': s2.CreateS2ServerAction,
 
             }

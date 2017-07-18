@@ -3,3 +3,4 @@
 build/
 dist/
 qingcloud_cli.egg-info/
+.idea/

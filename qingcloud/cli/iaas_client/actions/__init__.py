@@ -17,6 +17,7 @@
 from qingcloud.cli.iaas_client.actions import job
 from qingcloud.cli.iaas_client.actions import instance
 from qingcloud.cli.iaas_client.actions import volume
+from qingcloud.cli.iaas_client.actions import nic
 from qingcloud.cli.iaas_client.actions import eip
 from qingcloud.cli.iaas_client.actions import image
 from qingcloud.cli.iaas_client.actions import keypair
@@ -28,6 +29,7 @@ from qingcloud.cli.iaas_client.actions import monitor
 from qingcloud.cli.iaas_client.actions import snapshot
 from qingcloud.cli.iaas_client.actions import dns_alias
 from qingcloud.cli.iaas_client.actions import tag
+from qingcloud.cli.iaas_client.actions import notification
 
 class ActionManager(object):
 
@@ -40,6 +42,9 @@ class ActionManager(object):
         return sorted(ActionManager.action_table.keys())
 
     action_table = {
+            ## notification ##
+            'describe-notification-center-user-posts': notification.DescribeNotificationCenterUserPostsAction,
+
             ## job ##
             'describe-jobs': job.DescribeJobsAction,
 
@@ -62,6 +67,14 @@ class ActionManager(object):
             'detach-volumes': volume.DetachVolumesAction,
             'delete-volumes': volume.DeleteVolumesAction,
             'resize-volumes': volume.ResizeVolumesAction,
+
+            ## nic ##
+            'create-nics': nic.CreateNicsAction,
+            'modify-nic-attributes': nic.ModifyNicAttributesAction,
+            'describe-nics': nic.DescribeNicsAction,
+            'attach-nics': nic.AttachNicsAction,
+            'detach-nics': nic.DetachNicsAction,
+            'delete-nics': nic.DeleteNicsAction,
 
             ## eip ##
             'describe-eips': eip.DescribeEipsAction,

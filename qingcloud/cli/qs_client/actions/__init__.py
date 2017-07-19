@@ -42,6 +42,7 @@ class ActionManager(object):
         ('list-objects', bucket.ListObjectsAction),
         ('get-bucket-acl', bucket.GetBucketAclAction),
         ('set-bucket-acl', bucket.SetBucketAclAction),
+        ('list-multipart-uploads', bucket.ListMultipartUploadsAction),
         ## object ##
         ('create-object', key.CreateObjectAction),
         ('get-object', key.GetObjectAction),

@@ -117,13 +117,13 @@ class UploadMultipartAction(BaseAction):
     def send_request(cls, options):
         if options.file:
             if not os.path.isfile(options.file):
-                print "No such file: %s" % options.file
+                print("No such file: %s" % options.file)
                 sys.exit(-1)
             data = open(options.file, "rb")
         elif options.data:
             data = options.data
         else:
-            print "Must specify --file or --data parameter"
+            print("Must specify --file or --data parameter")
             sys.exit(1)
 
         params = {

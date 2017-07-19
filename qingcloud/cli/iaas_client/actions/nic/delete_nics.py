@@ -1,5 +1,5 @@
 # =========================================================================
-# Copyright 2016-present Yunify, Inc.
+# Copyright 2012-present Yunify, Inc.
 # -------------------------------------------------------------------------
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this work except in compliance with the License.
@@ -14,11 +14,26 @@
 # limitations under the License.
 # =========================================================================
 
-DEFAULT_ENDPOINT = "qingstor.com"
+from qingcloud.cli.misc.utils import explode_array
+from qingcloud.cli.iaas_client.actions.base import BaseAction
 
-BUFSIZE = 1024*1024*4
+class DeleteNicsAction(BaseAction):
 
-HTTP_OK = 200
-HTTP_OK_CREATED = 201
-HTTP_OK_NO_CONTENT = 204
-HTTP_OK_PARTIAL_CONTENT = 206
+    action = 'DeleteNics'
+    command = 'delete-nics'
+    usage = '%(prog)s -v "nic_id,..." [-f <conf_file>]'
+
+    @classmethod
+    def add_ext_arguments(cls, parser):
+    
+        parser.add_argument('-n', '--nics', dest='nics',
+                action='store', type=str, default='',
+                help='the comma separated IDs of nics you want to delete.')
+        
+    @classmethod
+    def build_directive(cls, options):
+        if not options.nics:
+            print('error: [nics] should be specified')
+            return None
+
+        return {'nics': explode_array(options.nics)}

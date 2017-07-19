@@ -1,5 +1,5 @@
 # =========================================================================
-# Copyright 2016-present Yunify, Inc.
+# Copyright 2012-present Yunify, Inc.
 # -------------------------------------------------------------------------
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this work except in compliance with the License.
@@ -14,11 +14,15 @@
 # limitations under the License.
 # =========================================================================
 
-DEFAULT_ENDPOINT = "qingstor.com"
+from .attach_nics import AttachNicsAction
+from .create_nics import CreateNicsAction
+from .delete_nics import DeleteNicsAction
+from .describe_nics import DescribeNicsAction
+from .detach_nics import DetachNicsAction
+from .modify_nic_attributes import ModifyNicAttributesAction
 
-BUFSIZE = 1024*1024*4
-
-HTTP_OK = 200
-HTTP_OK_CREATED = 201
-HTTP_OK_NO_CONTENT = 204
-HTTP_OK_PARTIAL_CONTENT = 206
+__all__ = [
+    AttachNicsAction, CreateNicsAction, DeleteNicsAction,
+    DescribeNicsAction, DetachNicsAction,
+    ModifyNicAttributesAction,
+]

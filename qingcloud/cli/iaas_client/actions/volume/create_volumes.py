@@ -45,6 +45,10 @@ class CreateVolumesAction(BaseAction):
                 action='store', type=str, default='',
                 help='short name of volume')
 
+        parser.add_argument('--target-user', dest='target_user',
+                action='store', type=str, default=None,
+                help='ID of user who will own this resource, should be one of your sub-account.')
+
     @classmethod
     def build_directive(cls, options):
         required_params = {'size': options.size}
@@ -58,4 +62,5 @@ class CreateVolumesAction(BaseAction):
                 'count' : options.count,
                 'volume_name' : options.volume_name,
                 'volume_type' : options.volume_type,
+                'target_user': options.target_user,
                 }

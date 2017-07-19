@@ -48,7 +48,7 @@ class CreateBucketAction(BaseAction):
             headers["Location"] = options.zone
         resp = cls.conn.make_request("PUT", options.bucket, headers=headers)
         if resp.status == HTTP_OK_CREATED:
-            print "Bucket [%s] is created" % options.bucket
+            print("Bucket [%s] is created" % options.bucket)
         else:
             prints_body(resp)
 
@@ -96,7 +96,7 @@ class HeadBucketAction(BaseAction):
     def send_request(cls, options):
         resp = cls.conn.make_request("HEAD", options.bucket)
         if resp.status != HTTP_OK:
-            print "Error: %s %s" % (resp.status, resp.reason)
+            print("Error: %s %s" % (resp.status, resp.reason))
 
 
 class StatsBucketAction(BaseAction):
@@ -223,7 +223,7 @@ class SetBucketAclAction(BaseAction):
             required=True,
             nargs="*",
             help="ACL entries, each entry is in format "
-                 "user_id,permission. permission can be READ, "
+                 "type,id|name,permission. permission can be READ, "
                  "WRITE or FULL_CONTROL. Multiple entries are separated by spaces"
         )
         return parser
@@ -231,11 +231,85 @@ class SetBucketAclAction(BaseAction):
     @classmethod
     def send_request(cls, options):
         params = {"acl": None}
-        body = {}
+        acl = []
         for pairs in options.acl:
-            grantee, perm = pairs.split(",")
-            body[grantee] = perm
+            parts = pairs.split(",")
+            if len(parts) != 3:
+                print("Error: Argument -A or --acl is wrong")
+                exit(1)
+            t, grantee, perm = parts
+            if t == "user":
+                grantee = {"type": t, "id": grantee}
+            elif t == "group":
+                grantee = {"type": t, "name": grantee}
+            else:
+                print("Error: Wrong grantee type [%s]" % t)
+                exit(1)
+            acl.append({
+                "grantee": grantee,
+                "permission": perm
+            })
         resp = cls.conn.make_request("PUT", options.bucket, params=params,
-                                     data=json_dumps(body))
+                                     data=json_dumps({"acl": acl}))
         if resp.status != HTTP_OK:
             prints_body(resp)
+
+
+class ListMultipartUploadsAction(BaseAction):
+
+    command = "list-multipart-uploads"
+    usage = "%(prog)s -b <bucket> [-p <prefix> -d <delimiter> -m <marker> -l " \
+            + "<limit> -f <conf_file>]"
+
+    @classmethod
+    def add_ext_arguments(cls, parser):
+        parser.add_argument(
+            "-b",
+            "--bucket",
+            dest="bucket",
+            required=True,
+            help="The bucket name"
+        )
+        parser.add_argument(
+            "-p",
+            "--prefix",
+            dest="prefix",
+            help="The specified prefix that returned keys should start with"
+        )
+        parser.add_argument(
+            "-d",
+            "--delimiter",
+            dest="delimiter",
+            help="Which character to use for grouping the keys"
+        )
+        parser.add_argument(
+            "-m",
+            "--marker",
+            dest="marker",
+            help="The key to start with when listing objects in the bucket"
+        )
+        parser.add_argument(
+            "-l",
+            "--limit",
+            dest="limit",
+            type=int,
+            default=20,
+            help="The maximum number of keys returned"
+        )
+        return parser
+
+    @classmethod
+    def send_request(cls, options):
+        params = {
+            "uploads": None
+        }
+        if options.prefix:
+            params["prefix"] = options.prefix
+        if options.delimiter:
+            params["delimiter"] = options.delimiter
+        if options.marker:
+            params["marker"] = options.marker
+        if options.limit is not None:
+            params["limit"] = str(options.limit)
+        resp = cls.conn.make_request("GET", options.bucket, params=params)
+        prints_body(resp)

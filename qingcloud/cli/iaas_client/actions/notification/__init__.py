@@ -1,5 +1,5 @@
 # =========================================================================
-# Copyright 2016-present Yunify, Inc.
+# Copyright 2012-present Yunify, Inc.
 # -------------------------------------------------------------------------
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this work except in compliance with the License.
@@ -14,11 +14,6 @@
 # limitations under the License.
 # =========================================================================
 
-DEFAULT_ENDPOINT = "qingstor.com"
+from .describe_notification_center_user_posts import DescribeNotificationCenterUserPostsAction
 
-BUFSIZE = 1024*1024*4
-
-HTTP_OK = 200
-HTTP_OK_CREATED = 201
-HTTP_OK_NO_CONTENT = 204
-HTTP_OK_PARTIAL_CONTENT = 206
+__all__ = [DescribeNotificationCenterUserPostsAction]

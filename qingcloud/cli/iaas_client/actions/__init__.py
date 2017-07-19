@@ -30,6 +30,7 @@ from qingcloud.cli.iaas_client.actions import snapshot
 from qingcloud.cli.iaas_client.actions import dns_alias
 from qingcloud.cli.iaas_client.actions import tag
 from qingcloud.cli.iaas_client.actions import notification
+from qingcloud.cli.iaas_client.actions import s2
 
 class ActionManager(object):
 
@@ -189,5 +190,35 @@ class ActionManager(object):
             'detach-tags': tag.DetachTagsAction,
             'modify-tag-attributes': tag.ModifyTagAttributesAction,
             'delete-tags': tag.DeleteTagsAction,
+
+            ## S2 ##
+            'create-s2-server': s2.CreateS2ServerAction,
+            'describe-s2-servers': s2.DescribeS2ServersAction,
+            'modify-s2-server': s2.ModifyS2ServerAttributesAction,
+            'resize-s2-servers': s2.ResizeS2ServersAction,
+            'delete-s2-servers': s2.DeleteS2ServersAction,
+            'poweron-s2-servers': s2.PowerOnS2ServersAction,
+            'poweroff-s2-servers': s2.PowerOffS2ServersAction,
+            'update-s2-servers': s2.UpdateS2ServersAction,
+            'change-s2-server-vxnet': s2.ChangeS2ServerVxnetAction,
+            'create-s2-shared-target': s2.CreateS2SharedTargetAction,
+            'describe-s2-shared-targets': s2.DescribeS2SharedTargetsAction,
+            'delete-s2-shared-targets': s2.DeleteS2SharedTargetsAction,
+            'enable-s2-shared-targets': s2.EnableS2SharedTargetsAction,
+            'disable-s2-shared-targets': s2.DisableS2SharedTargetsAction,
+            'modify-s2-shared-target-attributes': s2.ModifyS2SharedTargetAttributesAction,
+            'attach-to-s2-shared-target': s2.AttachToS2SharedTargetAction,
+            'detach-from-s2-shared-target': s2.DetachFromS2SharedTargetAction,
+            'describe-s2-default-parameters': s2.DescribeS2DefaultParametersAction,
+            'create-s2-group': s2.CreateS2GroupAction,
+            'describe-s2-groups': s2.DescribeS2GroupsAction,
+            'modify-s2-group': s2.ModifyS2GroupAction,
+            'delete-s2-group': s2.DeleteS2GroupsAction,
+            'create-s2-account': s2.CreateS2AccountAction,
+            'describe-s2-accounts': s2.DescribeS2AccountsAction,
+            'modify-s2-account': s2.ModifyS2AccountAction,
+            'delete-s2-accounts': s2.DeleteS2AccountsAction,
+            'associate-s2-account-group': s2.AssociateS2AccountGroupAction,
+            'dissociate-s2-account-group': s2.DissociateS2AccountGroupAction,
 
             }

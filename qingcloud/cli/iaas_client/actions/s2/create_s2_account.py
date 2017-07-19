@@ -13,60 +13,66 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # =========================================================================
+import json
 
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
-class CreateS2ServerAction(BaseAction):
-    action = 'CreateS2Server'
-    command = 'create-s2-server'
-    usage = '%(prog)s -v <vxnet> -T <service_type> [-n <s2_server_name> ...] [-f <conf_file>]'
+class CreateS2AccountAction(BaseAction):
+    action = 'CreateS2Account'
+    command = 'create-s2-account'
+    usage = '%(prog)s -T <account_type> [-n <account_name> ...] [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
-        parser.add_argument("-v", "--vxnet", dest="vxnet",
+        parser.add_argument("-T", "--account-type", dest="account_type",
                             action="store", type=str, default=None,
-                            help="the ID of vxnet.")
+                            help="valid values is NFS or SMB.")
 
-        parser.add_argument("-T", "--service-type", dest="service_type",
+        parser.add_argument("-n", "--account-name", dest="account_name",
                             action="store", type=str, default=None,
-                            help="valid values is vsan or vnas.")
+                            help="the name of account.")
 
-        parser.add_argument("-n", "--s2-server-name", dest="s2_server_name",
+        parser.add_argument("-s", "--smb-name", dest="smb_name",
                             action="store", type=str, default=None,
-                            help="the name of s2 server.")
+                            help="the user name of smb.")
 
-        parser.add_argument("-s", "--s2-server-type", dest="s2_server_type",
-                            action="store", type=int, default=None,
-                            help="valid values includes 0, 1, 2, 3.")
-
-        parser.add_argument("-p", "--private-ip", dest="private_ip",
+        parser.add_argument("-S", "--smb-passwd", dest="smb_passwd",
                             action="store", type=str, default=None,
-                            help="you may specify the ip address of this server.")
+                            help="the password of smb.")
+
+        parser.add_argument("-N", "--nfs-ipaddr", dest="nfs_ipaddr",
+                            action="store", type=str, default=None,
+                            help="ip address available in NFS.")
+
+        parser.add_argument("-g", "--s2-groups", dest="s2_groups",
+                            action="store", type=str, default=None,
+                            help="the JSON form of groups. e.g. '[{"group_id":"s2g-xxxx", "rw_flag": "rw"}]'")
+
+        parser.add_argument("-o", "--opt-parameters", dest="opt_parameters",
+                            action="store", type=str, default=None,
+                            help="options parameters for NFS.")
 
         parser.add_argument("-d", "--description", dest="description",
                             action="store", type=str, default=None,
                             help="the detailed description of the resource.")
 
-        parser.add_argument("-S", "--s2-class", dest="s2_class",
-                            action="store", type=int, default=None,
-                            help="valid values includes 0, 1.")
-
 
     @classmethod
     def build_directive(cls, options):
-        for key in ['vxnet', 'service_type']:
+        for key in ['account_type']:
             if not hasattr(options, key):
                 print("error: [%s] should be specified." % key)
                 return None
         
         directive = {
-            "vxnet": options.vxnet,
-            "service_type": options.service_type,
-            "s2_server_name": options.s2_server_name,
-            "s2_server_type": options.s2_server_type,
-            "private_ip": options.private_ip,
+            "account_type": options.account_type,
+            "account_name": options.account_name,
+            "smb_name": options.smb_name,
+            "smb_passwd": options.smb_passwd,
+            "nfs_ipaddr": options.nfs_ipaddr,
+            "s2_groups": json.loads(options.s2_groups),
+            "opt_parameters": options.opt_parameters,
             "description": options.description,
-            "s2_class": options.s2_class,
         }
         
         return directive

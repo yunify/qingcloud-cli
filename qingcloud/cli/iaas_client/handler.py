@@ -85,6 +85,10 @@ class IaasHandler(object):
                 const.ACTION_ADD_SECURITY_GROUP_RULES: self.conn.add_security_group_rules,
                 const.ACTION_DELETE_SECURITY_GROUP_RULES: self.conn.delete_security_group_rules,
                 const.ACTION_MODIFY_SECURITY_GROUP_RULE_ATTRIBUTES: self.conn.modify_security_group_rule_attributes,
+                const.ACTION_DESCRIBE_SECURITY_GROUP_IPSETS: self.conn.describe_security_group_ipsets,
+                const.ACTION_CREATE_SECURITY_GROUP_IPSET: self.conn.create_security_group_ipset,
+                const.ACTION_DELETE_SECURITY_GROUP_IPSETS: self.conn.delete_security_group_ipsets,
+                const.ACTION_MODIFY_SECURITY_GROUP_IPSET_ATTRIBUTES: self.conn.modify_security_group_ipset_attributes,
 
                 # vxnet
                 const.ACTION_DESCRIBE_VXNETS: self.conn.describe_vxnets,

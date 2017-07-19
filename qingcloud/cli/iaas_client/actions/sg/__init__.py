@@ -23,9 +23,17 @@ from .create_security_group import CreateSecurityGroupAction
 from .modify_security_group_attributes import ModifySecurityGroupAttributesAction
 from .delete_security_group_rules import DeleteSecurityGroupRulesAction
 from .modify_security_group_rule_attributes import ModifySecurityGroupRuleAttributesAction
+from .describe_security_group_ipsets import DescribeSecurityGroupIPSetsAction
+from .create_security_group_ipset import CreateSecurityGroupIPSetAction
+from .modify_security_group_ipset_attributes import ModifySecurityGroupIPSetAttributesAction
+from .delete_security_group_ipsets import DeleteSecurityGroupIPSetsAction
+
+
 
 __all__ = [DeleteSecurityGroupsAction, AddSecurityGroupRulesAction,
-        DescribeSecurityGroupRulesAction, ApplySecurityGroupAction,
-        DescribeSecurityGroupsAction, CreateSecurityGroupAction,
-        ModifySecurityGroupAttributesAction, DeleteSecurityGroupRulesAction,
-        ModifySecurityGroupRuleAttributesAction]
+           DescribeSecurityGroupRulesAction, ApplySecurityGroupAction,
+           DescribeSecurityGroupsAction, CreateSecurityGroupAction,
+           ModifySecurityGroupAttributesAction, DeleteSecurityGroupRulesAction,
+           ModifySecurityGroupRuleAttributesAction,
+           DescribeSecurityGroupIPSetsAction, CreateSecurityGroupIPSetAction,
+           ModifySecurityGroupIPSetAttributesAction, DeleteSecurityGroupIPSetsAction]

@@ -204,6 +204,9 @@ class IaasHandler(object):
                 const.ACTION_DELETE_S2_ACCOUNTS: self.conn.delete_s2_accounts,
                 const.ACTION_ASSOCIATE_S2_ACCOUNT_GROUP: self.conn.associate_s2_account_group,
                 const.ACTION_DISSOCIATE_S2_ACCOUNT_GROUP: self.conn.dissociate_s2_account_group,
+
+                # alarm policy
+                const.ACTION_DESCRIBE_ALARM_POLICIES: self.conn.describe_alarm_policies,
         }
 
         if not isinstance(directive, dict):

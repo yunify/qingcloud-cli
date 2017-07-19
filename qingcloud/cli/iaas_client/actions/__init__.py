@@ -31,6 +31,7 @@ from qingcloud.cli.iaas_client.actions import dns_alias
 from qingcloud.cli.iaas_client.actions import tag
 from qingcloud.cli.iaas_client.actions import notification
 from qingcloud.cli.iaas_client.actions import s2
+from qingcloud.cli.iaas_client.actions import alarm_policy
 
 class ActionManager(object):
 
@@ -221,4 +222,6 @@ class ActionManager(object):
             'associate-s2-account-group': s2.AssociateS2AccountGroupAction,
             'dissociate-s2-account-group': s2.DissociateS2AccountGroupAction,
 
+            ## alarm policy ##
+            'describe-alarm-policies': alarm_policy.DescribeAlarmPoliciesAction,
             }

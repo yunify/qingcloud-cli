@@ -30,7 +30,7 @@ class AssociateS2AccountGroupAction(BaseAction):
 
         parser.add_argument("-S", "--s2-accounts", dest="s2_accounts",
                             action="store", type=str, default=None,
-                            help="the JSON form of accounts. e.g. '[{"account_id": "s2a-xxxx", "rw_flag": "rw"}]'")
+                            help="the JSON form of accounts. e.g. '[{\"account_id\": \"s2a-xxxx\", \"rw_flag\": \"rw\"}]'")
 
 
     @classmethod

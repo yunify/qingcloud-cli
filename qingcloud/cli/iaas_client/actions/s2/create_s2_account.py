@@ -46,7 +46,7 @@ class CreateS2AccountAction(BaseAction):
 
         parser.add_argument("-g", "--s2-groups", dest="s2_groups",
                             action="store", type=str, default=None,
-                            help="the JSON form of groups. e.g. '[{"group_id":"s2g-xxxx", "rw_flag": "rw"}]'")
+                            help="the JSON form of groups. e.g. '[{\"group_id\":\"s2g-xxxx\", \"rw_flag\": \"rw\"}]'")
 
         parser.add_argument("-o", "--opt-parameters", dest="opt_parameters",
                             action="store", type=str, default=None,

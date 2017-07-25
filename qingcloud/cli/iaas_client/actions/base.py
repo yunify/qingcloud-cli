@@ -55,7 +55,8 @@ class BaseAction(object):
                              'describe-keypairs', 'describe-security-groups',
                              'describe-vxnets', 'describe-routers',
                              'describe-eips', 'describe-loadbalancers',
-                             'describe-snapshots']
+                             'describe-snapshots', 'describe-alarm-policies',
+                             ]
 
         if cls.command.startswith('describe-'):
             parser.add_argument('-O', '--offset', dest='offset',

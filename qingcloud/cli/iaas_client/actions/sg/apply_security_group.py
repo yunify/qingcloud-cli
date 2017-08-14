@@ -33,6 +33,10 @@ class ApplySecurityGroupAction(BaseAction):
         parser.add_argument('-i', '--instances', dest='instances',
                 action='store', type=str, default='',
                 help='the comma-separated IDs of instances you want to apply the security group to.')
+
+        parser.add_argument('-u', '--target-user', dest='target_user',
+                            action='store', type=str, default=None,
+                            help='the ID of user who will own this resource.')
       
     @classmethod
     def build_directive(cls, options):
@@ -44,5 +48,6 @@ class ApplySecurityGroupAction(BaseAction):
         
         return {
                 'security_group': options.security_group_id,
-                'instances': explode_array(options.instances)
+                'instances': explode_array(options.instances),
+                'target_user': options.target_user,
                 }

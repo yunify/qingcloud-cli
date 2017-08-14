@@ -41,6 +41,10 @@ class CreateKeyPairAction(BaseAction):
                 action='store', type=str, default='',
                 help='if creation mode is `user`, you can specify your owned public key content here.')
 
+        parser.add_argument('-u', '--target-user', dest='target_user',
+                            action='store', type=str, default=None,
+                            help='the ID of user who will own this resource.')
+
     @classmethod
     def build_directive(cls, options):
         required_params = {'keypair_name': options.keypair_name}
@@ -54,4 +58,5 @@ class CreateKeyPairAction(BaseAction):
                 'mode': options.mode,
                 'encrypt_method': options.encrypt_method,
                 'public_key': options.public_key,
+                'target_user': options.target_user,
                 }

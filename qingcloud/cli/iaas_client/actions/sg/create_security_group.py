@@ -27,6 +27,9 @@ class CreateSecurityGroupAction(BaseAction):
         parser.add_argument('-N', '--security_group_name', dest='security_group_name',
                 action='store', type=str, default='',
                 help='short name for the security group you want to create.')
+        parser.add_argument('-u', '--target-user', dest='target_user',
+                            action='store', type=str, default=None,
+                            help='the ID of user who will own this resource.')
 
     @classmethod
     def build_directive(cls, options):
@@ -38,4 +41,4 @@ class CreateSecurityGroupAction(BaseAction):
                 print('param [%s] should be specified' % param)
                 return None
 
-        return {'security_group_name': options.security_group_name}
+        return {'security_group_name': options.security_group_name, 'target_user': options.target_user}

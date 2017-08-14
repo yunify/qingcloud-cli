@@ -36,6 +36,10 @@ class AddSecurityGroupRulesAction(BaseAction):
                 action='store', type=str, default='',
                 help='JSON string of rules list. e.g. \'[{"security_group_rule_name":"ping","protocol":"icmp","priority":"0","action":"accept","val2":"0","val1":"8"}]\'')
 
+        parser.add_argument('-u', '--target-user', dest='target_user',
+                            action='store', type=str, default=None,
+                            help='the ID of user who will own this resource.')
+
     @classmethod
     def build_directive(cls, options):
         required_params = {
@@ -50,4 +54,5 @@ class AddSecurityGroupRulesAction(BaseAction):
         return {
                 'security_group': options.security_group,
                 'rules': json.loads(options.rules),
+                'target_user': options.target_user,
                 }

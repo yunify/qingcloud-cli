@@ -36,6 +36,10 @@ class CreateSecurityGroupIPSetAction(BaseAction):
                 action='store', type=str, default='',
                 help='value of this ipset, such as: 192.168.1.0/24 or 10000-15000.')
 
+        parser.add_argument('-u', '--target-user', dest='target_user',
+                            action='store', type=str, default=None,
+                            help='the ID of user who will own this resource.')
+
     @classmethod
     def build_directive(cls, options):
         required_params = {
@@ -47,5 +51,8 @@ class CreateSecurityGroupIPSetAction(BaseAction):
             if required_params[param] is None or required_params[param] == '':
                 print('param [%s] should be specified' % param)
                 return None
+
+        if options.target_user:
+            required_params['target_user'] = options.target_user
 
         return required_params

@@ -56,6 +56,7 @@ class BaseAction(object):
                              'describe-vxnets', 'describe-routers',
                              'describe-eips', 'describe-loadbalancers',
                              'describe-snapshots', 'describe-alarm-policies',
+                             'describe-images',
                              ]
 
         if cls.command.startswith('describe-'):

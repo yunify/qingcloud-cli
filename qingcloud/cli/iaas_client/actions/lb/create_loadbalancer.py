@@ -35,6 +35,14 @@ class CreateLoadBalancerAction(BaseAction):
                 action='store', type=str, default='',
                 help='the comma separated IDs of eips you want to associate.')
 
+        parser.add_argument("-x", "--vxnet", dest="vxnet",
+                action="store", type=str, default='',
+                help='''The vxnet id you want create lb to.''')
+
+        parser.add_argument("-p", "--private_ip", dest="private_ip",
+                action="store", type=str,
+                help='''Specify the private ip.''', default="")
+
         parser.add_argument('-N', '--name', dest='name',
                 action='store', type=str, default='',
                 help='load balancer name.')
@@ -55,14 +63,17 @@ class CreateLoadBalancerAction(BaseAction):
     def build_directive(cls, options):
         required_params = {
                 'eips': options.eips,
+                'vxnet': options.vxnet,
                 }
-        for param in required_params:
-            if required_params[param] is None or required_params[param] == '':
-                print('error: [%s] should be specified' % param)
-                return None
+
+        if not required_params['eips'] and not required_params['vxnet']:
+            print('error: [eips] or [vxnet] should be specified one')
+            return None
 
         return {
                 'eips': explode_array(options.eips),
+                'vxnet': options.vxnet,
+                'private_ip': options.private_ip,
                 'loadbalancer_name': options.name,
                 'loadbalancer_type': options.loadbalancer_type,
                 'security_group': options.sg,

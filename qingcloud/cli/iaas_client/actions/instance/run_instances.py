@@ -99,6 +99,14 @@ class RunInstancesAction(BaseAction):
                 action='store', type=str, default=None,
                 help='ID of user who will own this resource, should be one of your sub-account.')
 
+        parser.add_argument("--cpu_max", dest="cpu_max",
+                action="store", type=int, default=0,
+                help='''The cpu core, e.g. "1, 2, 4, 8, 16".''')
+
+        parser.add_argument("--mem_max", dest="mem_max",
+                action="store", type=int, default=0,
+                help='''The memory size in MB, e.g. "1024, 2048, 4096"''')
+
         return parser
 
     @classmethod
@@ -135,4 +143,6 @@ class RunInstancesAction(BaseAction):
                 'userdata_path': options.userdata_path,
                 'userdata_value': options.userdata_value,
                 'target_user': options.target_user,
+                'cpu_max': options.cpu_max,
+                'mem_max': options.mem_max,
                 }

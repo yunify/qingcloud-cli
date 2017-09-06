@@ -153,6 +153,7 @@ class IaasHandler(object):
                 const.ACTION_DELETE_LOADBALANCER_BACKENDS: self.conn.delete_loadbalancer_backends,
                 const.ACTION_MODIFY_LOADBALANCER_BACKEND_ATTRIBUTES: self.conn.modify_loadbalancer_backend_attributes,
                 const.ACTION_DESCRIBE_LOADBALANCER_BACKENDS: self.conn.describe_loadbalancer_backends,
+                const.ACTION_ADD_LOADBALANCER_POLICY_RULES: self.conn.add_loadbalancer_policy_rules,
 
                 # monitor
                 const.ACTION_GET_MONITOR: self.conn.get_monitoring_data,

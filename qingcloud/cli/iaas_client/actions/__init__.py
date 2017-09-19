@@ -150,6 +150,7 @@ class ActionManager(object):
             'add-loadbalancer-backends': lb.AddLoadBalancerBackendsAction,
             'add-loadbalancer-listeners': lb.AddLoadBalancerListenersAction,
             'associate-eips-to-loadbalancer': lb.AssociateEipsToLoadBalancerAction,
+            'add-loadbalancer-policy-rules': lb.AddLoadBalancerPolicyRulesAction,
             'create-loadbalancers': lb.CreateLoadBalancerAction,
             'delete-loadbalancer-backends': lb.DeleteLoadBalancerBackendsAction,
             'delete-loadbalancer-listeners': lb.DeleteLoadBalancerListenersAction,

@@ -31,6 +31,7 @@ from .modify_loadbalancer_listener_attributes import ModifyLoadBalancerListenerA
 from .start_loadbalancers import StartLoadBalancersAction
 from .stop_loadbalancers import StopLoadBalancersAction
 from .update_loadbalancers import UpdateLoadBalancersAction
+from .add_loadbalancer_policy_rules import AddLoadBalancerPolicyRulesAction
 
 __all__ = [AddLoadBalancerBackendsAction, AddLoadBalancerListenersAction,
         AssociateEipsToLoadBalancerAction, CreateLoadBalancerAction,
@@ -39,4 +40,4 @@ __all__ = [AddLoadBalancerBackendsAction, AddLoadBalancerListenersAction,
         DescribeLoadBalancerListenersAction, DescribeLoadBalancersAction,
         DissociateEipsFromLoadBalancerAction, ModifyLoadBalancerAttributesAction,
         ModifyLoadBalancerBackendAttributesAction, ModifyLoadBalancerListenerAttributessAction,
-        StartLoadBalancersAction, StopLoadBalancersAction, UpdateLoadBalancersAction]
+        StartLoadBalancersAction, StopLoadBalancersAction, UpdateLoadBalancersAction, AddLoadBalancerPolicyRulesAction]

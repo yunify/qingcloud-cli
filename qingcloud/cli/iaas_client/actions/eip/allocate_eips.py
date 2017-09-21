@@ -49,6 +49,10 @@ class AllocateEipsAction(BaseAction):
                 action='store', type=str, default=None,
                 help='ID of user who will own this resource, should be one of your sub-account.')
 
+        parser.add_argument('--associate-mode', dest='associate_mode',
+                action='store', type=int, default=0,
+                help='Associate mode: 0 means associate to virtual gateway, 1 means associate to vm')
+
     @classmethod
     def build_directive(cls, options):
         required_params = {'bandwidth': options.bandwidth}
@@ -58,10 +62,11 @@ class AllocateEipsAction(BaseAction):
                 return None
 
         return {
-                'count': options.count,
-                'bandwidth': options.bandwidth,
-                'billing_mode': options.billing_mode,
-                'eip_name' : options.eip_name,
-                'need_icp': options.need_icp,
-                'target_user': options.target_user,
-                }
+            'count': options.count,
+            'bandwidth': options.bandwidth,
+            'billing_mode': options.billing_mode,
+            'eip_name' : options.eip_name,
+            'need_icp': options.need_icp,
+            'target_user': options.target_user,
+            'associate_mode': options.associate_mode,
+        }

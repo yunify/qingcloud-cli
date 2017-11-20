@@ -32,6 +32,7 @@ from qingcloud.cli.iaas_client.actions import tag
 from qingcloud.cli.iaas_client.actions import notification
 from qingcloud.cli.iaas_client.actions import s2
 from qingcloud.cli.iaas_client.actions import alarm_policy
+from qingcloud.cli.iaas_client.actions import billing
 
 class ActionManager(object):
 
@@ -225,4 +226,8 @@ class ActionManager(object):
 
             ## alarm policy ##
             'describe-alarm-policies': alarm_policy.DescribeAlarmPoliciesAction,
+
+            ## billing ##
+            'get-balance': billing.GetBalanceAction,
+            'get-lease-info': billing.GetLeaseInfoAction,
             }

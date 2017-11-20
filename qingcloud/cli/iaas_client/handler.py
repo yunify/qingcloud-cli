@@ -208,6 +208,10 @@ class IaasHandler(object):
 
                 # alarm policy
                 const.ACTION_DESCRIBE_ALARM_POLICIES: self.conn.describe_alarm_policies,
+
+                # billing
+                const.ACTION_GET_BALANCE: self.conn.get_balance,
+                const.ACTION_GET_LEASE_INFO: self.conn.get_lease_info,
         }
 
         if not isinstance(directive, dict):

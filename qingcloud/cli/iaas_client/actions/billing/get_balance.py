@@ -23,11 +23,6 @@ class GetBalanceAction(BaseAction):
     usage = '%(prog)s [-f <conf_file>]'
 
     @classmethod
-    def add_ext_arguments(cls, parser):
-
-        return parser
-
-    @classmethod
     def build_directive(cls, options):
 
         directive = {}

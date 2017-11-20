@@ -35,6 +35,11 @@ class GetLeaseInfoAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
+
+        if options.resource == '':
+            print('error: resource should be specified.')
+            return None
+
         directive = {
             "resource": options.resource,
             "user": options.user,

@@ -29,6 +29,7 @@ class GetBalanceAction(BaseAction):
 
     @classmethod
     def build_directive(cls, options):
+
         directive = {}
 
         return directive

@@ -32,7 +32,7 @@ class DescribeAlarmPoliciesAction(BaseAction):
                             action="store", type=str, default=None,
                             help="the name of alarm policy.")
 
-        parser.add_argument("-T", "--alarm-policy-type", dest="alarm_policy_type",
+        parser.add_argument("-t", "--alarm-policy-type", dest="alarm_policy_type",
                             action="store", type=str, default=None,
                             help="valid values includes instance, eip, router, loadbalancer_listener_http, loadbalancer_listener_tcp, loadbalancer_backend_http, loadbalancer_backend_tcp.")
 

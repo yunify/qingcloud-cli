@@ -48,7 +48,7 @@ class ModifyAlarmPolicyActionAttributesAction(BaseAction):
         directive = {
             "alarm_policy_action": options.alarm_policy_action,
             "trigger_action": options.trigger_action,
-            "trigger_action": options.trigger_action,
+            "trigger_status": options.trigger_status,
         }
 
         return directive

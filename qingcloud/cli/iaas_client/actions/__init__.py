@@ -226,6 +226,22 @@ class ActionManager(object):
 
             ## alarm policy ##
             'describe-alarm-policies': alarm_policy.DescribeAlarmPoliciesAction,
+            'add-alarm-policy-actions': alarm_policy.AddAlarmPolicyActionsAction,
+            'add-alarm-policy-rules': alarm_policy.AddAlarmPolicyRulesAction,
+            'apply-alarm-policy': alarm_policy.ApplyAlarmPolicyAction,
+            'associate-alarm-policy': alarm_policy.AssociateAlarmPolicyAction,
+            'create-alarm-policy': alarm_policy.CreateAlarmPolicyAction,
+            'delete-alarm-policies': alarm_policy.DeleteAlarmPoliciesAction,
+            'delete-alarm-policy-actions': alarm_policy.DeleteAlarmPolicyActionsAction,
+            'delete-alarm-policy-rules': alarm_policy.DeleteAlarmPolicyRulesAction,
+            'describe-alarm-history': alarm_policy.DescribeAlarmHistoryAction,
+            'describe-alarm-policy-actions': alarm_policy.DescribeAlarmPolicyActionsAction,
+            'describe-alarm-policy-rules': alarm_policy.DescribeAlarmPolicyRulesAction,
+            'describe-alarms': alarm_policy.DescribeAlarmsAction,
+            'dissociate-alarm-policy': alarm_policy.DissociateAlarmPolicyAction,
+            'modify-alarm-policy-action-attributes': alarm_policy.ModifyAlarmPolicyActionAttributesAction,
+            'modify-alarm-policy-attributes': alarm_policy.ModifyAlarmPolicyAttributesAction,
+            'modify-alarm-policy-rule-attributes': alarm_policy.ModifyAlarmPolicyRuleAttributesAction,
 
             ## billing ##
             'get-balance': billing.GetBalanceAction,

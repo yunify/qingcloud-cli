@@ -14,8 +14,32 @@
 # limitations under the License.
 # =========================================================================
 from qingcloud.cli.iaas_client.actions.alarm_policy.describe_alarm_policies import DescribeAlarmPoliciesAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.add_alarm_policy_actions import AddAlarmPolicyActionsAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.add_alarm_policy_rules import AddAlarmPolicyRulesAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.apply_alarm_policy import ApplyAlarmPolicyAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.associate_alarm_policy import AssociateAlarmPolicyAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.create_alarm_policy import CreateAlarmPolicyAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.delete_alarm_policies import DeleteAlarmPoliciesAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.delete_alarm_policy_actions import DeleteAlarmPolicyActionsAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.delete_alarm_policy_rules import DeleteAlarmPolicyRulesAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.describe_alarm_history import DescribeAlarmHistoryAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.describe_alarm_policy_actions import DescribeAlarmPolicyActionsAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.describe_alarm_policy_rules import DescribeAlarmPolicyRulesAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.describe_alarms import DescribeAlarmsAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.dissociate_alarm_policy import DissociateAlarmPolicyAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.modify_alarm_policy_action_attributes import ModifyAlarmPolicyActionAttributesAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.modify_alarm_policy_attributes import ModifyAlarmPolicyAttributesAction
+from qingcloud.cli.iaas_client.actions.alarm_policy.modify_alarm_policy_rule_attributes import ModifyAlarmPolicyRuleAttributesAction
 
 
 __all__ = [
-    DescribeAlarmPoliciesAction,
+    DescribeAlarmPoliciesAction, AddAlarmPolicyActionsAction,
+    AddAlarmPolicyRulesAction, ApplyAlarmPolicyAction,
+    AssociateAlarmPolicyAction, CreateAlarmPolicyAction,
+    DeleteAlarmPoliciesAction, DeleteAlarmPolicyActionsAction,
+    DeleteAlarmPolicyRulesAction, DescribeAlarmHistoryAction,
+    DescribeAlarmPolicyActionsAction, DescribeAlarmPolicyRulesAction,
+    DescribeAlarmsAction, DissociateAlarmPolicyAction,
+    ModifyAlarmPolicyActionAttributesAction, ModifyAlarmPolicyAttributesAction,
+    ModifyAlarmPolicyRuleAttributesAction
 ]

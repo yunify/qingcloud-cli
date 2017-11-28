@@ -47,6 +47,14 @@ class ActionManager(object):
     action_table = {
             ## notification ##
             'describe-notification-center-user-posts': notification.DescribeNotificationCenterUserPostsAction,
+            'create-notification-items': notification.CreateNotificationItemsAction,
+            'create-notification-list': notification.CreateNotificationListAction,
+            'delete-notification-items': notification.DeleteNotificationItemsAction,
+            'delete-notification-lists': notification.DeleteNotificationListsAction,
+            'describe-notification-items': notification.DescribeNotificationItemsAction,
+            'describe-notification-lists': notification.DescribeNotificationListsAction,
+            'modify-notification-list-attributes': notification.ModifyNotificationListAttributesAction,
+            'verify-notification-item': notification.VerifyNotificationItemAction,
 
             ## job ##
             'describe-jobs': job.DescribeJobsAction,

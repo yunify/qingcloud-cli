@@ -29,6 +29,14 @@ class IaasHandler(object):
         handler_map = {
                 # notification
                 const.ACTION_DESCRIBE_NOTIFICATION_CENTER_USER_POSTS: self.conn.describe_notification_center_user_posts,
+                const.ACTION_CREATE_NOTIFICATION_LIST: self.conn.create_notification_list,
+                const.ACTION_DESCRIBE_NOTIFICATION_LISTS: self.conn.describe_notification_lists,
+                const.ACTION_MODIFY_NOTIFICATION_LIST_ATTRIBUTES: self.conn.modify_notification_list_attributes,
+                const.ACTION_DELETE_NOTIFICATION_LISTS: self.conn.delete_notification_lists,
+                const.ACTION_CREATE_NOTIFICATION_ITEMS: self.conn.create_notification_items,
+                const.ACTION_DESCRIBE_NOTIFICATION_ITEMS: self.conn.describe_notification_items,
+                const.ACTION_DELETE_NOTIFICATION_ITEMS: self.conn.delete_notification_items,
+                const.ACTION_VERIFY_NOTIFICATION_ITEM: self.conn.verify_notification_item,
 
                 # jobs
                 const.ACTION_DESCRIBE_JOBS: self.conn.describe_jobs,

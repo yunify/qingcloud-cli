@@ -208,6 +208,22 @@ class IaasHandler(object):
 
                 # alarm policy
                 const.ACTION_DESCRIBE_ALARM_POLICIES: self.conn.describe_alarm_policies,
+                const.ACTION_ADD_ALARM_POLICY_ACTIONS: self.conn.add_alarm_policy_actions,
+                const.ACTION_ADD_ALARM_POLICY_RULES: self.conn.add_alarm_policy_rules,
+                const.ACTION_APPLY_ALARM_POLICY: self.conn.apply_alarm_policy,
+                const.ACTION_ASSOCIATE_ALARM_POLICY: self.conn.associate_alarm_policy,
+                const.ACTION_CREATE_ALARM_POLICY: self.conn.create_alarm_policy,
+                const.ACTION_DELETE_ALARM_POLICIES: self.conn.delete_alarm_policies,
+                const.ACTION_DELETE_ALARM_POLICY_ACTIONS: self.conn.delete_alarm_policy_actions,
+                const.ACTION_DELETE_ALARM_POLICY_RULES: self.conn.delete_alarm_policy_rules,
+                const.ACTION_DESCRIBE_ALARM_HISTORY: self.conn.describe_alarm_history,
+                const.ACTION_DESCRIBE_ALARM_POLICY_ACTIONS: self.conn.describe_alarm_policy_actions,
+                const.ACTION_DESCRIBE_ALARM_POLICY_RULES: self.conn.describe_alarm_policy_rules,
+                const.ACTION_DESCRIBE_ALARMS: self.conn.describe_alarms,
+                const.ACTION_DISSOCIATE_ALARM_POLICY: self.conn.dissociate_alarm_policy,
+                const.ACTION_MODIFY_ALARM_POLICY_ACTION_ATTRIBUTES: self.conn.modify_alarm_policy_action_attributes,
+                const.ACTION_MODIFY_ALARM_POLICY_ATTRIBUTES: self.conn.modify_alarm_policy_attributes,
+                const.ACTION_MODIFY_ALARM_POLICY_RULE_ATTRIBUTES: self.conn.modify_alarm_policy_rule_attributes,
 
                 # billing
                 const.ACTION_GET_BALANCE: self.conn.get_balance,

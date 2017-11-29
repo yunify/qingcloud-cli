@@ -28,7 +28,10 @@ class CreateNotificationItemsAction(BaseAction):
     def add_ext_arguments(cls, parser):
         parser.add_argument('-i', '--notification-items', dest='notification_items',
                             action='store', type=str, default='',
-                            help='The message of notification items,each item in the array is an JSON Object.')
+                            help="A list of JSON Objects which contains 'content',\
+                                 'notification_item_type' and 'remarks'. \
+                                 'For Example:' \
+                                 '[{'content':'xxxxxx@yunify.com','notification_item_type':'email','remarks':'qem'}]'.")
 
     @classmethod
     def build_directive(cls, options):

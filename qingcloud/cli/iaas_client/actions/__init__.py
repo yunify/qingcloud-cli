@@ -33,6 +33,8 @@ from qingcloud.cli.iaas_client.actions import notification
 from qingcloud.cli.iaas_client.actions import s2
 from qingcloud.cli.iaas_client.actions import alarm_policy
 from qingcloud.cli.iaas_client.actions import billing
+from qingcloud.cli.iaas_client.actions import collaboration
+
 
 class ActionManager(object):
 
@@ -254,4 +256,34 @@ class ActionManager(object):
             ## billing ##
             'get-balance': billing.GetBalanceAction,
             'get-lease-info': billing.GetLeaseInfoAction,
+
+            ## collaboration ##
+            'add-group-role-rules': collaboration.AddGroupRoleRulesAction,
+            'add-resource-group-items': collaboration.AddResourceGroupItemsAction,
+            'add-user-group-members': collaboration.AddUserGroupMembersAction,
+            'create-group-roles': collaboration.CreateGroupRolesAction,
+            'create-resource-groups': collaboration.CreateResourceGroupsAction,
+            'create-user-groups': collaboration.CreateUserGroupsAction,
+            'delete-group-role-rules': collaboration.DeleteGroupRoleRulesAction,
+            'delete-group-roles': collaboration.DeleteGroupRolesAction,
+            'delete-resource-group-items': collaboration.DeleteResourceGroupItemsAction,
+            'delete-resource-groups': collaboration.DeleteResourceGroupsAction,
+            'delete-user-group-members': collaboration.DeleteUserGroupMembersAction,
+            'delete-user-groups': collaboration.DeleteUserGroupsAction,
+            'describe-group-role-rules': collaboration.DescribeGroupRoleRulesAction,
+            'describe-group-roles': collaboration.DescribeGroupRolesAction,
+            'describe-resource-group-items': collaboration.DescribeResourceGroupItemsAction,
+            'describe-resource-groups': collaboration.DescribeResourceGroupsAction,
+            'describe-resource-user-groups': collaboration.DescribeResourceUserGroupsAction,
+            'describe-shared-resource-groups': collaboration.DescribeSharedResourceGroupsAction,
+            'describe-user-group-members': collaboration.DescribeUserGroupMembersAction,
+            'describe-user-groups': collaboration.DescribeUserGroupsAction,
+            'grant-resource-groups-to-user-groups': collaboration.GrantResourceGroupsToUserGroupsAction,
+            'modify-group-role-attributes': collaboration.ModifyGroupRoleAttributesAction,
+            'modify-group-role-rule-attributes': collaboration.ModifyGroupRoleRuleAttributesAction,
+            'modify-resource-group-attributes': collaboration.ModifyResourceGroupAttributesAction,
+            'modify-user-group-attributes': collaboration.ModifyUserGroupAttributesAction,
+            'modify-user-group-member-attributes': collaboration.ModifyUserGroupMemberAttributesAction,
+            'revoke-resource-groups-from-user-groups': collaboration.RevokeResourceGroupsFromUserGroupsAction,
+
             }

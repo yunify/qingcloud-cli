@@ -15,5 +15,19 @@
 # =========================================================================
 
 from .describe_notification_center_user_posts import DescribeNotificationCenterUserPostsAction
+from .create_notification_list import CreateNotificationListAction
+from .create_notification_items import CreateNotificationItemsAction
+from .delete_notification_items import DeleteNotificationItemsAction
+from .delete_notification_lists import DeleteNotificationListsAction
+from .describe_notification_items import DescribeNotificationItemsAction
+from .describe_notification_lists import DescribeNotificationListsAction
+from .modify_notification_list_attributes import ModifyNotificationListAttributesAction
+from .verify_notification_item import VerifyNotificationItemAction
 
-__all__ = [DescribeNotificationCenterUserPostsAction]
+__all__ = [
+    DescribeNotificationCenterUserPostsAction, CreateNotificationListAction,
+    CreateNotificationItemsAction, DeleteNotificationItemsAction,
+    DeleteNotificationListsAction, DescribeNotificationItemsAction,
+    DescribeNotificationListsAction, ModifyNotificationListAttributesAction,
+    VerifyNotificationItemAction
+]

@@ -16,6 +16,7 @@
 
 from qingcloud.iaas import constants as const
 
+
 class IaasHandler(object):
     ''' handle request and send requests to pitrix service '''
 
@@ -236,6 +237,35 @@ class IaasHandler(object):
                 # billing
                 const.ACTION_GET_BALANCE: self.conn.get_balance,
                 const.ACTION_GET_LEASE_INFO: self.conn.get_lease_info,
+
+                # collaboration
+                const.ACTION_DESCRIBE_SHARED_RESOURCE_GROUPS: self.conn.describe_shared_resource_groups,
+                const.ACTION_DESCRIBE_RESOURCE_GROUPS: self.conn.describe_resource_groups,
+                const.ACTION_CREATE_RESOURCE_GROUPS: self.conn.create_resource_groups,
+                const.ACTION_MODIFY_RESOURCE_GROUP_ATTRIBUTES: self.conn.modify_resource_group_attributes,
+                const.ACTION_DELETE_RESOURCE_GROUPS: self.conn.delete_resource_groups,
+                const.ACTION_DESCRIBE_RESOURCE_GROUP_ITEMS: self.conn.describe_resource_group_items,
+                const.ACTION_ADD_RESOURCE_GROUP_ITEMS: self.conn.add_resource_group_items,
+                const.ACTION_DELETE_RESOURCE_GROUP_ITEMS: self.conn.delete_resource_group_items,
+                const.ACTION_DESCRIBE_USER_GROUPS: self.conn.describe_user_groups,
+                const.ACTION_CREATE_USER_GROUPS: self.conn.create_user_groups,
+                const.ACTION_MODIFY_USER_GROUP_ATTRIBUTES: self.conn.modify_user_group_attributes,
+                const.ACTION_DELETE_USER_GROUPS: self.conn.delete_user_groups,
+                const.ACTION_DESCRIBE_USER_GROUP_MEMBERS: self.conn.describe_user_group_members,
+                const.ACTION_ADD_USER_GROUP_MEMBERS: self.conn.add_user_group_members,
+                const.ACTION_MODIFY_USER_GROUP_MEMBER_ATTRIBUTES: self.conn.modify_user_group_member_attributes,
+                const.ACTION_DELETE_USER_GROUP_MEMBERS: self.conn.delete_user_group_members,
+                const.ACTION_DESCRIBE_GROUP_ROLES: self.conn.describe_group_roles,
+                const.ACTION_CREATE_GROUP_ROLES: self.conn.create_group_roles,
+                const.ACTION_MODIFY_GROUP_ROLE_ATTRIBUTES: self.conn.modify_group_role_attributes,
+                const.ACTION_DELETE_GROUP_ROLES: self.conn.delete_group_roles,
+                const.ACTION_DESCRIBE_GROUP_ROLE_RULES: self.conn.describe_group_role_rules,
+                const.ACTION_ADD_GROUP_ROLE_RULES: self.conn.add_group_role_rules,
+                const.ACTION_MODIFY_GROUP_ROLE_RULE_ATTRIBUTES: self.conn.modify_group_role_rule_attributes,
+                const.ACTION_DELETE_GROUP_ROLE_RULES: self.conn.delete_group_role_rules,
+                const.ACTION_GRANT_RESOURCE_GROUPS_TO_USER_GROUPS: self.conn.grant_resource_groups_to_user_groups,
+                const.ACTION_REVOKE_RESOURCE_GROUPS_FROM_USER_GROUPS: self.conn.revoke_resource_groups_from_user_groups,
+                const.ACTION_DESCRIBE_RESOURCE_USER_GROUPS: self.conn.describe_resource_user_groups,
         }
 
         if not isinstance(directive, dict):

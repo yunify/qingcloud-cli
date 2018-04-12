@@ -35,6 +35,10 @@ class CreateVxnetsAction(BaseAction):
         parser.add_argument('-t', '--vxnet_type', dest='vxnet_type',
                 action='store', type=int, default=1,
                 help='the vxnet type. 0: unmanaged vxnet, 1: managed vxnet. Default 1.')
+
+        parser.add_argument('-m', '--mode', dest='mode',
+                action='store', type=int, default=0,
+                help='The vxnet mode. 0: gre+ovs, 1: vxlan+bridge. Default 0.')
         
     @classmethod
     def build_directive(cls, options):
@@ -43,6 +47,8 @@ class CreateVxnetsAction(BaseAction):
             return None
         
         return {
-                'vxnet_name': options.vxnet_name,
-                'vxnet_type': options.vxnet_type,
-                'count': options.count}
+            'vxnet_name': options.vxnet_name,
+            'vxnet_type': options.vxnet_type,
+            'mode': options.mode,
+            'count': options.count,
+        }

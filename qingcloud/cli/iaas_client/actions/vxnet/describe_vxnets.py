@@ -33,6 +33,10 @@ class DescribeVxnetsAction(BaseAction):
                 action='store', type=int, default=None,
                 help='filter by vxnet type: 0 - unmanaged vxnet, 1 - managed vxnet')
 
+        parser.add_argument('-m', '--mode', dest='mode',
+                action='store', type=int, default=None,
+                help='The vxnet mode. 0: gre+ovs, 1: vxlan+bridge.')
+
         parser.add_argument('-V', '--verbose', dest='verbose',
                 action='store', type=int, default=0,
                 help='the number to specify the verbose level, larger the number, the more detailed information will be returned.')
@@ -47,6 +51,7 @@ class DescribeVxnetsAction(BaseAction):
                 'vxnets': explode_array(options.vxnets),
                 'vxnet_type': options.vxnet_type,
                 'search_word': options.search_word,
+                'mode': options.mode,
                 'verbose': options.verbose,
                 'offset': options.offset,
                 'limit': options.limit,

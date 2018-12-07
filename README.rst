@@ -11,7 +11,7 @@ This CLI is licensed under
   
 .. note::
   Requires Python 2.6 or higher, for more information please see
-  `QingCloud CLI Documentation <https://docs.qingcloud.com/cli/>`_
+  `QingCloud CLI Documentation <https://docs.qingcloud.com/product/cli/>`_
   
 
 -------------

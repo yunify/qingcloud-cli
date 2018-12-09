@@ -58,6 +58,10 @@ class ModifyLoadBalancerListenerAttributessAction(BaseAction):
                 action='store', type=str, default=None,
                 help='new listener name.')
 
+        parser.add_argument('-S', '--server-certificate', dest='server_certificate_id',
+                action='store', type=str, default=None,
+                help='the ID of server certificate.')
+
     @classmethod
     def build_directive(cls, options):
         if not options.lb_listener:
@@ -84,4 +88,5 @@ class ModifyLoadBalancerListenerAttributessAction(BaseAction):
                 'healthy_check_method': options.healthy_check_method,
                 'healthy_check_option': options.healthy_check_option,
                 'session_sticky': options.session_sticky,
+                'server_certificate_id': options.server_certificate_id,
                 }

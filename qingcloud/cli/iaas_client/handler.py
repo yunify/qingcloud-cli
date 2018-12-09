@@ -164,6 +164,12 @@ class IaasHandler(object):
                 const.ACTION_DESCRIBE_LOADBALANCER_BACKENDS: self.conn.describe_loadbalancer_backends,
                 const.ACTION_ADD_LOADBALANCER_POLICY_RULES: self.conn.add_loadbalancer_policy_rules,
 
+                # server certificate
+                const.ACTION_DESCRIBE_SERVER_CERTIFICATES: self.conn.describe_server_certificates,
+                const.ACTION_CREATE_SERVER_CERTIFICATE: self.conn.create_server_certificate,
+                const.ACTION_DELETE_SERVER_CERTIFICATES: self.conn.delete_server_certificates,
+                const.ACTION_MODIFY_SERVER_CERTIFICATE_ATTRIBUTES: self.conn.modify_server_certificate_attributes,
+
                 # monitor
                 const.ACTION_GET_MONITOR: self.conn.get_monitoring_data,
                 const.ACTION_GET_LOADBALANCER_MONITOR: self.conn.get_loadbalancer_monitoring_data,

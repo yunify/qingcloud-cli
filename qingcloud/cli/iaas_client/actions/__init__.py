@@ -25,6 +25,7 @@ from qingcloud.cli.iaas_client.actions import router
 from qingcloud.cli.iaas_client.actions import sg
 from qingcloud.cli.iaas_client.actions import vxnet
 from qingcloud.cli.iaas_client.actions import lb
+from qingcloud.cli.iaas_client.actions import server_certificate
 from qingcloud.cli.iaas_client.actions import monitor
 from qingcloud.cli.iaas_client.actions import snapshot
 from qingcloud.cli.iaas_client.actions import dns_alias
@@ -176,6 +177,12 @@ class ActionManager(object):
             'start-loadbalancers': lb.StartLoadBalancersAction,
             'stop-loadbalancers': lb.StopLoadBalancersAction,
             'update-loadbalancers': lb.UpdateLoadBalancersAction,
+
+            ## server certificate
+            'describe-server-certificates': server_certificate.DescribeServerCertificatesAction,
+            'create-server-certificate': server_certificate.CreateServerCertificateAction,
+            'delete-server-certificates': server_certificate.DeleteServerCertificatesAction,
+            'modify-server-certificate-attributes': server_certificate.ModifyServerCertificateAttributesAction,
 
             ## monitor ##
             'get-monitoring-data': monitor.GetMonitorAction,

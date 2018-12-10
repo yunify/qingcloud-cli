@@ -60,7 +60,7 @@ class ModifyLoadBalancerListenerAttributessAction(BaseAction):
 
         parser.add_argument('-S', '--server-certificate', dest='server_certificate_id',
                 action='store', type=str, default=None,
-                help='the ID of server certificate.')
+                help='the comma separated IDs of server certificates.')
 
     @classmethod
     def build_directive(cls, options):

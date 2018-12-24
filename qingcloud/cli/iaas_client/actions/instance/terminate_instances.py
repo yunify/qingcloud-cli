@@ -17,6 +17,7 @@
 from qingcloud.cli.misc.utils import explode_array
 from qingcloud.cli.iaas_client.actions.base import BaseAction
 
+
 class TerminateInstancesAction(BaseAction):
 
     action = 'TerminateInstances'
@@ -27,8 +28,12 @@ class TerminateInstancesAction(BaseAction):
     def add_ext_arguments(cls, parser):
 
         parser.add_argument('-i', '--instances', dest='instances',
-                action='store', type=str, default='',
-                help='the comma separated IDs of instances you want to terminate.')
+                            action='store', type=str, default='',
+                            help='the comma separated IDs of instances you want to terminate.')
+
+        parser.add_argument('-D', '--direct-cease', dest='direct_cease',
+                            action='store', type=int, default=0,
+                            help='whether to keep deleted resource in recycle bin (direct-cease=0) or not (direct-cease=1).')
 
         return parser
 
@@ -39,4 +44,7 @@ class TerminateInstancesAction(BaseAction):
             print('error: [instances] should be specified')
             return None
 
-        return {'instances': instances}
+        return {
+            'instances': instances,
+            'direct_cease': options.direct_cease,
+        }

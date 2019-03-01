@@ -88,5 +88,5 @@ class ModifyLoadBalancerListenerAttributessAction(BaseAction):
                 'healthy_check_method': options.healthy_check_method,
                 'healthy_check_option': options.healthy_check_option,
                 'session_sticky': options.session_sticky,
-                'server_certificate_id': options.server_certificate_id,
+                'server_certificate_id': explode_array(options.server_certificate_id),
                 }

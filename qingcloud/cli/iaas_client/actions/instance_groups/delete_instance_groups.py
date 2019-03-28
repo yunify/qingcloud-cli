@@ -37,9 +37,14 @@ class DeleteInstanceGroupsAction(BaseAction):
     def build_directive(cls, options):
 
         instance_groups = explode_array(options.instance_groups)
-        if not instance_groups:
-            print('error: [instance_groups] should be specified')
-            return None
+
+        required_params = {
+            'relation': instance_groups
+        }
+        for param in required_params:
+            if required_params[param] is None or required_params[param] == '':
+                print('error: [%s] should be specified' % param)
+                return None
 
         return {
             'instance_groups': instance_groups,

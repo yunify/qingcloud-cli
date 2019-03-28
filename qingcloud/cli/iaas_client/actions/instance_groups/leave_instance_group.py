@@ -40,9 +40,12 @@ class LeaveInstanceGroupAction(BaseAction):
     @classmethod
     def build_directive(cls, options):
 
+        instances = explode_array(options.instances)
+        instance_group = options.instance_group
+
         required_params = {
-            'instances': options.instances,
-            'instance_group': options.instance_group
+            'instances': instances,
+            'instance_group': instance_group
         }
         for param in required_params:
             if required_params[param] is None or required_params[param] == '':
@@ -50,6 +53,6 @@ class LeaveInstanceGroupAction(BaseAction):
                 return None
 
         return {
-            'instances': explode_array(options.instances),
-            'instance_group': options.instance_group
+            'instances': instances,
+            'instance_group': instance_group
         }

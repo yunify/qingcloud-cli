@@ -16,6 +16,7 @@
 
 from qingcloud.cli.iaas_client.actions import job
 from qingcloud.cli.iaas_client.actions import instance
+from qingcloud.cli.iaas_client.actions import instance_groups
 from qingcloud.cli.iaas_client.actions import volume
 from qingcloud.cli.iaas_client.actions import nic
 from qingcloud.cli.iaas_client.actions import eip
@@ -72,6 +73,13 @@ class ActionManager(object):
             'start-instances': instance.StartInstancesAction,
             'stop-instances': instance.StopInstancesAction,
             'terminate-instances': instance.TerminateInstancesAction,
+
+            ## instance gorups ##
+            'create-instance-groups': instance_groups.CreateInstanceGroupsAction,
+            'delete-instance-groups': instance_groups.DeleteInstanceGroupsAction,
+            'join-instance-group': instance_groups.JoinInstanceGroupAction,
+            'leave-instance-group': instance_groups.LeaveInstanceGroupAction,
+            'describe-instance-groups': instance_groups.DescribeInstanceGroupsAction,
 
             ## volume ##
             'create-volumes': volume.CreateVolumesAction,

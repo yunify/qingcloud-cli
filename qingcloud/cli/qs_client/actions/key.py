@@ -154,7 +154,7 @@ class GetObjectAction(BaseAction):
         resp = cls.conn.make_request("GET", options.bucket, options.key, headers=headers)
 
         if resp.status in (HTTP_OK, HTTP_OK_PARTIAL_CONTENT):
-            with open(path, "w") as f:
+            with open(path, "wb") as f:
                 while True:
                     buf = resp.read(BUFSIZE)
                     if not buf:

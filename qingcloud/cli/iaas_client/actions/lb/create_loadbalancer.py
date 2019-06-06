@@ -55,6 +55,10 @@ class CreateLoadBalancerAction(BaseAction):
                 action='store', type=int, default=None,
                 help='the number of nodes in load balancer cluster.')
 
+        parser.add_argument('-m', '--mode', dest='mode',
+                action='store', type=int, default=0,
+                help='the mode of load balancer, 0 means standalone, 1 means cluster.')
+
         parser.add_argument('--target-user', dest='target_user',
                 action='store', type=str, default=None,
                 help='ID of user who will own this resource, should be one of your sub-account.')
@@ -78,5 +82,6 @@ class CreateLoadBalancerAction(BaseAction):
                 'loadbalancer_type': options.loadbalancer_type,
                 'security_group': options.sg,
                 'node_count': options.node_count,
+                'mode': options.mode,
                 'target_user': options.target_user,
                 }

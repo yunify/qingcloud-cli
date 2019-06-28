@@ -64,9 +64,13 @@ class BaseAction(object):
             host = endpoint
         else:
             host = "%s.%s" % (conf["zone"], endpoint)
-
+        extra_options = {}
+        if 'protocol' in conf:
+            extra_options['protocol'] = conf['protocol']
+        if 'port' in conf:
+            extra_options['port'] = conf['port']
         return QSConnection(qy_access_key_id=conf["qy_access_key_id"], \
-            qy_secret_access_key=conf["qy_secret_access_key"], host=host)
+            qy_secret_access_key=conf["qy_secret_access_key"], host=host, **extra_options)
 
     @classmethod
     def send_request(cls, options):

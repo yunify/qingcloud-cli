@@ -15,6 +15,8 @@
 # =========================================================================
 
 DEFAULT_ENDPOINT = "qingstor.com"
+DEFAULT_PROTOCOL = 'https'
+DEFAULT_PORT = 443
 
 BUFSIZE = 1024*1024*4
 

@@ -20,7 +20,7 @@ from argparse import ArgumentParser
 from qingcloud.qingstor.connection import QSConnection
 
 from ...misc.utils import load_conf
-from ..constants import DEFAULT_ENDPOINT
+from ..constants import DEFAULT_ENDPOINT, DEFAULT_PROTOCOL, DEFAULT_PORT
 
 class BaseAction(object):
 
@@ -65,8 +65,19 @@ class BaseAction(object):
         else:
             host = "%s.%s" % (conf["zone"], endpoint)
 
+        protocol = conf.get('protocol', DEFAULT_PROTOCOL)
+        if protocol not in ['http', 'https']:
+            print("Unsupported protocol [%s] " % protocol)
+            sys.exit(-1)
+
+        port = conf.get('port', DEFAULT_PORT)
+        if not isinstance(port, int):
+            print("The port parameter [%s] should be int" % port)
+            sys.exit(-1)
+
         return QSConnection(qy_access_key_id=conf["qy_access_key_id"], \
-            qy_secret_access_key=conf["qy_secret_access_key"], host=host)
+            qy_secret_access_key=conf["qy_secret_access_key"], host=host, \
+            protocol=protocol, port=port)
 
     @classmethod
     def send_request(cls, options):

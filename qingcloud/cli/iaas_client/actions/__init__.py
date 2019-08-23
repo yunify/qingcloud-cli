@@ -73,6 +73,7 @@ class ActionManager(object):
             'start-instances': instance.StartInstancesAction,
             'stop-instances': instance.StopInstancesAction,
             'terminate-instances': instance.TerminateInstancesAction,
+            'clone-instances': instance.CloneInstancesAction,
 
             ## instance gorups ##
             'create-instance-groups': instance_groups.CreateInstanceGroupsAction,

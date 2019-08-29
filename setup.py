@@ -11,8 +11,10 @@ qy_secret_access_key: 'QINGCLOUDSECRETACCESSKEYEXAMPLE'
 zone: 'ZONEID'
 '''
 
+
 def is_windows():
     return platform.system().lower() == 'windows'
+
 
 def prepare_config_file():
     config_file = os.path.expanduser('~/.qingcloud/config.yaml')
@@ -25,6 +27,7 @@ def prepare_config_file():
 
     with open(config_file, 'w') as fd:
         fd.write(config_sample)
+
 
 def setup_qingcloud_completer():
     # only support linux
@@ -50,23 +53,23 @@ else:
     bin_scripts = ['bin/qingcloud', 'bin/qingcloud_completer']
 
 setup(
-    name = 'qingcloud-cli',
-    version = '1.3.9',
-    description = 'Command Line Interface for QingCloud.',
-    long_description = open('README.rst', 'rb').read().decode('utf-8'),
-    keywords = 'qingcloud iaas qingstor cli',
-    author = 'Yunify Team',
-    author_email = 'simon@yunify.com',
-    url = 'https://docs.qingcloud.com',
+    name='qingcloud-cli',
+    version='1.3.10',
+    description='Command Line Interface for QingCloud.',
+    long_description=open('README.rst', 'rb').read().decode('utf-8'),
+    keywords='qingcloud iaas qingstor cli',
+    author='Yunify Team',
+    author_email='simon@yunify.com',
+    url='https://docs.qingcloud.com',
     scripts=bin_scripts,
-    packages = find_packages('.'),
-    package_dir = {'qingcloud-cli': 'qingcloud'},
-    namespace_packages = ['qingcloud'],
-    include_package_data = True,
-    install_requires = [
+    packages=find_packages('.'),
+    package_dir={'qingcloud-cli': 'qingcloud'},
+    namespace_packages=['qingcloud'],
+    include_package_data=True,
+    install_requires=[
         'argparse>=1.1',
         'PyYAML>=3.1',
-        'qingcloud-sdk>=1.2.9',
+        'qingcloud-sdk>=1.2.10',
     ]
 )
 

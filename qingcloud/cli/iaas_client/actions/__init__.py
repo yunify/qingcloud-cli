@@ -83,6 +83,7 @@ class ActionManager(object):
             'describe-instance-groups': instance_groups.DescribeInstanceGroupsAction,
 
             ## volume ##
+            'clone-volumes': volume.CloneVolumesAction,
             'create-volumes': volume.CreateVolumesAction,
             'modify-volume-attributes': volume.ModifyVolumeAttributesAction,
             'describe-volumes': volume.DescribeVolumesAction,

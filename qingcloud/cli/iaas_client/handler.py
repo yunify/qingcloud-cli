@@ -281,6 +281,12 @@ class IaasHandler(object):
             const.ACTION_GRANT_RESOURCE_GROUPS_TO_USER_GROUPS: self.conn.grant_resource_groups_to_user_groups,
             const.ACTION_REVOKE_RESOURCE_GROUPS_FROM_USER_GROUPS: self.conn.revoke_resource_groups_from_user_groups,
             const.ACTION_DESCRIBE_RESOURCE_USER_GROUPS: self.conn.describe_resource_user_groups,
+
+            # sdwan
+            const.ACTION_DESCRIBE_WAN_ACCESS: self.conn.describe_wan_accesss,
+            const.ACTION_CHANGE_WAN_ACCESS_BANDWIDTH: self.conn.change_wan_access_bandwidth,
+            const.ACTION_UPGRADE_WAN_ACCESS: self.conn.upgrade_wan_access,
+            const.ACTION_GET_WAN_MONITOR: self.conn.get_wan_monitor,
         }
 
         if not isinstance(directive, dict):

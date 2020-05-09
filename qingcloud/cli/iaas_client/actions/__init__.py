@@ -36,6 +36,7 @@ from qingcloud.cli.iaas_client.actions import s2
 from qingcloud.cli.iaas_client.actions import alarm_policy
 from qingcloud.cli.iaas_client.actions import billing
 from qingcloud.cli.iaas_client.actions import collaboration
+from qingcloud.cli.iaas_client.actions import sdwan
 
 
 class ActionManager(object):
@@ -302,5 +303,11 @@ class ActionManager(object):
             'modify-user-group-attributes': collaboration.ModifyUserGroupAttributesAction,
             'modify-user-group-member-attributes': collaboration.ModifyUserGroupMemberAttributesAction,
             'revoke-resource-groups-from-user-groups': collaboration.RevokeResourceGroupsFromUserGroupsAction,
+
+            ## sdwan ##
+            'describe-wan-accesss': sdwan.DescribeWanAccesssAction,
+            'change-wan-access-bandwidth': sdwan.ChangeWanAccessBandwidthAction,
+            'upgrade-wan-access': sdwan.UpgradeWanAccessAction,
+            'get-wan-monitor': sdwan.GetWanMonitorAction,
 
             }

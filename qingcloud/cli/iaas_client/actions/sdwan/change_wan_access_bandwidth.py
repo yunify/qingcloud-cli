@@ -21,7 +21,7 @@ class ChangeWanAccessBandwidthAction(BaseAction):
 
     action = 'ChangeWanAccessBandwidth'
     command = 'change-wan-access-bandwidth'
-    usage = '%(prog)s -a <wan_access_id> -b <bandwidth> [options] [-f <conf_file>]'
+    usage = '%(prog)s -a <wan_access_id> -b <bandwidth> [-f <conf_file>]'
 
     @classmethod
     def add_ext_arguments(cls, parser):
@@ -37,14 +37,6 @@ class ChangeWanAccessBandwidthAction(BaseAction):
                             action="store", type=int, default=None,
                             help='the new bandwidth for wan_access, unit in Mbps.')
 
-        parser.add_argument('--bandwidth_local', dest='bandwidth_local',
-                            action="store", type=int, default=None,
-                            help='the new bandwidth for local city, unit in Mbps.')
-
-        parser.add_argument('--bandwidth_remote', dest='bandwidth_remote',
-                            action="store", type=int, default=None,
-                            help='the new bandwidth for remote city, unit in Mbps.')
-
     @classmethod
     def build_directive(cls, options):
         if options.wan_access is None:
@@ -55,10 +47,5 @@ class ChangeWanAccessBandwidthAction(BaseAction):
             "wan_access": options.wan_access,
             "bandwidth_type": options.bandwidth_type,
             "bandwidth": options.bandwidth}
-
-        if options.bandwidth_local is not None:
-            directive['bandwidth_local'] = options.bandwidth_local
-        if options.bandwidth_remote is not None:
-            directive['bandwidth_remote'] = options.bandwidth_remote
 
         return directive

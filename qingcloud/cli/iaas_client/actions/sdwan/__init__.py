@@ -18,10 +18,12 @@ from .describe_wan_accesss import DescribeWanAccesssAction
 from .change_wan_access_bandwidth import ChangeWanAccessBandwidthAction
 from .upgrade_wan_access import UpgradeWanAccessAction
 from .get_wan_monitor import GetWanMonitorAction
+from .get_wan_info import GetWanInfoAction
 
 __all__ = [
     DescribeWanAccesssAction,
     ChangeWanAccessBandwidthAction,
     UpgradeWanAccessAction,
     GetWanMonitorAction,
+    GetWanInfoAction,
 ]

@@ -287,6 +287,7 @@ class IaasHandler(object):
             const.ACTION_CHANGE_WAN_ACCESS_BANDWIDTH: self.conn.change_wan_access_bandwidth,
             const.ACTION_UPGRADE_WAN_ACCESS: self.conn.upgrade_wan_access,
             const.ACTION_GET_WAN_MONITOR: self.conn.get_wan_monitor,
+            const.ACTION_GET_WAN_INFO: self.conn.get_wan_info,
         }
 
         if not isinstance(directive, dict):

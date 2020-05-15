@@ -309,5 +309,6 @@ class ActionManager(object):
             'change-wan-access-bandwidth': sdwan.ChangeWanAccessBandwidthAction,
             'upgrade-wan-access': sdwan.UpgradeWanAccessAction,
             'get-wan-monitor': sdwan.GetWanMonitorAction,
+            'get-wan-info': sdwan.GetWanInfoAction,
 
             }

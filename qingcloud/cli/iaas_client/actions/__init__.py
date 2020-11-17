@@ -37,6 +37,7 @@ from qingcloud.cli.iaas_client.actions import alarm_policy
 from qingcloud.cli.iaas_client.actions import billing
 from qingcloud.cli.iaas_client.actions import collaboration
 from qingcloud.cli.iaas_client.actions import sdwan
+from qingcloud.cli.iaas_client.actions import vpc_border
 
 
 class ActionManager(object):
@@ -310,5 +311,22 @@ class ActionManager(object):
             'upgrade-wan-access': sdwan.UpgradeWanAccessAction,
             'get-wan-monitor': sdwan.GetWanMonitorAction,
             'get-wan-info': sdwan.GetWanInfoAction,
+
+            ## vpc_border ##
+            'create_vpc_borders': vpc_border.CreateVpcBordersAction,
+            'delete_vpc_borders': vpc_border.DeleteVpcBordersAction,
+            'describe_vpc_borders': vpc_border.DescribeVpcBordersAction,
+            'join_border': vpc_border.JoinBorderAction,
+            'leave_border': vpc_border.LeaveBorderAction,
+            'config_border': vpc_border.ConfigBorderAction,
+            'modify_border_attributes': vpc_border.ModifyBorderAttributesAction,
+            'describe_border_vxnets': vpc_border.DescribeBorderVxnetsAction,
+            'associate_border': vpc_border.AssociateBorderAction,
+            'dissociate_border': vpc_border.DissociateBorderAction,
+            'describe_border_statics': vpc_border.DescribeBorderStaticsAction,
+            'add_border_statics': vpc_border.AddBorderStaticsAction,
+            'delete_border_statics': vpc_border.DeleteBorderStaticsAction,
+            'modify_border_static_attributes': vpc_border.ModifyBorderStaticAttributesAction,
+            'cancel_border_static_changes': vpc_border.CancelBorderStaticChangesAction,
 
             }

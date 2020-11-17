@@ -288,6 +288,23 @@ class IaasHandler(object):
             const.ACTION_UPGRADE_WAN_ACCESS: self.conn.upgrade_wan_access,
             const.ACTION_GET_WAN_MONITOR: self.conn.get_wan_monitor,
             const.ACTION_GET_WAN_INFO: self.conn.get_wan_info,
+
+            # VPC Border
+            const.ACTION_CREATE_VPC_BORDERS: self.conn.create_vpc_borders,
+            const.ACTION_DELETE_VPC_BORDERS: self.conn.delete_vpc_borders,
+            const.ACTION_DESCRIBE_VPC_BORDERS: self.conn.describe_vpc_borders,
+            const.ACTION_JOIN_BORDER: self.conn.join_border,
+            const.ACTION_LEAVE_BORDER: self.conn.leave_border,
+            const.ACTION_CONFIG_BORDER: self.conn.config_border,
+            const.ACTION_MODIFY_BORDER_ATTRIBUTES: self.conn.modify_border_attributes,
+            const.ACTION_DESCRIBE_BORDER_VXNETS: self.conn.describe_border_vxnets,
+            const.ACTION_ASSOCIATE_BORDER: self.conn.associate_border,
+            const.ACTION_DISSOCIATE_BORDER: self.conn.dissociate_border,
+            const.ACTION_DESCRIBE_BORDER_STATICS: self.conn.describe_border_statics,
+            const.ACTION_ADD_BORDER_STATICS: self.conn.add_border_statics,
+            const.ACTION_DELETE_BORDER_STATICS: self.conn.delete_border_statics,
+            const.ACTION_MODIFY_BORDER_STATIC_ATTRIBUTES: self.conn.modify_border_static_attributes,
+            const.ACTION_CANCEL_BORDER_STATIC_CHANGES: self.conn.cancel_border_static_changes,
         }
 
         if not isinstance(directive, dict):

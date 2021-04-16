@@ -288,6 +288,9 @@ class IaasHandler(object):
             const.ACTION_UPGRADE_WAN_ACCESS: self.conn.upgrade_wan_access,
             const.ACTION_GET_WAN_MONITOR: self.conn.get_wan_monitor,
             const.ACTION_GET_WAN_INFO: self.conn.get_wan_info,
+
+            # cluster
+            const.ACTION_DEPLOY_APP_VERSION: self.conn.deploy_app_version
         }
 
         if not isinstance(directive, dict):

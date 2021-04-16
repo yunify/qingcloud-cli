@@ -37,6 +37,7 @@ from qingcloud.cli.iaas_client.actions import alarm_policy
 from qingcloud.cli.iaas_client.actions import billing
 from qingcloud.cli.iaas_client.actions import collaboration
 from qingcloud.cli.iaas_client.actions import sdwan
+from qingcloud.cli.iaas_client.actions import cluster
 
 
 class ActionManager(object):
@@ -311,4 +312,6 @@ class ActionManager(object):
             'get-wan-monitor': sdwan.GetWanMonitorAction,
             'get-wan-info': sdwan.GetWanInfoAction,
 
+            ## cluster ##
+            'deploy-app-version': cluster.DeployAppVersionAction,
             }

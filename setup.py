@@ -54,7 +54,7 @@ else:
 
 setup(
     name='qingcloud-cli',
-    version='1.3.11',
+    version='1.3.12',
     description='Command Line Interface for QingCloud.',
     long_description=open('README.rst', 'rb').read().decode('utf-8'),
     keywords='qingcloud iaas qingstor cli',
